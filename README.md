@@ -221,7 +221,51 @@ that its text can be read with:
 uv run python -m scripts.inspect_notice
 ```
 
-## Try the intake and handoff
+## Presentation demo scenarios
+
+Start each scenario in a **New Session** in ADK Web. The first demonstrates a
+ranked comparison of live Grants.gov listings. The second demonstrates a
+notice-based eligibility check and the evidence critic. Recorded results and
+their scope are indexed in [output examples](examples/README.md).
+
+### Demo 1 — Compare three grant opportunities
+
+> We are a California 501(c)(3) nonprofit serving teenagers across the state
+> who are affected by opioid use in their families. We’re seeking $250,000 to
+> expand after-school mentoring and substance-use prevention. We partner with
+> schools and community clinics to connect teens to treatment. The clinics
+> provide clinical care; our staff provide mentoring.
+>
+> Fetch the details for Grants.gov opportunity IDs 364058, 364057, and 364040.
+> Which should we investigate first and why? Show the fit score for each grant
+> you rank. If you set one aside, explain which part of our project doesn’t fit.
+
+Show the shortlist, the evidence behind each fit score, and any options set
+aside. The [saved screenshot](examples/assets/demo-1-ranked-grants.png) shows
+a later live run with scores of 75, 75, and 40. An earlier run scored the two
+youth-focused opportunities 75 each and the treatment opportunity 60; the
+analyst's interpretation of that treatment grant became a
+[learning point](docs/learning-log.md). Inspect the current output when presenting.
+
+### Demo 2 — Check a selected AmeriCorps grant type
+
+> We are a California 501(c)(3) nonprofit running community volunteer programs.
+> We are a new AmeriCorps applicant considering a full-cost fixed-amount grant.
+> Our SAM registration is active and we have a valid UEI. Investigate AmeriCorps
+> opportunity 363696 (AC-08-28-26). Read the grant notice and explain which
+> requirements we meet, which we need to verify, and whether any issue affects
+> our chosen grant type or the entire opportunity.
+
+Show the selected grant-type conflict and the page 8 notice evidence. The
+applicant-specific deadline remains unresolved until the project service area
+and submission route are known. In **Traces**, follow `eligibility_analyst` and
+`evidence_critic`. The critic may approve the first assessment or request a
+revision. The [recorded critic run](examples/07-critic-review.md) includes a
+revision and its correction.
+
+## Additional workflow checks
+
+### Intake and handoff
 
 These are demo prompts and expected behaviors, not saved output examples.
 
@@ -248,7 +292,7 @@ The researcher and its tools also check readiness. These checks validate the
 profile's structure and required fields; they do not prove grant eligibility
 or that the model extracted every user fact correctly.
 
-## Try full-notice evidence
+### Full-notice evidence
 
 In a new session, use a request that names the opportunity with a reviewed PDF:
 
@@ -314,7 +358,7 @@ When testing the corrected native-call implementation, restart the updated
 server and choose **New Session**. Refreshing an older failed conversation does
 not remove its unsigned function-call history, which Gemini can continue to reject.
 
-## Try the eligibility analyst and critic
+### Eligibility analyst and critic
 
 These are proposed demo scenarios, not claims that a new live run has passed.
 Use the targeted AmeriCorps request above to keep the first scenario within the
