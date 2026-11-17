@@ -1,0 +1,254 @@
+{
+  "observed_at": "2026-11-12T15:19:42.519636-08:00",
+  "turns": [
+    {
+      "prompt": "Find federal grants for our organization.",
+      "elapsed_seconds": 13.71,
+      "authors": [
+        "grant_navigator"
+      ],
+      "invocation_ids": [
+        "e-b8c169c2-e147-4187-9944-3f0ee5110bd4"
+      ],
+      "calls": [
+        {
+          "author": "grant_navigator",
+          "id": "call_3907742296634642959",
+          "args": {},
+          "name": "save_nonprofit_profile"
+        }
+      ],
+      "research_responses": [],
+      "texts": [
+        {
+          "author": "grant_navigator",
+          "text": "I would be happy to help you find federal grants! To get started, could you please tell me a bit more about your organization? \n\n1. **What"
+        },
+        {
+          "author": "grant_navigator",
+          "text": " type of organization is applying** (for example, a 501(c)(3) nonprofit, local government agency, etc.)?\n2. **What activities or project would the grant fund?** \n\n*(If you have a specific location, service area, or target audience for your project, feel free to share those as well!)*"
+        }
+      ],
+      "errors": [],
+      "state": {
+        "nonprofit_profile": {
+          "organization_name": null,
+          "organization_type": null,
+          "organization_location": null,
+          "project_purpose": null,
+          "service_area": null,
+          "beneficiaries": null,
+          "funding_amount_usd": null,
+          "project_timing": null
+        },
+        "profile_version": 1,
+        "research_summary": null,
+        "research_outcome": null
+      }
+    },
+    {
+      "prompt": "We are a California 501(c)(3) nonprofit running community volunteer programs. Find posted federal grant opportunities worth investigating.",
+      "elapsed_seconds": 33.18,
+      "authors": [
+        "grant_navigator",
+        "opportunity_researcher"
+      ],
+      "invocation_ids": [
+        "e-d75a190d-b0f6-469b-a24f-82b3bddc683f"
+      ],
+      "calls": [
+        {
+          "author": "grant_navigator",
+          "id": "call_16813929761050470966",
+          "args": {
+            "organization_location": "California",
+            "organization_type": "501(c)(3) nonprofit",
+            "project_purpose": "Community volunteer programs"
+          },
+          "name": "save_nonprofit_profile"
+        },
+        {
+          "author": "grant_navigator",
+          "id": "call_1277252171422350382",
+          "args": {
+            "request": "Federal grants for California 501(c)(3) nonprofit running community volunteer programs"
+          },
+          "name": "opportunity_researcher"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_8338647452714803380",
+          "args": {
+            "rows": 3,
+            "keyword": "community volunteer programs"
+          },
+          "name": "search_grants"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_1223801307462479362",
+          "args": {
+            "opportunity_id": 362062
+          },
+          "name": "fetch_grant_details"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_1223801307462479194",
+          "args": {
+            "opportunity_id": 325599
+          },
+          "name": "fetch_grant_details"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_1223801307462479173",
+          "args": {
+            "opportunity_id": 359325
+          },
+          "name": "fetch_grant_details"
+        }
+      ],
+      "research_responses": [
+        {
+          "result": "Based on a search of currently posted federal grant opportunities related to community volunteer programs, three opportunities were identified via the Grants.gov API. However, none of these represent a direct fit for a California 501(c)(3) nonprofit running community volunteer programs; they are focused on specialized academic research, international diplomacy, or specific scientific infrastructure. \n\nBecause the nonprofit's saved profile has `service_area = null`, the specific geographic service area within California is **unknown**. Additionally, details regarding specific project activities, target beneficiaries, and funding amounts are not specified in the profile, which prevents definitive matching.\n\nHere are the candidate opportunities identified for investigation:\n\n### 1. Engineering Biological and Biomedical Systems (EBBS)\n* **ID:** 362062\n* **Opportunity Number:** PD-26-369Y\n* **Agency:** National Science Foundation\n* **API Deadline:** Not provided\n* **Synopsis-Based Reason to Investigate:** This program supports fundamental engineering research and limited studies involving human volunteers if appropriate to project objectives. However, its primary focus is on biotechnology, biomedical systems, and physiological or pathological processes rather than general community volunteer programs.\n* **Source Link:** [https://www.grants.gov/search-results-detail/362062](https://www.grants.gov/search-results-detail/362062)\n\n### 2. U.S. Embassy Praia Ambassador\u2019s Special Self-Help (SSH) Program\n* **ID:** 325599\n* **Opportunity Number:** AFPRA-20-04\n* **Agency:** Department of State (U.S. Embassy Praia)\n* **API Deadline:** Not provided (Rolling basis)\n* **Synopsis-Based Reason to Investigate:** This grant provides grass-roots assistance for community-based development projects. However, it is administered by the U.S. Embassy in Cabo Verde specifically for local communities within that country, making it geographically and jurisdictionally inapplicable to a California nonprofit.\n* **Source Link:** [https://www.grants.gov/search-results-detail/325599](https://www.grants.gov/search-results-detail/325599)\n\n### 3. Community Infrastructure for Research in Computer and Information Science and Engineering (CIRC)\n* **ID:** 359325\n* **Opportunity Number:** 23-589\n* **Agency:** National Science Foundation\n* **API Deadline:** September 10, 2027\n* **Synopsis-Based Reason to Investigate:** This program supports non-profit, non-academic organizations in accessing and developing world-class research infrastructure. However, it is tightly restricted to computer and information science and engineering (CISE) research agendas, which does not align with general community volunteer programming.\n* **Source Link:** [https://www.grants.gov/search-results-detail/359325](https://www.grants.gov/search-results-detail/359325)\n\n---\n\n### Important Notes\n* **Check the Full Notice:** You must check the full notice and guidelines on Grants.gov before deciding eligibility for any of these programs.\n* **Unknown Profile Details:** The service area within California is currently unknown. Providing a specific county, city, or regional service area, as well as clarifying the exact focus of the community volunteer programs (e.g., youth development, environmental conservation, senior services), would significantly improve the accuracy of future grant matching.\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services."
+        }
+      ],
+      "texts": [
+        {
+          "author": "opportunity_researcher",
+          "text": "Based on a search of currently posted federal grant opportunities related to community volunteer programs, three opportunities were identified via the Grants.gov API. However, none of these represent a direct fit for a California 501(c)(3) nonprofit running community volunteer programs; they are focused on specialized academic research, international diplomacy, or specific scientific infrastructure. \n\nBecause the nonprofit's saved profile has `service_area = null`, the specific geographic service area within California is **unknown**. Additionally, details regarding specific project activities, target beneficiaries, and funding amounts are not specified in the profile, which prevents definitive matching.\n\nHere are the candidate opportunities identified for investigation:\n\n### 1. Engineering Biological and Biomedical Systems (EBBS)\n* **ID:** 362062\n* **Opportunity Number:** PD-26-369Y\n* **Agency:** National Science Foundation\n"
+        },
+        {
+          "author": "opportunity_researcher",
+          "text": "* **API Deadline:** Not provided\n* **Synopsis-Based Reason to Investigate:** This program supports fundamental engineering research and limited studies involving human volunteers if appropriate to project objectives. However, its primary focus is on biotechnology, biomedical systems, and physiological or pathological processes rather than general community volunteer programs.\n* **Source Link:** [https://www.grants.gov/search-results-detail/362062](https://www.grants.gov/search-results-detail/362062)\n\n### 2. U.S. Embassy Praia Ambassador\u2019s Special Self-Help (SSH) Program\n* **ID:** 325599\n* **Opportunity Number:** AFPRA-20-04\n* **Agency:** Department of State (U.S. Embassy Praia)\n* **API Deadline:** Not provided (Rolling basis)\n* **Synopsis-Based Reason to Investigate:** This grant provides grass-roots assistance for community-based development projects. However, it is administered by the U.S. Embassy in Cabo Verde specifically for local communities within that country, making it geographically and jurisdictionally inapplicable to a California nonprofit.\n* **Source Link:** [https://www.grants.gov/search-results-detail/325599](https://www.grants.gov/search-results-detail/325599)\n\n### 3. Community Infrastructure for Research in Computer and Information Science and Engineering (CIRC)\n* **ID:** 359325\n* **Opportunity Number:** 23-589\n* **Agency:** National Science Foundation\n* **API Deadline:** September 10, 2027\n* **Synopsis-Based Reason to Investigate:** This program supports non-profit, non-academic organizations in accessing and developing world-class research infrastructure. However, it is tightly restricted to computer and information science and engineering (CISE) research agendas, which does not align with general community volunteer programming.\n* **Source Link:** [https://www.grants.gov/search-results-detail/359325](https://www.grants.gov/search-results-detail/359325)\n\n---\n\n### Important Notes\n* **Check the Full Notice:** You must check the full notice and guidelines on Grants.gov before deciding eligibility for any of these programs.\n* **Unknown Profile Details:** The service area within California is currently unknown. Providing a specific county, city, or regional service area, as well as clarifying the exact focus of the community volunteer programs (e.g., youth development, environmental conservation, senior services), would significantly improve the accuracy of future grant matching.\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services."
+        },
+        {
+          "author": "grant_navigator",
+          "text": "Here is a summary of your organization profile based on the details you provided, along with the results of our federal grant research:\n\n### Nonprofit Profile Summary\n* **Organization Type:** 501(c)(3) nonprofit\n* **Organization Location:** California\n* **Project Purpose:** Community volunteer programs\n* **Service Area:** Unknown\n* **Beneficiaries:** Unknown\n* **Funding Amount:** Unknown\n* **Project Timing:** Unknown\n\n---\n\n### Sourced Candidate Opportunities\nBased on currently posted federal opportunities, three potential grants were identified via the Grants.gov API. Please note that none of these represent a direct fit for general community volunteer programs in California, as they are restricted to specialized research or international diplomacy. \n\n#### 1. Engineering Biological and Biomedical Systems (EBBS)\n* **Agency:** National Science Foundation\n* **API general deadline:** Not provided\n* **Synopsis-Based Reason to Investigate:** Supports fundamental engineering research and limited studies involving human volunteers if appropriate to project objectives. However, its primary focus is on biotechnology and biomedical systems rather than general community volunteer programs.\n* **Source Link:** [Grants.gov Opportunity 362062](https://www.grants.gov/search-results-detail/362062)\n\n#### 2. U.S. Embassy Praia Ambassador\u2019s Special Self-Help (SSH) Program\n* **Agency:** Department of State (U.S. Embassy Praia)\n* **API general deadline:** Not provided (Rolling basis)\n* **Synopsis-Based Reason to Investigate:** Provides grass-roots assistance for community-based development projects. However, it is administered specifically for local communities in Cabo Verde and is not applicable to a California-based nonprofit.\n* **Source Link:** [Grants.gov Opportunity 325599](https://www.grants.gov/search-results-detail/325599)\n\n#### 3. Community Infrastructure for Research in Computer and Information Science and Engineering (CIRC)\n* **Agency:** National Science Foundation\n* **API general deadline:** September 10, 2027\n* **Synopsis-Based Reason to Investigate:** Supports non-profit organizations in developing research infrastructure. However, it is restricted specifically to computer and information science and engineering (CISE) research agendas.\n* **Source Link:** [Grants.gov Opportunity 359325](https://www.grants.gov/search-results-detail/359325)\n\n---\n\n### Unresolved Questions & Next Steps\nBecause these candidates do not closely align with general volunteer programs, we can refine our search if you can provide additional details:\n* What specific activities do your community volunteer programs focus on (e.g., youth mentoring, environmental cleanup, senior care, disaster relief)?\n* What specific geographic region or county within California do you serve?\n* Who are the primary beneficiaries of your programs?\n\n*Note: Please verify applicant eligibility directly through the full notice on Grants.gov. The application deadlines listed above are general API dates and applicant-specific deadlines remain unverified.*\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services."
+        }
+      ],
+      "errors": [],
+      "state": {
+        "nonprofit_profile": {
+          "organization_name": null,
+          "organization_type": "501(c)(3) nonprofit",
+          "organization_location": "California",
+          "project_purpose": "Community volunteer programs",
+          "service_area": null,
+          "beneficiaries": null,
+          "funding_amount_usd": null,
+          "project_timing": null
+        },
+        "profile_version": 2,
+        "research_summary": "Based on a search of currently posted federal grant opportunities related to community volunteer programs, three opportunities were identified via the Grants.gov API. However, none of these represent a direct fit for a California 501(c)(3) nonprofit running community volunteer programs; they are focused on specialized academic research, international diplomacy, or specific scientific infrastructure. \n\nBecause the nonprofit's saved profile has `service_area = null`, the specific geographic service area within California is **unknown**. Additionally, details regarding specific project activities, target beneficiaries, and funding amounts are not specified in the profile, which prevents definitive matching.\n\nHere are the candidate opportunities identified for investigation:\n\n### 1. Engineering Biological and Biomedical Systems (EBBS)\n* **ID:** 362062\n* **Opportunity Number:** PD-26-369Y\n* **Agency:** National Science Foundation\n* **API Deadline:** Not provided\n* **Synopsis-Based Reason to Investigate:** This program supports fundamental engineering research and limited studies involving human volunteers if appropriate to project objectives. However, its primary focus is on biotechnology, biomedical systems, and physiological or pathological processes rather than general community volunteer programs.\n* **Source Link:** [https://www.grants.gov/search-results-detail/362062](https://www.grants.gov/search-results-detail/362062)\n\n### 2. U.S. Embassy Praia Ambassador\u2019s Special Self-Help (SSH) Program\n* **ID:** 325599\n* **Opportunity Number:** AFPRA-20-04\n* **Agency:** Department of State (U.S. Embassy Praia)\n* **API Deadline:** Not provided (Rolling basis)\n* **Synopsis-Based Reason to Investigate:** This grant provides grass-roots assistance for community-based development projects. However, it is administered by the U.S. Embassy in Cabo Verde specifically for local communities within that country, making it geographically and jurisdictionally inapplicable to a California nonprofit.\n* **Source Link:** [https://www.grants.gov/search-results-detail/325599](https://www.grants.gov/search-results-detail/325599)\n\n### 3. Community Infrastructure for Research in Computer and Information Science and Engineering (CIRC)\n* **ID:** 359325\n* **Opportunity Number:** 23-589\n* **Agency:** National Science Foundation\n* **API Deadline:** September 10, 2027\n* **Synopsis-Based Reason to Investigate:** This program supports non-profit, non-academic organizations in accessing and developing world-class research infrastructure. However, it is tightly restricted to computer and information science and engineering (CISE) research agendas, which does not align with general community volunteer programming.\n* **Source Link:** [https://www.grants.gov/search-results-detail/359325](https://www.grants.gov/search-results-detail/359325)\n\n---\n\n### Important Notes\n* **Check the Full Notice:** You must check the full notice and guidelines on Grants.gov before deciding eligibility for any of these programs.\n* **Unknown Profile Details:** The service area within California is currently unknown. Providing a specific county, city, or regional service area, as well as clarifying the exact focus of the community volunteer programs (e.g., youth development, environmental conservation, senior services), would significantly improve the accuracy of future grant matching.\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services.",
+        "research_outcome": {
+          "status": "completed",
+          "invocation_id": "e-d75a190d-b0f6-469b-a24f-82b3bddc683f",
+          "profile_version": 2
+        }
+      }
+    },
+    {
+      "prompt": "Using my saved profile, search again. Do not change my profile.",
+      "elapsed_seconds": 29.48,
+      "authors": [
+        "grant_navigator",
+        "opportunity_researcher"
+      ],
+      "invocation_ids": [
+        "e-113db70f-a7d4-45b7-8328-3ab1ace5bf8f"
+      ],
+      "calls": [
+        {
+          "author": "grant_navigator",
+          "id": "call_13992777056658586644",
+          "args": {},
+          "name": "save_nonprofit_profile"
+        },
+        {
+          "author": "grant_navigator",
+          "id": "call_18217271950203633099",
+          "args": {
+            "request": "Federal grant opportunities for a California 501(c)(3) nonprofit running community volunteer programs"
+          },
+          "name": "opportunity_researcher"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_16286314993435498208",
+          "args": {
+            "keyword": "community volunteer programs",
+            "rows": 3
+          },
+          "name": "search_grants"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_8790809062910711079",
+          "args": {
+            "opportunity_id": 362062
+          },
+          "name": "fetch_grant_details"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_8790809062910711204",
+          "args": {
+            "opportunity_id": 325599
+          },
+          "name": "fetch_grant_details"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_8790809062910711329",
+          "args": {
+            "opportunity_id": 359325
+          },
+          "name": "fetch_grant_details"
+        }
+      ],
+      "research_responses": [
+        {
+          "result": "Based on your saved nonprofit profile, we searched for federal grant opportunities related to your project purpose (**Community volunteer programs**). \n\nThe search results returned three currently posted federal funding opportunities. However, none of these discovered opportunities align with community volunteer programs (instead focusing on biomedical research, international embassy self-help programs in Cabo Verde, and computer science infrastructure). Therefore, no strong candidate matches were found that fit your specific project activities.\n\n### Unknown Profile Details That Could Affect Matching\nTo provide more targeted and relevant grant recommendations in the future, the following missing details from your profile need to be defined:\n* **Service Area:** Your service area is currently unknown (not specified in your profile beyond California), which prevents filtering for local, state, or regional funding restrictions.\n* **Beneficiaries:** Specific target groups (e.g., youth, seniors, veterans, environment) were not provided.\n* **Funding Amount & Project Timing:** Specific budget ceilings or project start/end dates were not provided.\n\n---\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services."
+        }
+      ],
+      "texts": [
+        {
+          "author": "opportunity_researcher",
+          "text": "Based on your saved nonprofit profile, we searched for federal grant opportunities related to your project purpose (**Community volunteer programs**). \n\nThe search results returned three currently posted federal funding opportunities. However, none of these discovered opportunities align with community volunteer programs (instead focusing on biomedical research, international embassy self-help programs in Cabo Verde, and computer science infrastructure). Therefore, no strong candidate matches were found that fit your specific project activities.\n\n### Unknown Profile Details That Could Affect Matching\nTo provide more targeted and relevant grant recommendations in the future, the following missing details from your profile need to be defined:\n* **Service Area:** Your service area is currently unknown (not specified in your profile beyond California), which prevents filtering for local, state, or regional funding restrictions.\n* **Beneficiaries:** Specific target groups (e.g., youth, seniors, veterans, environment) were not provided.\n* **Funding Amount & Project Timing:** Specific budget ceilings or project start/end dates were not provided.\n\n---\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services."
+        },
+        {
+          "author": "grant_navigator",
+          "text": "Here is a summary of your current nonprofit profile and the results of our fresh federal grant search:\n\n### Nonprofit Profile Summary\n* **Organization Type:** 501(c)(3) nonprofit\n* **Organization Location:** California\n* **Project Purpose:** Community volunteer programs\n* **Service Area:** Unknown\n* **Beneficiaries:** Unknown\n* **Funding Amount:** Unknown\n* **Project Timing:** Unknown\n\n---\n\n### Grant Search Results\nWe performed a new search using your saved profile. The Grants.gov API returned a few federal grant opportunities (such as biomedical engineering research, international embassy self-help programs in Cabo Verde, and computer science infrastructure), but **none of them align with community volunteer programs**. \n\nBecause no matching grants were found in the current federal database for general volunteer programming under an unspecific California service area, no candidate opportunities are available to present at this time. ("
+        },
+        {
+          "author": "grant_navigator",
+          "text": "Please note: A research failure or empty result means research was incomplete or yielded no current keyword matches; it does not establish that no matching grants exist overall.)\n\n### Unresolved Questions to Improve Future Searches\nTo help surface more relevant opportunities, consider letting us know:\n* What specific activities do your community volunteer programs focus on (e.g., youth mentoring, environmental cleanup, senior care, disaster relief)?\n* What specific county, city, or region within California do you serve?\n* Who are the primary beneficiaries of your programs?\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services."
+        }
+      ],
+      "errors": [],
+      "state": {
+        "nonprofit_profile": {
+          "organization_name": null,
+          "organization_type": "501(c)(3) nonprofit",
+          "organization_location": "California",
+          "project_purpose": "Community volunteer programs",
+          "service_area": null,
+          "beneficiaries": null,
+          "funding_amount_usd": null,
+          "project_timing": null
+        },
+        "profile_version": 2,
+        "research_summary": "Based on your saved nonprofit profile, we searched for federal grant opportunities related to your project purpose (**Community volunteer programs**). \n\nThe search results returned three currently posted federal funding opportunities. However, none of these discovered opportunities align with community volunteer programs (instead focusing on biomedical research, international embassy self-help programs in Cabo Verde, and computer science infrastructure). Therefore, no strong candidate matches were found that fit your specific project activities.\n\n### Unknown Profile Details That Could Affect Matching\nTo provide more targeted and relevant grant recommendations in the future, the following missing details from your profile need to be defined:\n* **Service Area:** Your service area is currently unknown (not specified in your profile beyond California), which prevents filtering for local, state, or regional funding restrictions.\n* **Beneficiaries:** Specific target groups (e.g., youth, seniors, veterans, environment) were not provided.\n* **Funding Amount & Project Timing:** Specific budget ceilings or project start/end dates were not provided.\n\n---\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services.",
+        "research_outcome": {
+          "status": "completed",
+          "invocation_id": "e-113db70f-a7d4-45b7-8328-3ab1ace5bf8f",
+          "profile_version": 2
+        }
+      }
+    }
+  ],
+  "session_id": "fb649a40-34c7-445f-ad93-1ebb81caf7b2",
+  "checks_passed": true
+}

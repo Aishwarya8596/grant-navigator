@@ -1,0 +1,266 @@
+{
+  "observed_at": "2026-11-12T15:27:07.428769-08:00",
+  "turns": [
+    {
+      "prompt": "Find federal grants for our organization.",
+      "elapsed_seconds": 15.67,
+      "authors": [
+        "grant_navigator"
+      ],
+      "invocation_ids": [
+        "e-7fcec946-5aa6-459f-8a21-b0535a56a2fc"
+      ],
+      "calls": [
+        {
+          "author": "grant_navigator",
+          "id": "call_14814202425875772036",
+          "args": {},
+          "name": "save_nonprofit_profile"
+        }
+      ],
+      "research_responses": [],
+      "texts": [
+        {
+          "author": "grant_navigator",
+          "text": "Welcome to the federal grant navigator! I'd be happy to help you find federal grants for your organization. \n\nTo get started, could you please tell me a little more about your work? Specifically:\n1. What type of organization is applying (for example, a 501(c)(3) nonprofit, local government agency, or tribal organization)?\n2. What specific activities or project would the grant fund? \n\n*(Optional details like your organization's location, the geographic area your project serves, who benefits from your program, and your funding amount or timeline are also helpful if you'd like to share them!)*"
+        }
+      ],
+      "errors": [],
+      "state": {
+        "nonprofit_profile": {
+          "organization_name": null,
+          "organization_type": null,
+          "organization_location": null,
+          "project_purpose": null,
+          "service_area": null,
+          "beneficiaries": null,
+          "funding_amount_usd": null,
+          "project_timing": null
+        },
+        "profile_version": 1,
+        "research_summary": null,
+        "research_outcome": null
+      }
+    },
+    {
+      "prompt": "We are a California 501(c)(3) nonprofit running community volunteer programs. Find posted federal grant opportunities worth investigating.",
+      "elapsed_seconds": 38.89,
+      "authors": [
+        "grant_navigator",
+        "opportunity_researcher"
+      ],
+      "invocation_ids": [
+        "e-164845a5-f1d8-41ce-b1db-9351a192fc46"
+      ],
+      "calls": [
+        {
+          "author": "grant_navigator",
+          "id": "call_5576319312877831102",
+          "args": {
+            "organization_location": "California",
+            "project_purpose": "Community volunteer programs",
+            "organization_type": "501(c)(3) nonprofit"
+          },
+          "name": "save_nonprofit_profile"
+        },
+        {
+          "author": "grant_navigator",
+          "id": "call_11034350553105372567",
+          "args": {
+            "request": "Federal grants for a California 501(c)(3) nonprofit running community volunteer programs"
+          },
+          "name": "opportunity_researcher"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_6293988740072429635",
+          "args": {
+            "rows": 3,
+            "keyword": "community volunteer programs"
+          },
+          "name": "search_grants"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_15097534800281556744",
+          "args": {
+            "keyword": "volunteer service community engagement",
+            "rows": 3
+          },
+          "name": "search_grants"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_6747739384680669185",
+          "args": {
+            "keyword": "AmeriCorps volunteer service community programs",
+            "rows": 3
+          },
+          "name": "search_grants"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_6181896004901895170",
+          "args": {
+            "opportunity_id": 363696
+          },
+          "name": "fetch_grant_details"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_12356199378118095209",
+          "args": {
+            "opportunity_id": 358864
+          },
+          "name": "fetch_grant_details"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_16979983944161415020",
+          "args": {
+            "opportunity_id": 362062
+          },
+          "name": "fetch_grant_details"
+        }
+      ],
+      "research_responses": [
+        {
+          "result": "Based on the profile provided\u2014a 501(c)(3) nonprofit located in California running community volunteer programs\u2014federal grant discovery requires looking for funding opportunities centered on civic engagement, national service, community partnerships, and volunteer mobilization. \n\n**Unknown profile details that could affect matching:**\n* **Service area:** The nonprofit's specific service area within California (e.g., statewide, specific counties or cities) is unknown. Grant eligibility and local fit often depend on targeted geographic boundaries.\n* **Specific focus/beneficiaries of volunteer programs:** The specific demographic or issue area addressed by the volunteer programs (e.g., youth development, environmental conservation, senior services, disaster response) is not specified.\n* **Funding amount required and project timing:** Neither the target budget size nor the timeline for the project is provided.\n\nBelow are three federal grant opportunities worth investigating based on activities related to community engagement, volunteerism, and collaborative partnerships:\n\n---\n\n### Candidate 1\n* **ID:** 363696\n* **Number:** AC-08-28-26\n* **Title:** Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants\n* **Agency:** AmeriCorps\n* **Deadline:** 01/13/2027 (General API deadline; verify applicant-specific routes or state-level commission timelines)\n* **Synopsis-Based Reason to Investigate:** AmeriCorps grants are designed specifically for organizations that engage members in service and volunteering to tackle pressing community challenges. Because the applicant is a 501(c)(3) nonprofit operating community volunteer programs, this program directly aligns with mobilizing volunteers, providing living allowances/benefits, and fostering civic engagement.\n* **Source Link:** [Grants.gov Opportunity Details](https://www.grants.gov/search-results-detail/363696)\n\n---\n\n### Candidate 2\n* **ID:** 358864\n* **Number:** PAR-27-015\n* **Title:** Community-Based Participatory Research to Advance Data and Practice Transformation (ADAPT) for Optimizing Oral Health for All (UG3/UH3 Clinical Trial Optional)\n* **Agency:** Department of Health and Human Services / National Institutes of Health\n* **Deadline:** 11/16/2028 (General API deadline)\n* **Synopsis-Based Reason to Investigate:** This opportunity supports community-based participatory research (CBPR) and cross-sector partnerships in communities. If the nonprofit's volunteer programs or community initiatives touch upon public health, health disparities, or community wellness, this funding mechanism supports collaborative community engagement and data transformation. *(Note: Full announcement details should be reviewed to confirm alignment with research/health objectives).*\n* **Source Link:** [Grants.gov Opportunity Details](https://www.grants.gov/search-results-detail/358864)\n\n---\n\n### Candidate 3\n* **ID:** 362062\n* **Number:** PD-26-369Y\n* **Title:** Engineering Biological and Biomedical Systems (EBBS)\n* **Agency:** National Science Foundation\n* **Deadline:** Not provided (Open/Rolling solicitation)\n* **Synopsis-Based Reason to Investigate:** While this is a scientific research program focused on biological and biomedical systems, the description notes that \"limited studies involving human volunteers may be supported if appropriate to the project objectives.\" However, because this is an engineering and biotechnology research grant rather than a general community volunteer program, its fit depends entirely on whether the nonprofit operates specialized scientific or health-related research activities involving volunteers. \n* **Source Link:** [Grants.gov Opportunity Details](https://www.grants.gov/search-results-detail/362062)\n\n---\n\n*Important Note:* Please check the full notice of funding opportunity (NOFO) on Grants.gov and verify all eligibility requirements, cost-sharing/matching expectations, and application deadlines before deciding whether to apply.\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services."
+        }
+      ],
+      "texts": [
+        {
+          "author": "opportunity_researcher",
+          "text": "Based on the profile provided\u2014a 501(c"
+        },
+        {
+          "author": "opportunity_researcher",
+          "text": ")(3) nonprofit located in California running community volunteer programs\u2014federal grant discovery requires looking for funding opportunities centered on civic engagement, national service, community partnerships, and volunteer mobilization. \n\n**Unknown profile details that could affect matching:**\n* **Service area:** The nonprofit's specific service area within California (e.g., statewide, specific counties or cities) is unknown. Grant eligibility and local fit often depend on targeted geographic boundaries.\n* **Specific focus/beneficiaries of volunteer programs:** The specific demographic or issue area addressed by the volunteer programs (e.g., youth development, environmental conservation, senior services, disaster response) is not specified.\n* **Funding amount required and project timing:** Neither the target budget size nor the timeline for the project is provided.\n\nBelow are three federal grant opportunities worth investigating based on activities related to community engagement, volunteerism, and collaborative partnerships:\n\n---\n\n### Candidate 1\n* **ID:** 363696\n* **Number:** AC-08-28-26\n* **Title:** Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants\n* **Agency:** AmeriCorps\n* **Deadline:** 01/13/2027 (General API deadline; verify applicant-specific routes or state-level commission timelines)\n* **Synopsis-Based Reason to Investigate:** AmeriCorps grants are designed specifically for organizations that engage members in service and volunteering to tackle pressing community challenges. Because the applicant is a 501(c)(3) nonprofit operating community volunteer programs, this program directly aligns with mobilizing volunteers, providing living allowances/benefits, and fostering civic engagement.\n* **Source Link:** [Grants.gov Opportunity Details](https://www.grants.gov/search-results-detail/363696)\n\n---\n\n### Candidate 2\n* **ID:** 358864\n* **Number:** PAR-27-015\n* **Title:** Community-Based Participatory Research to Advance Data and Practice Transformation (ADAPT) for Optimizing Oral Health for All (UG3/UH3 Clinical Trial Optional)\n* **Agency:** Department of Health and Human Services / National Institutes of Health\n* **Deadline:** 11/16/2028 (General API deadline)\n* **Synopsis-Based Reason to Investigate:** This opportunity supports community-based participatory research (CBPR) and cross-sector partnerships in communities. If the nonprofit's volunteer programs or community initiatives touch upon public health, health disparities, or community wellness, this funding mechanism supports collaborative community engagement and data transformation. *(Note: Full announcement details should be reviewed to confirm alignment with research/health objectives).*\n* **Source Link:** [Grants.gov Opportunity Details](https://www.grants.gov/search-results-detail/358864)\n\n---\n\n### Candidate 3\n* **ID:** 362062\n* **Number:** PD-26-369Y\n* **Title:** Engineering Biological and Biomedical Systems (EBBS)\n* **Agency:** National Science Foundation\n* **Deadline:** Not provided (Open/Rolling solicitation)\n* **Synopsis-Based Reason to Investigate:** While this is a scientific research program focused on biological and biomedical systems, the description notes that \"limited studies involving human volunteers may be supported if appropriate to the project objectives.\" However, because this is an engineering and biotechnology research grant rather than a general community volunteer program, its fit depends entirely on whether the nonprofit operates specialized scientific or health-related research activities involving volunteers. \n* **Source Link:** [Grants.gov Opportunity Details](https://www.grants.gov/search-results-detail/362062)\n\n---\n\n*Important Note:* Please check the full notice of funding opportunity (NOFO) on Grants.gov and verify all eligibility requirements, cost-sharing/matching expectations, and application deadlines before deciding whether to apply.\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services."
+        },
+        {
+          "author": "grant_navigator",
+          "text": "**Nonprofit profile**\n\n- **Organization type:** 501(c)(3) nonprofit\n- **Organization location:** California\n- **Project purpose:** Community volunteer programs\n- **Service area:** Unknown\n- **Beneficiaries:** Unknown\n- **Requested funding:** Unknown\n- **Project timing:** Unknown\n\n---\n\nBased on the profile provided\u2014a 501(c)(3) nonprofit located in California running community volunteer programs\u2014federal grant discovery requires looking for funding opportunities centered on civic engagement, national service, community partnerships, and volunteer mobilization. \n\n**Unknown profile details that could affect matching:**\n* **Service area:** The nonprofit's specific service area within California (e.g., statewide, specific counties or cities) is unknown. Grant eligibility and local fit often depend on targeted geographic boundaries.\n* **Specific focus/beneficiaries of volunteer programs:** The specific demographic or issue area addressed by the volunteer programs (e.g., youth development, environmental conservation, senior services, disaster response) is not specified.\n* **Funding amount required and project timing:** Neither the target budget size nor the timeline for the project is provided.\n\nBelow are three federal grant opportunities worth investigating based on activities related to community engagement, volunteerism, and collaborative partnerships:\n\n---\n\n### Candidate 1\n* **ID:** 363696\n* **Number:** AC-08-28-26\n* **Title:** Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants\n* **Agency:** AmeriCorps\n* **Deadline:** 01/13/2027 (General API deadline; verify applicant-specific routes or state-level commission timelines)\n* **Synopsis-Based Reason to Investigate:** AmeriCorps grants are designed specifically for organizations that engage members in service and volunteering to tackle pressing community challenges. Because the applicant is a 501(c)(3) nonprofit operating community volunteer programs, this program directly aligns with mobilizing volunteers, providing living allowances/benefits, and fostering civic engagement.\n* **Source Link:** [Grants.gov Opportunity Details](https://www.grants.gov/search-results-detail/363696)\n\n---\n\n### Candidate 2\n* **ID:** 358864\n* **Number:** PAR-27-015\n* **Title:** Community-Based Participatory Research to Advance Data and Practice Transformation (ADAPT) for Optimizing Oral Health for All (UG3/UH3 Clinical Trial Optional)\n* **Agency:** Department of Health and Human Services / National Institutes of Health\n* **Deadline:** 11/16/2028 (General API deadline)\n* **Synopsis-Based Reason to Investigate:** This opportunity supports community-based participatory research (CBPR) and cross-sector partnerships in communities. If the nonprofit's volunteer programs or community initiatives touch upon public health, health disparities, or community wellness, this funding mechanism supports collaborative community engagement and data transformation. *(Note: Full announcement details should be reviewed to confirm alignment with research/health objectives).*\n* **Source Link:** [Grants.gov Opportunity Details](https://www.grants.gov/search-results-detail/358864)\n\n---\n\n### Candidate 3\n* **ID:** 362062\n* **Number:** PD-26-369Y\n* **Title:** Engineering Biological and Biomedical Systems (EBBS)\n* **Agency:** National Science Foundation\n* **Deadline:** Not provided (Open/Rolling solicitation)\n* **Synopsis-Based Reason to Investigate:** While this is a scientific research program focused on biological and biomedical systems, the description notes that \"limited studies involving human volunteers may be supported if appropriate to the project objectives.\" However, because this is an engineering and biotechnology research grant rather than a general community volunteer program, its fit depends entirely on whether the nonprofit operates specialized scientific or health-related research activities involving volunteers. \n* **Source Link:** [Grants.gov Opportunity Details](https://www.grants.gov/search-results-detail/362062)\n\n---\n\n*Important Note:* Please check the full notice of funding opportunity (NOFO) on Grants.gov and verify all eligibility requirements, cost-sharing/matching expectations, and application deadlines before deciding whether to apply.\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services."
+        }
+      ],
+      "errors": [],
+      "state": {
+        "nonprofit_profile": {
+          "organization_name": null,
+          "organization_type": "501(c)(3) nonprofit",
+          "organization_location": "California",
+          "project_purpose": "Community volunteer programs",
+          "service_area": null,
+          "beneficiaries": null,
+          "funding_amount_usd": null,
+          "project_timing": null
+        },
+        "profile_version": 2,
+        "research_summary": "Based on the profile provided\u2014a 501(c)(3) nonprofit located in California running community volunteer programs\u2014federal grant discovery requires looking for funding opportunities centered on civic engagement, national service, community partnerships, and volunteer mobilization. \n\n**Unknown profile details that could affect matching:**\n* **Service area:** The nonprofit's specific service area within California (e.g., statewide, specific counties or cities) is unknown. Grant eligibility and local fit often depend on targeted geographic boundaries.\n* **Specific focus/beneficiaries of volunteer programs:** The specific demographic or issue area addressed by the volunteer programs (e.g., youth development, environmental conservation, senior services, disaster response) is not specified.\n* **Funding amount required and project timing:** Neither the target budget size nor the timeline for the project is provided.\n\nBelow are three federal grant opportunities worth investigating based on activities related to community engagement, volunteerism, and collaborative partnerships:\n\n---\n\n### Candidate 1\n* **ID:** 363696\n* **Number:** AC-08-28-26\n* **Title:** Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants\n* **Agency:** AmeriCorps\n* **Deadline:** 01/13/2027 (General API deadline; verify applicant-specific routes or state-level commission timelines)\n* **Synopsis-Based Reason to Investigate:** AmeriCorps grants are designed specifically for organizations that engage members in service and volunteering to tackle pressing community challenges. Because the applicant is a 501(c)(3) nonprofit operating community volunteer programs, this program directly aligns with mobilizing volunteers, providing living allowances/benefits, and fostering civic engagement.\n* **Source Link:** [Grants.gov Opportunity Details](https://www.grants.gov/search-results-detail/363696)\n\n---\n\n### Candidate 2\n* **ID:** 358864\n* **Number:** PAR-27-015\n* **Title:** Community-Based Participatory Research to Advance Data and Practice Transformation (ADAPT) for Optimizing Oral Health for All (UG3/UH3 Clinical Trial Optional)\n* **Agency:** Department of Health and Human Services / National Institutes of Health\n* **Deadline:** 11/16/2028 (General API deadline)\n* **Synopsis-Based Reason to Investigate:** This opportunity supports community-based participatory research (CBPR) and cross-sector partnerships in communities. If the nonprofit's volunteer programs or community initiatives touch upon public health, health disparities, or community wellness, this funding mechanism supports collaborative community engagement and data transformation. *(Note: Full announcement details should be reviewed to confirm alignment with research/health objectives).*\n* **Source Link:** [Grants.gov Opportunity Details](https://www.grants.gov/search-results-detail/358864)\n\n---\n\n### Candidate 3\n* **ID:** 362062\n* **Number:** PD-26-369Y\n* **Title:** Engineering Biological and Biomedical Systems (EBBS)\n* **Agency:** National Science Foundation\n* **Deadline:** Not provided (Open/Rolling solicitation)\n* **Synopsis-Based Reason to Investigate:** While this is a scientific research program focused on biological and biomedical systems, the description notes that \"limited studies involving human volunteers may be supported if appropriate to the project objectives.\" However, because this is an engineering and biotechnology research grant rather than a general community volunteer program, its fit depends entirely on whether the nonprofit operates specialized scientific or health-related research activities involving volunteers. \n* **Source Link:** [Grants.gov Opportunity Details](https://www.grants.gov/search-results-detail/362062)\n\n---\n\n*Important Note:* Please check the full notice of funding opportunity (NOFO) on Grants.gov and verify all eligibility requirements, cost-sharing/matching expectations, and application deadlines before deciding whether to apply.\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services.",
+        "research_outcome": {
+          "status": "completed",
+          "invocation_id": "e-164845a5-f1d8-41ce-b1db-9351a192fc46",
+          "profile_version": 2
+        }
+      }
+    },
+    {
+      "prompt": "Using my saved profile, search again. Do not change my profile.",
+      "elapsed_seconds": 8.02,
+      "authors": [
+        "grant_navigator",
+        "opportunity_researcher"
+      ],
+      "invocation_ids": [
+        "e-aca01ccc-f4bb-49ad-8173-9a8cc6f36a82"
+      ],
+      "calls": [
+        {
+          "author": "grant_navigator",
+          "id": "call_11176366332410238163",
+          "args": {},
+          "name": "save_nonprofit_profile"
+        },
+        {
+          "author": "grant_navigator",
+          "id": "call_13406716631614124892",
+          "args": {
+            "request": "Additional federal grant opportunities for a California 501(c)(3) nonprofit running community volunteer programs"
+          },
+          "name": "opportunity_researcher"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_17276189937073035017",
+          "args": {
+            "rows": 3,
+            "keyword": "community volunteer programs"
+          },
+          "name": "search_grants"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_17231529314095671946",
+          "args": {
+            "keyword": "volunteers community service",
+            "rows": 3
+          },
+          "name": "search_grants"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_6633911194000956924",
+          "args": {
+            "keyword": "volunteer engagement AmeriCorps",
+            "rows": 3
+          },
+          "name": "search_grants"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_16749521009206412391",
+          "args": {
+            "opportunity_id": 363696
+          },
+          "name": "fetch_grant_details"
+        }
+      ],
+      "research_responses": [
+        {
+          "result": "Based on the search for federal grant opportunities related to community volunteer programs, one relevant candidate was found and evaluated via the Grants.gov API. \n\n### Research Findings and Candidate Opportunity\n\n* **ID:** 363696\n* **Number:** AC-08-28-26\n* **Title:** Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants\n* **Agency:** AmeriCorps\n* **API Deadline:** 01/13/2027 (Label: API's general deadline; any applicant-specific route/deadline remains unverified).\n* **Synopsis-Based Reason to Investigate:** This opportunity directly aligns with organizations dedicated to community improvement through service and volunteering. It awards grants to eligible 501(c)(3) nonprofits that engage members in evidence-based interventions to strengthen communities and foster civic engagement.\n* **Source Link:** https://www.grants.gov/search-results-detail/363696\n\n*Note: Please check the full notice and associated documentation on Grants.gov before deciding eligibility.*\n\n### Unknown Profile Details That Could Affect Matching\n* **Service Area:** The saved profile has `service_area=null`, so it is unknown whether the nonprofit operates statewide in California or within a specific local community, which may impact state-level subgrant allocations or local priority areas.\n* **Funding Amount & Timing:** Both `funding_amount_usd` and `project_timing` are unspecified in the profile, making it difficult to assess cost-matching feasibility (AmeriCorps grants typically require cost sharing) or alignment with project start dates.\n* **Beneficiaries:** The specific target population served by the volunteer programs is unknown.\n\n***\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services."
+        }
+      ],
+      "texts": [
+        {
+          "author": "opportunity_researcher",
+          "text": "Based on the search for federal grant opportunities related to community volunteer programs, one relevant candidate was found and evaluated via the Grants.gov API. \n\n### Research Findings and Candidate Opportunity\n\n* **ID:** 363696\n* **Number:** AC-08-28-26\n* **Title:** Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants\n* **Agency:** AmeriCorps\n* **API Deadline:** 01/13/2027 (Label: API's general deadline; any applicant-specific route/deadline remains unverified).\n* **Synopsis-Based Reason to Investigate:** This opportunity directly aligns with organizations dedicated to community improvement through service and volunteering. It awards grants to eligible 501(c)(3) nonprofits that engage members in evidence-based interventions to strengthen communities and foster civic engagement.\n* **Source Link:** https://www.grants.gov/search-results-detail/363696\n\n*Note: Please check the full notice and associated documentation on Grants.gov before deciding eligibility.*\n\n### Unknown Profile Details That Could Affect Matching\n* **Service Area:** The saved profile has `service_area=null`, so it is unknown whether the nonprofit operates statewide in California or within a specific local community, which may impact state-level subgrant allocations or local priority areas.\n* **Funding Amount & Timing:** Both `funding_amount_usd` and `project_timing` are unspecified in the profile, making it difficult to assess cost-matching feasibility (AmeriCorps grants typically require cost sharing) or alignment with project start dates.\n* **Beneficiaries:** The specific target population served by the volunteer programs is unknown.\n\n***\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services."
+        },
+        {
+          "author": "grant_navigator",
+          "text": "**Nonprofit profile**\n\n- **Organization type:** 501(c)(3) nonprofit\n- **Organization location:** California\n- **Project purpose:** Community volunteer programs\n- **Service area:** Unknown\n- **Beneficiaries:** Unknown\n- **Requested funding:** Unknown\n- **Project timing:** Unknown\n\n---\n\nBased on the search for federal grant opportunities related to community volunteer programs, one relevant candidate was found and evaluated via the Grants.gov API. \n\n### Research Findings and Candidate Opportunity\n\n* **ID:** 363696\n* **Number:** AC-08-28-26\n* **Title:** Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants\n* **Agency:** AmeriCorps\n* **API Deadline:** 01/13/2027 (Label: API's general deadline; any applicant-specific route/deadline remains unverified).\n* **Synopsis-Based Reason to Investigate:** This opportunity directly aligns with organizations dedicated to community improvement through service and volunteering. It awards grants to eligible 501(c)(3) nonprofits that engage members in evidence-based interventions to strengthen communities and foster civic engagement.\n* **Source Link:** https://www.grants.gov/search-results-detail/363696\n\n*Note: Please check the full notice and associated documentation on Grants.gov before deciding eligibility.*\n\n### Unknown Profile Details That Could Affect Matching\n* **Service Area:** The saved profile has `service_area=null`, so it is unknown whether the nonprofit operates statewide in California or within a specific local community, which may impact state-level subgrant allocations or local priority areas.\n* **Funding Amount & Timing:** Both `funding_amount_usd` and `project_timing` are unspecified in the profile, making it difficult to assess cost-matching feasibility (AmeriCorps grants typically require cost sharing) or alignment with project start dates.\n* **Beneficiaries:** The specific target population served by the volunteer programs is unknown.\n\n***\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services."
+        }
+      ],
+      "errors": [],
+      "state": {
+        "nonprofit_profile": {
+          "organization_name": null,
+          "organization_type": "501(c)(3) nonprofit",
+          "organization_location": "California",
+          "project_purpose": "Community volunteer programs",
+          "service_area": null,
+          "beneficiaries": null,
+          "funding_amount_usd": null,
+          "project_timing": null
+        },
+        "profile_version": 2,
+        "research_summary": "Based on the search for federal grant opportunities related to community volunteer programs, one relevant candidate was found and evaluated via the Grants.gov API. \n\n### Research Findings and Candidate Opportunity\n\n* **ID:** 363696\n* **Number:** AC-08-28-26\n* **Title:** Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants\n* **Agency:** AmeriCorps\n* **API Deadline:** 01/13/2027 (Label: API's general deadline; any applicant-specific route/deadline remains unverified).\n* **Synopsis-Based Reason to Investigate:** This opportunity directly aligns with organizations dedicated to community improvement through service and volunteering. It awards grants to eligible 501(c)(3) nonprofits that engage members in evidence-based interventions to strengthen communities and foster civic engagement.\n* **Source Link:** https://www.grants.gov/search-results-detail/363696\n\n*Note: Please check the full notice and associated documentation on Grants.gov before deciding eligibility.*\n\n### Unknown Profile Details That Could Affect Matching\n* **Service Area:** The saved profile has `service_area=null`, so it is unknown whether the nonprofit operates statewide in California or within a specific local community, which may impact state-level subgrant allocations or local priority areas.\n* **Funding Amount & Timing:** Both `funding_amount_usd` and `project_timing` are unspecified in the profile, making it difficult to assess cost-matching feasibility (AmeriCorps grants typically require cost sharing) or alignment with project start dates.\n* **Beneficiaries:** The specific target population served by the volunteer programs is unknown.\n\n***\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services.",
+        "research_outcome": {
+          "status": "completed",
+          "invocation_id": "e-aca01ccc-f4bb-49ad-8173-9a8cc6f36a82",
+          "profile_version": 2
+        }
+      }
+    }
+  ],
+  "session_id": "27f4a905-663a-466e-b2e9-858dda447c02",
+  "checks_passed": true
+}

@@ -1,0 +1,48 @@
+{
+  "captured_at_utc": "2026-11-10T15:30:33.069566+00:00",
+  "query_check": {
+    "keyword": "community",
+    "total_results": 427
+  },
+  "opportunity": {
+    "status": "success",
+    "id": 363696,
+    "number": "AC-08-28-26",
+    "title": "Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants",
+    "description": "<p>AmeriCorps improves lives, strengthens communities, and fosters civic engagement through service and volunteering. AmeriCorps brings people together to tackle some of the country’s most pressing challenges through national service and volunteerism. AmeriCorps members serve with organizations dedicated to the improvement of communities and those serving. AmeriCorps grants are awarded to eligible organizations that engage AmeriCorps members in evidence-based or evidence-informed interventions to strengthen communities. An AmeriCorps member is a person who does community service through AmeriCorps. Members may receive a living allowance and other benefits. After successful completion of their service, members earn a Segal AmeriCorps Education Award they can use to pay for higher education expenses or apply to qualified student loans.</p>",
+    "applicant_types": [
+      "City or township governments",
+      "Private institutions of higher education",
+      "State governments",
+      "Native American tribal governments (Federally recognized)",
+      "Special district governments",
+      "Nonprofits that do not have a 501(c)(3) status with the IRS, other than institutions of higher education",
+      "County governments",
+      "Native American tribal organizations (other than Federally recognized tribal governments)",
+      "Nonprofits having a 501(c)(3) status with the IRS, other than institutions of higher education",
+      "Public and State controlled institutions of higher education",
+      "Others (see text field entitled \"Additional Information on Eligibility\" for clarification)"
+    ],
+    "cost_sharing": true,
+    "award_floor": "none",
+    "award_ceiling": "none",
+    "response_date": "Jan 13, 2027 12:00:00 AM EST",
+    "document_urls": [
+      {
+        "id": 1458,
+        "opportunityId": 363696,
+        "docUrl": "https://www.americorps.gov/funding-opportunity/fy-2027-americorps-state-national-grants",
+        "description": "2027_AmeriCorpsStateandNational_Funding Opportunity",
+        "createdDate": "Aug 28, 2026 09:07:56 AM EDT"
+      }
+    ],
+    "attachment_folders": [],
+    "source_api": "https://api.grants.gov/v1/api/fetchOpportunity"
+  },
+  "full_notice": {
+    "source_page": "https://www.americorps.gov/funding-opportunity/fy-2027-americorps-state-national-grants",
+    "official_state_mirror": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf",
+    "local_path": "data/notices/FY27_ASNCompetitiveNotice_Final.508.pdf",
+    "sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6"
+  }
+}

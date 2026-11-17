@@ -1,0 +1,401 @@
+{
+  "description": "Selected public demonstration prompt, tool calls, result summaries, error, and model texts from a failed local ADK Web run. Session state and private configuration are excluded.",
+  "observed_date": "2026-11-12",
+  "timezone": "America/Los_Angeles",
+  "invocation_id": "e-52f3501f-0c4f-43db-a50d-c9e700a4b502",
+  "status": "observed_failure_before_reliability_fix",
+  "causal_limit": "The transfer preceded a nested empty model response; this sequence does not prove the transfer caused the provider to return empty content.",
+  "events": [
+    {
+      "author": "user",
+      "time_pst": "2026-11-12T15:03:03.405372-08:00",
+      "nested_branch": false,
+      "parts": [
+        {
+          "text": "We are a California 501(c)(3) nonprofit running community volunteer programs. Find posted federal grant opportunities worth investigating."
+        }
+      ]
+    },
+    {
+      "author": "grant_navigator",
+      "time_pst": "2026-11-12T15:03:04.312161-08:00",
+      "nested_branch": false,
+      "parts": [
+        {
+          "function_call": {
+            "name": "save_nonprofit_profile",
+            "args": {
+              "organization_type": "501(c)(3) nonprofit",
+              "project_purpose": "Community volunteer programs",
+              "organization_location": "California"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "author": "grant_navigator",
+      "time_pst": "2026-11-12T15:03:04.318357-08:00",
+      "nested_branch": false,
+      "parts": [
+        {
+          "function_response_summary": {
+            "name": "save_nonprofit_profile",
+            "status": "saved",
+            "ready_for_research": true
+          }
+        }
+      ]
+    },
+    {
+      "author": "grant_navigator",
+      "time_pst": "2026-11-12T15:03:05.043624-08:00",
+      "nested_branch": false,
+      "parts": [
+        {
+          "function_call": {
+            "name": "opportunity_researcher",
+            "args": {
+              "request": "federal grant opportunities for community volunteer programs in California"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "author": "opportunity_researcher",
+      "time_pst": "2026-11-12T15:03:05.708868-08:00",
+      "nested_branch": true,
+      "parts": [
+        {
+          "function_call": {
+            "name": "search_grants",
+            "args": {
+              "rows": 3,
+              "keyword": "community volunteer programs"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "author": "opportunity_researcher",
+      "time_pst": "2026-11-12T15:03:06.447163-08:00",
+      "nested_branch": true,
+      "parts": [
+        {
+          "function_response_summary": {
+            "name": "search_grants",
+            "status": "success",
+            "keyword": "community volunteer programs",
+            "total_results": 693,
+            "returned_count": 3,
+            "opportunities": [
+              {
+                "id": "362062",
+                "number": "PD-26-369Y",
+                "title": "Engineering Biological and Biomedical Systems (EBBS)"
+              },
+              {
+                "id": "325599",
+                "number": "AFPRA-20-04",
+                "title": "U.S. Embassy Praia Ambassador&rsquo;s Special Self-Help (SSH) Program"
+              },
+              {
+                "id": "359325",
+                "number": "23-589",
+                "title": "Community Infrastructure for Research in Computer and Information Science and Engineering (CIRC)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "author": "opportunity_researcher",
+      "time_pst": "2026-11-12T15:03:06.893466-08:00",
+      "nested_branch": true,
+      "parts": [
+        {
+          "function_call": {
+            "name": "search_grants",
+            "args": {
+              "rows": 3,
+              "keyword": "volunteer programs"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "author": "opportunity_researcher",
+      "time_pst": "2026-11-12T15:03:07.290352-08:00",
+      "nested_branch": true,
+      "parts": [
+        {
+          "function_response_summary": {
+            "name": "search_grants",
+            "status": "success",
+            "keyword": "volunteer programs",
+            "total_results": 680,
+            "returned_count": 3,
+            "opportunities": [
+              {
+                "id": "362062",
+                "number": "PD-26-369Y",
+                "title": "Engineering Biological and Biomedical Systems (EBBS)"
+              },
+              {
+                "id": "363771",
+                "number": "IGSM-FY27",
+                "title": "Inspire Grants for Small Museums (2027)"
+              },
+              {
+                "id": "362715",
+                "number": "P26AS00125",
+                "title": "Outdoor Recreation Legacy Partnership Program (ORLP) Recurring Notice 5 Year"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "author": "opportunity_researcher",
+      "time_pst": "2026-11-12T15:03:07.980912-08:00",
+      "nested_branch": true,
+      "parts": [
+        {
+          "function_call": {
+            "name": "search_grants",
+            "args": {
+              "keyword": "volunteer service community program",
+              "rows": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "author": "opportunity_researcher",
+      "time_pst": "2026-11-12T15:03:08.397151-08:00",
+      "nested_branch": true,
+      "parts": [
+        {
+          "function_response_summary": {
+            "name": "search_grants",
+            "status": "success",
+            "keyword": "volunteer service community program",
+            "total_results": 709,
+            "returned_count": 3,
+            "opportunities": [
+              {
+                "id": "362062",
+                "number": "PD-26-369Y",
+                "title": "Engineering Biological and Biomedical Systems (EBBS)"
+              },
+              {
+                "id": "359325",
+                "number": "23-589",
+                "title": "Community Infrastructure for Research in Computer and Information Science and Engineering (CIRC)"
+              },
+              {
+                "id": "363762",
+                "number": "NAG-ENHANCEMENT-FY27",
+                "title": "Native American Library Services Enhancement Grants (2027)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "author": "opportunity_researcher",
+      "time_pst": "2026-11-12T15:03:08.939372-08:00",
+      "nested_branch": true,
+      "parts": [
+        {
+          "function_call": {
+            "name": "fetch_grant_details",
+            "args": {
+              "opportunity_id": 363771
+            }
+          }
+        }
+      ]
+    },
+    {
+      "author": "opportunity_researcher",
+      "time_pst": "2026-11-12T15:03:09.453327-08:00",
+      "nested_branch": true,
+      "parts": [
+        {
+          "function_response_summary": {
+            "name": "fetch_grant_details",
+            "status": "success",
+            "id": 363771,
+            "number": "IGSM-FY27",
+            "title": "Inspire Grants for Small Museums (2027)"
+          }
+        }
+      ]
+    },
+    {
+      "author": "opportunity_researcher",
+      "time_pst": "2026-11-12T15:03:10.062804-08:00",
+      "nested_branch": true,
+      "parts": [
+        {
+          "function_call": {
+            "name": "fetch_grant_details",
+            "args": {
+              "opportunity_id": 362715
+            }
+          }
+        }
+      ]
+    },
+    {
+      "author": "opportunity_researcher",
+      "time_pst": "2026-11-12T15:03:10.652881-08:00",
+      "nested_branch": true,
+      "parts": [
+        {
+          "function_response_summary": {
+            "name": "fetch_grant_details",
+            "status": "success",
+            "id": 362715,
+            "number": "P26AS00125",
+            "title": "Outdoor Recreation Legacy Partnership Program (ORLP) Recurring Notice 5 Year"
+          }
+        }
+      ]
+    },
+    {
+      "author": "opportunity_researcher",
+      "time_pst": "2026-11-12T15:03:11.394203-08:00",
+      "nested_branch": true,
+      "parts": [
+        {
+          "function_call": {
+            "name": "fetch_grant_details",
+            "args": {
+              "opportunity_id": 362062
+            }
+          }
+        }
+      ]
+    },
+    {
+      "author": "opportunity_researcher",
+      "time_pst": "2026-11-12T15:03:12.135284-08:00",
+      "nested_branch": true,
+      "parts": [
+        {
+          "function_response_summary": {
+            "name": "fetch_grant_details",
+            "status": "success",
+            "id": 362062,
+            "number": "PD-26-369Y",
+            "title": "Engineering Biological and Biomedical Systems (EBBS)"
+          }
+        }
+      ]
+    },
+    {
+      "author": "opportunity_researcher",
+      "time_pst": "2026-11-12T15:03:13.542383-08:00",
+      "nested_branch": true,
+      "parts": [
+        {
+          "function_call": {
+            "name": "transfer_to_agent",
+            "args": {
+              "agent_name": "grant_navigator"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "author": "opportunity_researcher",
+      "time_pst": "2026-11-12T15:03:13.548419-08:00",
+      "nested_branch": true,
+      "parts": [
+        {
+          "function_response_summary": {
+            "name": "transfer_to_agent",
+            "result": null
+          }
+        }
+      ]
+    },
+    {
+      "author": "grant_navigator",
+      "time_pst": "2026-11-12T15:03:15.426777-08:00",
+      "nested_branch": true,
+      "parts": [
+        {
+          "text": "### Nonprofit Profile Summary\n* **Organization Type:** 501(c)(3) nonprofit\n* **Organization Location:** California\n* **Project Purpose:** Community volunteer programs\n* **Service Area:** Not specified\n* **Beneficiaries:** Not specified\n* **Funding Amount Requested:** Not specified\n* **Project Timing:** Not specified\n\n---\n\n### Sourced Grant Candidates\n\n1. **Inspire Grants for Small Museums (2027)**\n   * **Opportunity Number:** IGSM-FY27\n   * **API General Deadline:** Nov 13, 2026 *(Note: Applicant-specific deadlines remain unverified.)*\n   * **Description:** Supports small museums of all disciplines in providing museum services through educational programs, exhibits, community partnerships, and collections stewardship.\n   * **Award Range:** $5,000 – $75,000\n\n2. **Outdoor Recreation Legacy Partnership Program (ORLP) Recurring Notice 5 Year**\n   * **Opportunity Number:** P26AS00125\n   * **API General Deadline:** Nov 01, 2030 *(Note: Applicant-specific deadlines remain unverified.)*\n   * **Description:** Administered by the National Park Service to acquire land and water for parks and outdoor recreation, and to develop or renovate outdoor recreation facilities in qualifying urban areas. Requires a 50% non-federal match and long-term public access.\n   * **Award Range:** $300,000 – $15,000,000\n\n3. **Engineering Biological and Biomedical Systems (EBBS)**\n   * **Opportunity Number:** PD-26-369Y\n   * **API General Deadline:** Not specified *(Note: Applicant-specific deadlines remain unverified.)*\n   * **Description:** Supports fundamental engineering research expanding understanding of biological and physiological systems and human health. Limited studies involving human volunteers may be supported if appropriate to objectives.\n   * **Award Range:** Not specified\n\n---\n\n### Unresolved Questions\n* What is the specific service area or community within California where your volunteer programs operate?\n* Who are the primary beneficiaries of your programs (e.g., youth, seniors, veterans, environment)?\n* Approximately how much funding are you seeking for this project?\n* Do you have an estimated project start date or application timeline in mind?\n\n***\n\n*This product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services.*"
+        }
+      ]
+    },
+    {
+      "author": "grant_navigator",
+      "time_pst": "2026-11-12T15:03:16.717553-08:00",
+      "nested_branch": true,
+      "parts": [
+        {
+          "function_call": {
+            "name": "save_nonprofit_profile",
+            "args": {}
+          }
+        }
+      ]
+    },
+    {
+      "author": "grant_navigator",
+      "time_pst": "2026-11-12T15:03:16.723865-08:00",
+      "nested_branch": true,
+      "parts": [
+        {
+          "function_response_summary": {
+            "name": "save_nonprofit_profile",
+            "status": "saved",
+            "ready_for_research": true
+          }
+        }
+      ]
+    },
+    {
+      "author": "grant_navigator",
+      "time_pst": "2026-11-12T15:03:17.660227-08:00",
+      "nested_branch": true,
+      "error_code": "MODEL_RETURNED_NO_CONTENT",
+      "error_message": "The model returned no content (finish_reason=STOP with empty parts)."
+    },
+    {
+      "author": "grant_navigator",
+      "time_pst": "2026-11-12T15:03:17.665405-08:00",
+      "nested_branch": false,
+      "parts": [
+        {
+          "function_response_summary": {
+            "name": "opportunity_researcher",
+            "result": null
+          }
+        }
+      ]
+    },
+    {
+      "author": "grant_navigator",
+      "time_pst": "2026-11-12T15:03:18.765898-08:00",
+      "nested_branch": false,
+      "parts": [
+        {
+          "text": "### Profile Summary\n* **Organization Type:** 501(c)(3) nonprofit\n* **Organization Location:** California\n* **Project Purpose:** Community volunteer programs\n* **Service Area:** Not specified\n* **Beneficiaries:** Not specified\n* **Requested Funding:** Not specified\n* **Project Timing:** Not specified\n\n---\n\n### Grant Opportunities\n*(No matching grant opportunities were returned from the search at this time.)*\n\n---\n\n### Unresolved Questions & Next Steps\nTo help us narrow down potential federal opportunities, could you provide a bit more detail about:\n1. **Specific Focus Areas:** Do your volunteer programs center on specific issues (e.g., youth development, environmental conservation, disaster preparedness, senior services)?\n2. **Geographic Scope:** Does your service area cover all of California, or is it limited to a specific county or region?\n3. **Target Beneficiaries:** Who specifically benefits from these volunteer programs?\n\n*This product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services.*"
+        }
+      ]
+    }
+  ]
+}

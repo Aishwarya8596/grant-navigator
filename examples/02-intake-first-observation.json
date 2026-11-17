@@ -1,0 +1,181 @@
+{
+  "session_id": "f4eeee3f-f763-4074-ad48-66f9b2ed5ed2",
+  "turns": [
+    {
+      "prompt": "Find federal grants for our organization.",
+      "elapsed_seconds": 1.85,
+      "authors": [
+        "grant_navigator"
+      ],
+      "invocation_ids": [
+        "e-4aab9708-b986-4e61-a600-ad77f5648dfd"
+      ],
+      "calls": [
+        {
+          "author": "grant_navigator",
+          "id": "call_12805000290284419641",
+          "args": {},
+          "name": "save_nonprofit_profile"
+        }
+      ],
+      "texts": [
+        {
+          "author": "grant_navigator",
+          "text": "I'd be glad to help you find federal grants. To get started and make sure we search for the right opportunities, could you tell me a little bit about your organization and your project? \n\nSpecifically:\n1. What type of organization are you (for example, a 501(c)(3) nonprofit, tribal government, educational institution, etc.)?\n2. What specific activities or project would the grant fund? \n\n*(If you happen to know your organization's location, the geographic area your project serves, or who will benefit from it, feel free to share those as well!)*"
+        }
+      ],
+      "errors": [],
+      "state": {
+        "nonprofit_profile": {
+          "organization_name": null,
+          "organization_type": null,
+          "organization_location": null,
+          "project_purpose": null,
+          "service_area": null,
+          "beneficiaries": null,
+          "funding_amount_usd": null,
+          "project_timing": null
+        },
+        "profile_version": 1,
+        "intake_validation_errors": [],
+        "research_summary": null
+      }
+    },
+    {
+      "prompt": "We are a California 501(c)(3) nonprofit running community volunteer programs. Find posted federal grant opportunities worth investigating.",
+      "elapsed_seconds": 9.46,
+      "authors": [
+        "grant_navigator",
+        "opportunity_researcher"
+      ],
+      "invocation_ids": [
+        "e-1095605e-93ad-4dc0-a202-cad87fff09a0"
+      ],
+      "calls": [
+        {
+          "author": "grant_navigator",
+          "id": "call_6061524757060477620",
+          "args": {
+            "organization_location": "California",
+            "project_purpose": "Community volunteer programs",
+            "service_area": "California",
+            "organization_type": "501(c)(3) nonprofit"
+          },
+          "name": "save_nonprofit_profile"
+        },
+        {
+          "author": "grant_navigator",
+          "id": "call_5457188254043203245",
+          "args": {
+            "request": "Find federal grants for community volunteer programs in California open to 501(c)(3) nonprofits"
+          },
+          "name": "opportunity_researcher"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_15225405238057453579",
+          "args": {
+            "rows": 5,
+            "keyword": "community volunteer programs"
+          },
+          "name": "search_grants"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_15523256462640331768",
+          "args": {
+            "rows": 5,
+            "keyword": "volunteer service California community"
+          },
+          "name": "search_grants"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_4666139434095477246",
+          "args": {
+            "keyword": "AmeriCorps volunteer community program",
+            "rows": 5
+          },
+          "name": "search_grants"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_2763842791020477783",
+          "args": {
+            "opportunity_id": 363696
+          },
+          "name": "fetch_grant_details"
+        }
+      ],
+      "texts": [
+        {
+          "author": "opportunity_researcher",
+          "text": "Based on your nonprofit's profile as a 501(c)(3) organization in California focused on community volunteer programs, we searched posted federal grant opportunities on Grants.gov and identified the following candidate worth investigating:\n\n### Candidate 1\n* **ID:** 363696\n* **Number:** AC-08-28-26\n* **Title:** Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants\n* **Agency:** AmeriCorps\n* **Deadline:** January 13, 2027 (General API Deadline)\n* **Synopsis-Based Reason to Investigate:** This opportunity directly funds organizations that engage members in national service and volunteering to tackle pressing community challenges and strengthen community volunteer programs. The applicant category explicitly includes 501(c)(3) nonprofits.\n* **Source Link:** [Grants.gov Opportunity Detail](https://www.grants.gov/search-results-detail/363696)\n\n---\n\n### Important Notices & Next Steps\n* **Verify Eligibility and Deadlines:** Please check the full Notice of Funding Opportunity (NOFO) before making any decisions, as applicant-specific routes, matching fund requirements (cost sharing is listed as required), and local submission guidelines must be verified.\n* **Unknown Profile Details:** Your profile currently leaves **beneficiaries**, **funding amount**, and **project timing** unspecified, which could further affect your matching score and competitiveness for specific awards.\n\n*This product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services.*"
+        },
+        {
+          "author": "grant_navigator",
+          "text": "Here is a summary of your saved nonprofit profile and the federal grant opportunity identified for your organization:\n\n### Profile Summary\n* **Organization Type:** 501(c)(3) nonprofit\n* **Organization Location:** California\n* **Project Purpose:** Community volunteer programs\n* **Service Area:** California\n\n*(Note: Beneficiaries, requested funding amount, and project timing are currently unspecified.)*\n\n---\n\n### Candidate Opportunity\n\n* **Title:** Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants (ID: 363696 / Opportunity Number: AC-08-28-26)\n* **Agency:** AmeriCorps\n* **Deadline:** January 13, 2027\n* **Why it fits:** This program funds organizations engaging individuals in service and volunteerism to address community challenges, aligning with your focus on community volunteer programs. Eligible applicants include 501(c)(3) nonprofits.\n* **Source Link:** [Grants.gov Opportunity Detail](https://www.grants.gov/search-results-detail/363696)\n\n*Please note that we have not independently verified your organization's eligibility or confirmed that this is a ranked match. You will want to review the full Notice of Funding Opportunity (NOFO)\u2014including any cost-sharing/matching requirements\u2014before applying.*\n\n*This product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services.*"
+        }
+      ],
+      "errors": [],
+      "state": {
+        "nonprofit_profile": {
+          "organization_name": null,
+          "organization_type": "501(c)(3) nonprofit",
+          "organization_location": "California",
+          "project_purpose": "Community volunteer programs",
+          "service_area": "California",
+          "beneficiaries": null,
+          "funding_amount_usd": null,
+          "project_timing": null
+        },
+        "profile_version": 2,
+        "intake_validation_errors": [],
+        "research_summary": "Based on your nonprofit's profile as a 501(c)(3) organization in California focused on community volunteer programs, we searched posted federal grant opportunities on Grants.gov and identified the following candidate worth investigating:\n\n### Candidate 1\n* **ID:** 363696\n* **Number:** AC-08-28-26\n* **Title:** Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants\n* **Agency:** AmeriCorps\n* **Deadline:** January 13, 2027 (General API Deadline)\n* **Synopsis-Based Reason to Investigate:** This opportunity directly funds organizations that engage members in national service and volunteering to tackle pressing community challenges and strengthen community volunteer programs. The applicant category explicitly includes 501(c)(3) nonprofits.\n* **Source Link:** [Grants.gov Opportunity Detail](https://www.grants.gov/search-results-detail/363696)\n\n---\n\n### Important Notices & Next Steps\n* **Verify Eligibility and Deadlines:** Please check the full Notice of Funding Opportunity (NOFO) before making any decisions, as applicant-specific routes, matching fund requirements (cost sharing is listed as required), and local submission guidelines must be verified.\n* **Unknown Profile Details:** Your profile currently leaves **beneficiaries**, **funding amount**, and **project timing** unspecified, which could further affect your matching score and competitiveness for specific awards.\n\n*This product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services.*"
+      }
+    },
+    {
+      "prompt": "Correction: our project serves seniors in Santa Clara County. Update my profile only; do not search again yet.",
+      "elapsed_seconds": 1.65,
+      "authors": [
+        "grant_navigator"
+      ],
+      "invocation_ids": [
+        "e-0d531a83-a86e-47f5-992a-12c960ab0721"
+      ],
+      "calls": [
+        {
+          "author": "grant_navigator",
+          "id": "call_3862823114253050686",
+          "args": {
+            "service_area": "Santa Clara County, California",
+            "beneficiaries": "Seniors"
+          },
+          "name": "save_nonprofit_profile"
+        }
+      ],
+      "texts": [
+        {
+          "author": "grant_navigator",
+          "text": "I have successfully updated your nonprofit profile with your new service area and beneficiaries. \n\n**Updated Profile Summary:**\n* **Organization Type:** 501(c)(3) nonprofit\n* **Organization Location:** California\n* **Service Area:** Santa Clara County, California\n* **Beneficiaries:** Seniors\n* **Project Purpose:** Community volunteer programs\n* **Funding Amount & Project Timing:** Still unspecified\n\nLet me know whenever you are ready to search for new opportunities with this updated profile!"
+        }
+      ],
+      "errors": [],
+      "state": {
+        "nonprofit_profile": {
+          "organization_name": null,
+          "organization_type": "501(c)(3) nonprofit",
+          "organization_location": "California",
+          "project_purpose": "Community volunteer programs",
+          "service_area": "Santa Clara County, California",
+          "beneficiaries": "Seniors",
+          "funding_amount_usd": null,
+          "project_timing": null
+        },
+        "profile_version": 3,
+        "intake_validation_errors": [],
+        "research_summary": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "scenario": "Synthetic classroom example. All three opportunities and IDs are fictional.",
+  "profile": {"organization_type":"501(c)(3) nonprofit","project_purpose":"After-school tutoring","beneficiaries":"middle school students","service_area":"Alameda County","funding_amount_usd":50000,"project_timing":"fall 2027"},
+  "as_of_date":"2026-11-13",
+  "candidates":[
+    {"id":93002,"title":"Regional Learning Grants","description":"After-school tutoring for middle school students is supported. The service area and start period will be announced.","award_floor":10000,"award_ceiling":75000},
+    {"id":93003,"title":"Community Learning Microgrants","description":"After-school tutoring projects may apply. Audience, geography and program start dates are pending.","award_floor":2000,"award_ceiling":10000},
+    {"id":93001,"title":"Alameda After-School Partnerships","description":"After-school tutoring for middle school students in Alameda County is supported for projects starting in fall 2027.","award_floor":25000,"award_ceiling":80000}
+  ],
+  "expected_order":[93001,93002,93003],
+  "expected_reasons":[
+    "The activity, students, county, requested amount and project start all fit.",
+    "The activity, students and amount fit. Geography and timing need confirmation.",
+    "The activity fits, but the ceiling falls below the requested amount. Geography, audience and timing need confirmation."
+  ]
+}

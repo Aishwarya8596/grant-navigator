@@ -1,0 +1,630 @@
+{
+  "observed_at": "2026-11-13T00:51:47.585649-08:00",
+  "turns": [
+    {
+      "prompt": "We are a California 501(c)(3) nonprofit running community volunteer programs. Find posted federal grant opportunities worth investigating.",
+      "elapsed_seconds": 13.47,
+      "authors": [
+        "grant_navigator",
+        "opportunity_researcher"
+      ],
+      "invocation_ids": [
+        "e-928fbbc6-b239-4014-be15-326587afa491"
+      ],
+      "calls": [
+        {
+          "author": "grant_navigator",
+          "id": "call_3183263582449486239",
+          "args": {
+            "organization_location": "California",
+            "organization_type": "501(c)(3) nonprofit",
+            "project_purpose": "Community volunteer programs"
+          },
+          "name": "save_nonprofit_profile"
+        },
+        {
+          "author": "grant_navigator",
+          "id": "call_20834774874344681",
+          "args": {
+            "request": "Find federal grant opportunities for a California 501(c)(3) nonprofit running community volunteer programs."
+          },
+          "name": "opportunity_researcher"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_13974483976691079204",
+          "args": {
+            "keyword": "community volunteer programs",
+            "rows": 3
+          },
+          "name": "search_grants"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_16887714054597405579",
+          "args": {
+            "rows": 3,
+            "keyword": "volunteer programs"
+          },
+          "name": "search_grants"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_11247815674269097792",
+          "args": {
+            "rows": 3,
+            "keyword": "volunteer community service"
+          },
+          "name": "search_grants"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_16464782219302100315",
+          "args": {
+            "opportunity_id": 363771
+          },
+          "name": "fetch_grant_details"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_17182587360216865716",
+          "args": {
+            "focus": "deadlines applicant routes eligibility cost sharing state commission",
+            "opportunity_id": 363771,
+            "max_excerpts": 8
+          },
+          "name": "read_grant_notice"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_13365263048215614190",
+          "args": {
+            "opportunity_id": 362715
+          },
+          "name": "fetch_grant_details"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_446589115419679944",
+          "args": {
+            "max_excerpts": 8,
+            "focus": "deadlines eligibility application route cost sharing state commission matching requirement",
+            "opportunity_id": 362715
+          },
+          "name": "read_grant_notice"
+        }
+      ],
+      "notice_responses": [
+        {
+          "opportunity_id": 363771,
+          "eligibility_status": "not_assessed",
+          "currentness_verified": false,
+          "excerpts": [],
+          "status": "notice_unavailable",
+          "message": "No reviewed full-notice PDF is configured for this opportunity. Locate and verify the official notice before assessing eligibility."
+        },
+        {
+          "opportunity_id": 362715,
+          "eligibility_status": "not_assessed",
+          "currentness_verified": false,
+          "excerpts": [],
+          "status": "notice_unavailable",
+          "message": "No reviewed full-notice PDF is configured for this opportunity. Locate and verify the official notice before assessing eligibility."
+        }
+      ],
+      "research_responses": [
+        {
+          "result": "Based on your search for federal grant opportunities supporting community volunteer programs for a 501(c)(3) nonprofit located in California, the following candidates are worth investigating. \n\nNote: The saved profile indicates that the **service area is unknown** (headquarters are in California, but specific project service areas have not been provided). Additionally, funding amounts, beneficiaries, and project timing are unspecified.\n\n---\n\n### Candidate Worth Investigating 1\n* **ID:** 363771\n* **Number:** IGSM-FY27\n* **Title:** Inspire Grants for Small Museums (2027)\n* **Agency:** Institute of Museum and Library Services\n* **API Deadline:** November 13, 2026 (Source: Grants.gov API synopsis)\n* **Synopsis-Based Reason to Investigate:** This program supports project-based efforts to serve the public through educational programs, exhibits, and **community partnerships**. If your nonprofit operates community volunteer programs within or in partnership with a small museum, this grant could help build organizational capacity and public engagement.\n* **Source Link:** [Grants.gov Opportunity 363771](https://www.grants.gov/search-results-detail/363771)\n* **Unresolved Rules & Missing Facts:** The reviewed full-notice PDF was unavailable via automated tools, so eligibility criteria for specific nonprofit types (beyond small museums) and cost-sharing requirements must be verified directly from the official agency announcement.\n\n---\n\n### Candidate Worth Investigating 2\n* **ID:** 362715\n* **Number:** P26AS00125\n* **Title:** Outdoor Recreation Legacy Partnership Program (ORLP) Recurring Notice 5 Year\n* **Agency:** Department of the Interior / National Park Service\n* **API Deadline:** November 01, 2030 (Source: Grants.gov API synopsis)\n* **Synopsis-Based Reason to Investigate:** If your community volunteer programs involve outdoor recreation, park development, or environmental stewardship in qualifying urban areas (population of 25,000 or more), this program provides substantial funding to acquire land and water or develop/renovate outdoor recreation facilities.\n* **Source Link:** [Grants.gov Opportunity 362715](https://www.grants.gov/search-results-detail/362715)\n* **Unresolved Rules & Missing Facts:** This program generally requires state government or tribal sponsorship and carries a mandatory 1:1 (50%) non-federal matching requirement, as well as property protection rules in perpetuity. The exact application route for nonprofits and local single-state rules depend on your specific project service area. The reviewed full-notice PDF was unavailable via automated tools, so you should review the attached synopsis documents directly on Grants.gov.\n\n---\n\n### Unknown Profile Details Affecting Matching\n* **Service Area:** Because the specific service area within California is unknown, single-state rules, local urban population thresholds (for ORLP), and regional eligibility cannot be definitively assessed.\n* **Beneficiaries & Project Scope:** Without details on whether your volunteer programs focus on museums, parks, youth, or social services, alignment with specific agency priorities remains preliminary.\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services."
+        }
+      ],
+      "texts": [
+        {
+          "author": "opportunity_researcher",
+          "text": "Based on your search for federal grant opportunities supporting community volunteer programs for a 501(c)(3) nonprofit located in California, the following candidates are worth investigating. \n\nNote: The saved profile indicates that the **service area is unknown** (headquarters are in California, but specific project service areas have not been provided). Additionally, funding amounts, beneficiaries, and project timing are unspecified.\n\n---\n\n### Candidate Worth Investigating 1\n* **ID:** 363771\n* **Number:** IGSM-FY27\n* **Title:** Inspire Grants for Small Museums (2027)\n* **Agency:** Institute of Museum and Library Services\n* **API Deadline:** November 13, 2026 (Source: Grants.gov API synopsis)\n* **Synopsis-Based Reason to Investigate:** This program supports project-based efforts to serve the public through educational programs, exhibits, and **community partnerships**. If your nonprofit operates community volunteer programs within or in partnership with a small museum, this grant could help build organizational capacity and public engagement.\n* **Source Link:** [Grants.gov Opportunity 363771](https://www.grants.gov/search-results-detail/363771)\n* **Unresolved Rules & Missing Facts:** The reviewed full-notice PDF was unavailable via automated tools, so eligibility criteria for specific nonprofit types (beyond small museums) and cost-sharing requirements must be verified directly from the official agency announcement.\n\n---\n\n### Candidate Worth Investigating 2\n* **ID:** 362715\n* **Number:** P26AS00125\n* **Title:** Outdoor Recreation Legacy Partnership Program (ORLP) Recurring Notice 5 Year\n* **Agency:** Department of the Interior /"
+        },
+        {
+          "author": "opportunity_researcher",
+          "text": " National Park Service\n* **API Deadline:** November 01, 2030 (Source: Grants.gov API synopsis)\n* **Synopsis-Based Reason to Investigate:** If your community volunteer programs involve outdoor recreation, park development, or environmental stewardship in qualifying urban areas (population of 25,000 or more), this program provides substantial funding to acquire land and water or develop/renovate outdoor recreation facilities.\n* **Source Link:** [Grants.gov Opportunity 362715](https://www.grants.gov/search-results-detail/362715)\n* **Unresolved Rules & Missing Facts:** This program generally requires state government or tribal sponsorship and carries a mandatory 1:1 (50%) non-federal matching requirement, as well as property protection rules in perpetuity. The exact application route for nonprofits and local single-state rules depend on your specific project service area. The reviewed full-notice PDF was unavailable via automated tools, so you should review the attached synopsis documents directly on Grants.gov.\n\n---\n\n### Unknown Profile Details Affecting Matching\n* **Service Area:** Because the specific service area within California is unknown, single-state rules, local urban population thresholds (for ORLP), and regional eligibility cannot be definitively assessed.\n* **Beneficiaries & Project Scope:** Without details on whether your volunteer programs focus on museums, parks, youth, or social services, alignment with specific agency priorities remains preliminary.\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services."
+        },
+        {
+          "author": "grant_navigator",
+          "text": "**Nonprofit profile**\n\n- **Organization type:** 501(c)(3) nonprofit\n- **Organization location:** California\n- **Project purpose:** Community volunteer programs\n- **Service area:** Unknown\n- **Beneficiaries:** Unknown\n- **Requested funding:** Unknown\n- **Project timing:** Unknown\n\n---\n\n**Notice sources retrieved**\n\n- **IGSM-FY27:** Full-notice evidence unavailable (notice unavailable); synopsis-only discovery.\n- **P26AS00125:** Full-notice evidence unavailable (notice unavailable); synopsis-only discovery.\n\nThese are selected excerpts. Current amendments, applicant-specific deadlines, and eligibility remain unverified.\n\n---\n\nBased on your search for federal grant opportunities supporting community volunteer programs for a 501(c)(3) nonprofit located in California, the following candidates are worth investigating. \n\nNote: The saved profile indicates that the **service area is unknown** (headquarters are in California, but specific project service areas have not been provided). Additionally, funding amounts, beneficiaries, and project timing are unspecified.\n\n---\n\n### Candidate Worth Investigating 1\n* **ID:** 363771\n* **Number:** IGSM-FY27\n* **Title:** Inspire Grants for Small Museums (2027)\n* **Agency:** Institute of Museum and Library Services\n* **API Deadline:** November 13, 2026 (Source: Grants.gov API synopsis)\n* **Synopsis-Based Reason to Investigate:** This program supports project-based efforts to serve the public through educational programs, exhibits, and **community partnerships**. If your nonprofit operates community volunteer programs within or in partnership with a small museum, this grant could help build organizational capacity and public engagement.\n* **Source Link:** [Grants.gov Opportunity 363771](https://www.grants.gov/search-results-detail/363771)\n* **Unresolved Rules & Missing Facts:** The reviewed full-notice PDF was unavailable via automated tools, so eligibility criteria for specific nonprofit types (beyond small museums) and cost-sharing requirements must be verified directly from the official agency announcement.\n\n---\n\n### Candidate Worth Investigating 2\n* **ID:** 362715\n* **Number:** P26AS00125\n* **Title:** Outdoor Recreation Legacy Partnership Program (ORLP) Recurring Notice 5 Year\n* **Agency:** Department of the Interior / National Park Service\n* **API Deadline:** November 01, 2030 (Source: Grants.gov API synopsis)\n* **Synopsis-Based Reason to Investigate:** If your community volunteer programs involve outdoor recreation, park development, or environmental stewardship in qualifying urban areas (population of 25,000 or more), this program provides substantial funding to acquire land and water or develop/renovate outdoor recreation facilities.\n* **Source Link:** [Grants.gov Opportunity 362715](https://www.grants.gov/search-results-detail/362715)\n* **Unresolved Rules & Missing Facts:** This program generally requires state government or tribal sponsorship and carries a mandatory 1:1 (50%) non-federal matching requirement, as well as property protection rules in perpetuity. The exact application route for nonprofits and local single-state rules depend on your specific project service area. The reviewed full-notice PDF was unavailable via automated tools, so you should review the attached synopsis documents directly on Grants.gov.\n\n---\n\n### Unknown Profile Details Affecting Matching\n* **Service Area:** Because the specific service area within California is unknown, single-state rules, local urban population thresholds (for ORLP), and regional eligibility cannot be definitively assessed.\n* **Beneficiaries & Project Scope:** Without details on whether your volunteer programs focus on museums, parks, youth, or social services, alignment with specific agency priorities remains preliminary.\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services."
+        }
+      ],
+      "errors": [],
+      "enforced_notice_calls": [
+        [
+          363771
+        ],
+        [
+          362715
+        ]
+      ],
+      "state": {
+        "nonprofit_profile": {
+          "organization_name": null,
+          "organization_type": "501(c)(3) nonprofit",
+          "organization_location": "California",
+          "project_purpose": "Community volunteer programs",
+          "service_area": null,
+          "beneficiaries": null,
+          "funding_amount_usd": null,
+          "project_timing": null
+        },
+        "profile_version": 1,
+        "research_summary": "Based on your search for federal grant opportunities supporting community volunteer programs for a 501(c)(3) nonprofit located in California, the following candidates are worth investigating. \n\nNote: The saved profile indicates that the **service area is unknown** (headquarters are in California, but specific project service areas have not been provided). Additionally, funding amounts, beneficiaries, and project timing are unspecified.\n\n---\n\n### Candidate Worth Investigating 1\n* **ID:** 363771\n* **Number:** IGSM-FY27\n* **Title:** Inspire Grants for Small Museums (2027)\n* **Agency:** Institute of Museum and Library Services\n* **API Deadline:** November 13, 2026 (Source: Grants.gov API synopsis)\n* **Synopsis-Based Reason to Investigate:** This program supports project-based efforts to serve the public through educational programs, exhibits, and **community partnerships**. If your nonprofit operates community volunteer programs within or in partnership with a small museum, this grant could help build organizational capacity and public engagement.\n* **Source Link:** [Grants.gov Opportunity 363771](https://www.grants.gov/search-results-detail/363771)\n* **Unresolved Rules & Missing Facts:** The reviewed full-notice PDF was unavailable via automated tools, so eligibility criteria for specific nonprofit types (beyond small museums) and cost-sharing requirements must be verified directly from the official agency announcement.\n\n---\n\n### Candidate Worth Investigating 2\n* **ID:** 362715\n* **Number:** P26AS00125\n* **Title:** Outdoor Recreation Legacy Partnership Program (ORLP) Recurring Notice 5 Year\n* **Agency:** Department of the Interior / National Park Service\n* **API Deadline:** November 01, 2030 (Source: Grants.gov API synopsis)\n* **Synopsis-Based Reason to Investigate:** If your community volunteer programs involve outdoor recreation, park development, or environmental stewardship in qualifying urban areas (population of 25,000 or more), this program provides substantial funding to acquire land and water or develop/renovate outdoor recreation facilities.\n* **Source Link:** [Grants.gov Opportunity 362715](https://www.grants.gov/search-results-detail/362715)\n* **Unresolved Rules & Missing Facts:** This program generally requires state government or tribal sponsorship and carries a mandatory 1:1 (50%) non-federal matching requirement, as well as property protection rules in perpetuity. The exact application route for nonprofits and local single-state rules depend on your specific project service area. The reviewed full-notice PDF was unavailable via automated tools, so you should review the attached synopsis documents directly on Grants.gov.\n\n---\n\n### Unknown Profile Details Affecting Matching\n* **Service Area:** Because the specific service area within California is unknown, single-state rules, local urban population thresholds (for ORLP), and regional eligibility cannot be definitively assessed.\n* **Beneficiaries & Project Scope:** Without details on whether your volunteer programs focus on museums, parks, youth, or social services, alignment with specific agency priorities remains preliminary.\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services.",
+        "research_outcome": {
+          "status": "completed",
+          "invocation_id": "e-928fbbc6-b239-4014-be15-326587afa491",
+          "profile_version": 1
+        },
+        "research_evidence": {
+          "invocation_id": "e-928fbbc6-b239-4014-be15-326587afa491",
+          "profile_version": 1,
+          "details": {
+            "363771": {
+              "id": 363771,
+              "number": "IGSM-FY27",
+              "title": "Inspire Grants for Small Museums (2027)"
+            },
+            "362715": {
+              "id": 362715,
+              "number": "P26AS00125",
+              "title": "Outdoor Recreation Legacy Partnership Program (ORLP) Recurring Notice 5 Year"
+            }
+          },
+          "notices": {
+            "363771": {
+              "opportunity_id": 363771,
+              "eligibility_status": "not_assessed",
+              "currentness_verified": false,
+              "excerpts": [],
+              "status": "notice_unavailable",
+              "message": "No reviewed full-notice PDF is configured for this opportunity. Locate and verify the official notice before assessing eligibility.",
+              "read_attempts": [
+                {
+                  "focus": "deadlines applicant routes eligibility cost sharing state commission",
+                  "status": "notice_unavailable"
+                }
+              ]
+            },
+            "362715": {
+              "opportunity_id": 362715,
+              "eligibility_status": "not_assessed",
+              "currentness_verified": false,
+              "excerpts": [],
+              "status": "notice_unavailable",
+              "message": "No reviewed full-notice PDF is configured for this opportunity. Locate and verify the official notice before assessing eligibility.",
+              "read_attempts": [
+                {
+                  "focus": "deadlines eligibility application route cost sharing state commission matching requirement",
+                  "status": "notice_unavailable"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "prompt": "Using my saved profile, investigate AmeriCorps opportunity 363696 (AC-08-28-26). Read the full notice and cite pages for deadlines, the application route, and cost-sharing rules. Do not assume where our project operates.",
+      "elapsed_seconds": 8.95,
+      "authors": [
+        "grant_navigator",
+        "opportunity_researcher"
+      ],
+      "invocation_ids": [
+        "e-adad86b2-03d6-43c2-ac1c-a6997f796a42"
+      ],
+      "calls": [
+        {
+          "author": "grant_navigator",
+          "id": "call_5084761737112352206",
+          "args": {},
+          "name": "save_nonprofit_profile"
+        },
+        {
+          "author": "grant_navigator",
+          "id": "call_16938935581484353013",
+          "args": {
+            "request": "Investigate AmeriCorps opportunity 363696 (AC-08-28-26), read the full notice, and cite pages for deadlines, application route, and cost-sharing rules."
+          },
+          "name": "opportunity_researcher"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_12476194643395669619",
+          "args": {
+            "opportunity_id": 363696
+          },
+          "name": "fetch_grant_details"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_17308211996791728572",
+          "args": {
+            "max_excerpts": 8,
+            "focus": "deadlines application route eligibility state commission cost sharing matching rules",
+            "opportunity_id": 363696
+          },
+          "name": "read_grant_notice"
+        }
+      ],
+      "notice_responses": [
+        {
+          "opportunity_id": 363696,
+          "eligibility_status": "not_assessed",
+          "currentness_verified": false,
+          "excerpts": [
+            {
+              "evidence_id": "notice:363696:250b6fff76658a26:p8:c1",
+              "page_number": 8,
+              "text": "8 \u2022 local governments, including school districts; \u2022 nonprofit organizations; \u2022 State Service Commissions (submit sub-applicants but not operate programs); and \u2022 states and US Territories. In addition to Indian Tribes as defined in 2 CFR 200.1, Tribal organizations that are controlled, authorized, or chartered by Federally recognized Indian Tribes are also eligible to apply. If an entity applies for an award as a tribal organization that is controlled or chartered by one or more Indian Tribes, and the organization does not meet any of the other applicant eligibility types, the organization must provide copies or links to documentation which demonstrates that the organization is controlled or chartered by a federally recognized Indian Tribe. If an entity applies as an organization authorized by a federally recognized Tribe, or multiple specific federally recognized tribes, it must submit a resolution or other authorization, adopted by the Tribal Council (or comparable tribal governing body) of each Indian Tribe. The authorization(s) must identify the entity applying for an AmeriCorps award by name as a tribal organization that is authorized by the Indian Tribe(s) for the purpose of applying for AmeriCorps funding (or federal grant funds generally). Applicants must have a valid SAM registration and Unique Entity Identifier to receive an award. See Section D.3. Unique Entity",
+              "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+              "citation_label": "Full notice, PDF page 8"
+            },
+            {
+              "evidence_id": "notice:363696:250b6fff76658a26:p1:c2",
+              "page_number": 1,
+              "text": "as codified at 5 U.S.C. \u00a7\u00a7801- 808, and any subsequent notification provided to Congress does not constitute waiver of this position. Important Dates \u2022 Applications are due not later than Wednesday, January 13, 2027 by 5:00 p.m. Eastern Time. \u2022 Successful applicants will be notified by mid-April, 2027. \u2022 Successful applicants will be issued awards by mid-June, 2027. Note to applicants proposing service in a single state: contact the commission in the state or territory where you intend to apply as early as possible. State service commissions may set their deadlines for single states applicants well in advance of AmeriCorps deadlines. The list of commissions can be found on the AmeriCorps State Service Commissions' webpage AmeriCorps State Service Commissions' webpage.",
+              "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1",
+              "citation_label": "Full notice, PDF page 1"
+            },
+            {
+              "evidence_id": "notice:363696:250b6fff76658a26:p8:c2",
+              "page_number": 8,
+              "text": "of applying for AmeriCorps funding (or federal grant funds generally). Applicants must have a valid SAM registration and Unique Entity Identifier to receive an award. See Section D.3. Unique Entity Identifier and System for Award Management (SAM) for more information. New Applicants: AmeriCorps strongly encourages organizations that have not received prior funding from AmeriCorps to apply, e.g., small community-based organizations, faith- based organizations, etc. New applicants are eligible to apply for cost reimbursement, Education Award Program (EAP), and Professional Corps grants, but are not eligible to apply for full cost fixed amount grants. Types of Applicants 1. State and Territory Service Commissions, for Single-State Applicants Organizations that plan to operate in only one state must apply through the state or territory commissions. Each commission has its own state-based selection process and submits applications to compete for funding directly to AmeriCorps. The list of commissions can be found on the AmeriCorps State Service Commissions' webpage. 2. National Direct Applicants Multi-State: Organizations that plan to operate AmeriCorps programs in more than one state or territory apply directly to AmeriCorps. States and Territories without State Service Commissions: Applicants in South Dakota, American Samoa, the Commonwealth of the Northern Mariana Islands, and",
+              "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+              "citation_label": "Full notice, PDF page 8"
+            },
+            {
+              "evidence_id": "notice:363696:250b6fff76658a26:p7:c2",
+              "page_number": 7,
+              "text": "Years 4,5, and 6 Years 7,8, and 9 Years 10 + Grantee Share Requirements 24% 26% 28% 30% Match Waiver Please use the Match Waiver information for AmeriCorps State and National grantees located on the AmeriCorps.gov Manage Your Grant webpage. AmeriCorps encourages Tribal Nations to request match waivers to reduce barriers. Every effort will be made to reduce the match requirements to improve accessibility to funding. Fixed Amount Grants There is no cost share or matching requirement for fixed amount grants. AmeriCorps does not provide all the funds necessary to operate the program. Organizations should raise the funds needed to operate the program. C. ELIGIBILITY INFORMATION C.1. Eligible Applicants The following non-Federal entities (all of which are defined in 2 CFR 200.1 or 42 U.S.C. 12511(21)) are eligible to apply: \u2022 Indian Tribes; \u2022 institutions of higher education;",
+              "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=7",
+              "citation_label": "Full notice, PDF page 7"
+            },
+            {
+              "evidence_id": "notice:363696:250b6fff76658a26:p7:c1",
+              "page_number": 7,
+              "text": "7 * Member Service Year (MSY): One MSY is equivalent to a full-time AmeriCorps position, at least 1,700 service hours. Multiple positions at less than full-time can be combined to equal one MSY. ** For the Education Award Program, AmeriCorps may provide a maximum of $800 per individual enrolled in an approved national service position. If at least 50 percent of a program\u2019s enrollees are disadvantaged youth, AmeriCorps may provide $1,000 per enrollee, 42 U.S.C. \u00a7 12581a. ***Use Mandatory Supplemental Information (MSI) for further requirements B.5. Cost Sharing or Matching Cost Reimbursement Grants Applicants are required to match funds provided by AmeriCorps. The applicant\u2019s match can be non-AmeriCorps cash and/or in-kind contributions. Applicants must show that they can meet the match requirement when they submit the application. Applicants must say in their application if they have already secured the match funding. A first-time successful applicant is required to match at 24 percent for the first three-year funding period. Starting with year four, the match requirement gradually increases every three years to 30 percent by year ten. AmeriCorps Funding Year Years 1,2, and 3 Years 4,5, and 6 Years 7,8, and 9 Years 10 + Grantee Share Requirements 24% 26% 28% 30% Match Waiver Please use the Match Waiver information for AmeriCorps State and National grantees located on the",
+              "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=7",
+              "citation_label": "Full notice, PDF page 7"
+            },
+            {
+              "evidence_id": "notice:363696:250b6fff76658a26:p23:c1",
+              "page_number": 23,
+              "text": "23 self-determined upon submission of its application. The stages of the review and selection process follow: E.2.a. Initial Application Compliance and Eligibility Review AmeriCorps will do an initial compliance and eligibility check before reviewing applications. To pass this check, applicants must: \u2022 Be an eligible organization, \u2022 Be eligible to apply for a Full Cost Fixed Grant, \u2022 Be eligible to submit directly to AmeriCorps, \u2022 Have an active SAM registration, \u2022 Not be listed on Do Not Pay or the exclusions list in SAM.gov, and \u2022 Submit an application by the submission deadline. Eligibility assessment is intended to ensure that only those applications that are eligible for award are reviewed. However, determinations of eligibility can take place at any point during the application review and selection process. Applicants that are determined to be ineligible will not receive an award. E.2.b. Application Review Review Reviewers will assess applications based on the Program Design, Organizational Capability, Cost-Effectiveness and Budget Adequacy, and Evidence Selection Criteria. AmeriCorps will also review and assess the input from the state service commissions about multi-state national direct applications. Staff will also assess budget compliance, and review for prohibited activities. Post-Review Quality Control AmeriCorps staff will review the initial results for fairness",
+              "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=23",
+              "citation_label": "Full notice, PDF page 23"
+            },
+            {
+              "evidence_id": "notice:363696:250b6fff76658a26:p6:c1",
+              "page_number": 6,
+              "text": "6 subsequent years are not guaranteed; they depend upon availability of appropriations and satisfactory performance. B.4. Type of Award AmeriCorps makes available different types of grants. The chart below summarizes these grant types and their distinct characteristics. Grant Types Cost Reimbursement Fixed Amount Available Subtypes Traditional Full- Cost Education Award Program, EAP Professional Corps*** No Cost Slots Maximum Cost per MSY* $26,800 $26,800 $800 or $1,000** $1,000 $0 Type of Slots in the National Service Trust All slot types All slot types All slot types FT Only All slot types Matching Funds Required Yes No Budget Submission Required Yes No Availability of Funds Linked to Enrollment / Retention of Awarded MSYs No Yes No Special Requirements N/A N/A Must place qualified professionals in communities with an inadequate # of such professionals. AmeriCorps Volunteer salaries / benefits must be paid entirely by organization where AmeriCorps Volunteer serves N/A Financial Reporting Requirements Yes No Available to New Applications Yes No Yes",
+              "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=6",
+              "citation_label": "Full notice, PDF page 6"
+            },
+            {
+              "evidence_id": "notice:363696:250b6fff76658a26:p9:c1",
+              "page_number": 9,
+              "text": "9 In addition to Indian Tribes, as defined in 2 CFR 200.1, tribal organizations that are controlled, authorized, or chartered by Federally recognized Indian Tribes are also eligible to apply directly to AmeriCorps. Federally recognized Indian Tribes will also be eligible to apply for operating or planning grants under a separate Notice of Funding Opportunity for Indian Tribes at the AmeriCorps.gov Funding Opportunities webpage with an application deadline in the spring. Threshold Issues Specific types of applicants must meet the following requirements: \u2022 Professional Corps must show that the community where it will place AmeriCorps Volunteers has a shortage of professionals in the relevant area, e.g., teachers, medical professionals, etc. \u2022 If service activities require special AmeriCorps Volunteer qualifications and/or training, such as tutoring programs, the applicant must describe how these requirements will be met. \u2022 All applicants must propose program designs that are either evidence-based or evidence-informed (See section E.1.b (2) Evidence Base). Applicants rated as insufficient evidence are removed from funding consideration. Insufficient evidence is determined by: o An applicant being assessed as in the pre-preliminary evidence tier AND o providing inadequate responses to the Evidence Quality review standards below. \u2022 All FY 2027 competitive applicants must submit an",
+              "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=9",
+              "citation_label": "Full notice, PDF page 9"
+            }
+          ],
+          "opportunity_number": "AC-08-28-26",
+          "source_title": "Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants",
+          "source_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf",
+          "source_page": "https://www.americorps.gov/funding-opportunity/fy-2027-americorps-state-national-grants",
+          "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+          "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00",
+          "page_numbering": "1-based physical PDF pages, including any cover pages",
+          "retrieval_mode": "saved_snapshot",
+          "retrieved_at_utc": null,
+          "page_count": 28,
+          "pages_searched": 28,
+          "warnings": [
+            "This is a reviewed, dated snapshot; amendments or a newer notice may exist.",
+            "Whitespace is normalized; excerpts preserve wording within a single PDF page.",
+            "Selected excerpts are not an exhaustive review of every requirement."
+          ],
+          "status": "success"
+        }
+      ],
+      "research_responses": [
+        {
+          "result": "### Candidate Worth Investigating\n\n* **ID:** 363696\n* **Opportunity Number:** AC-08-28-26\n* **Title:** Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants\n* **Agency:** AmeriCorps\n* **API Deadline:** January 13, 2027 (Note: The API deadline is listed as January 13, 2027; however, the notice states that single-state applicants must contact their state service commission as early as possible because commissions may set their deadlines well in advance of the federal deadline [Notice p. 1](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1)).\n* **Synopsis-Based Reason to Investigate:** The organization's project purpose aligns with engaging community volunteers, and 501(c)(3) nonprofits are explicitly eligible applicant types to operate AmeriCorps programs addressing community challenges through national service [Notice p. 1, 8](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1).\n* **Source Link:** [Grants.gov Opportunity 363696](https://www.grants.gov/search-results-detail/363696)\n\n---\n\n### Notice Rules & Requirements (Dated Snapshot)\n\n* **Deadlines:** Applications are due no later than Wednesday, January 13, 2027, by 5:00 p.m. Eastern Time [Notice p. 1](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1). Single-state applicants must contact their state service commission early, as state commissions can set earlier deadlines [Notice p. 1](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1).\n* **Application Route:** Organizations planning to operate in only one state must apply through their state or territory service commission using a state-based selection process [Notice p. 8](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8). Multi-state (National Direct) applicants apply directly to AmeriCorps [Notice p. 8](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8).\n* **Cost-Sharing and Matching Rules:** Cost-reimbursement grants require non-AmeriCorps cash and/or in-kind matching contributions [Notice p. 7](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=7). First-time successful applicants must match at 24 percent for the first three-year funding period, increasing incrementally to 30 percent by year ten [Notice p. 7](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=7). Fixed amount grants carry no cost-sharing or matching requirements [Notice p. 7](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=7).\n\n---\n\n### Unresolved Rules and Missing Facts\n\n* **Service Area:** The saved nonprofit profile does not specify a service area (listed as `null`), so it is unknown whether the applicant operates in a single state or multiple states. This determines whether the organization must apply through a state service commission or directly to AmeriCorps as a National Direct applicant.\n* **Funding Amount & Project Timing:** Specific funding amounts and project timing details are not provided in the saved profile, meaning budget size and grant type fit (cost reimbursement vs. fixed amount) remain unverified.\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services."
+        }
+      ],
+      "texts": [
+        {
+          "author": "opportunity_researcher",
+          "text": "### Candidate Worth Investigating\n\n* **ID:** 363696\n* **Opportunity Number:** AC-08-28-26\n* **Title:** Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants\n* **Agency:** AmeriCorps\n* **API Deadline:** January 13, 2027 (Note: The API deadline is listed as January 13, 2027; however, the notice states that single-state applicants must contact their state service commission as early as possible because commissions may set their deadlines well in advance of the federal deadline [Notice p. 1](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1)).\n* **Synopsis-Based Reason to Investigate:** The organization's project purpose aligns with engaging community volunteers, and 501(c)(3) nonprofits are explicitly eligible applicant types to operate AmeriCorps programs addressing community challenges through national service [Notice p. 1, 8](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1).\n* **Source Link:** [Grants.gov Opportunity 363696](https://www.grants.gov/search-results-detail/363696)\n\n---\n\n### Notice Rules & Requirements (Dated Snapshot)\n\n* **Deadlines:** Applications are due no later than Wednesday, January 13, 2027, by 5:00 p.m. Eastern Time [Notice p. 1](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1). Single-state applicants must contact their state service commission early, as state commissions can set earlier deadlines [Notice p. 1](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1).\n* **Application Route:** Organizations planning to operate in only one state must apply through their state or territory service commission using a state-based selection process [Notice p. 8](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8). Multi-state (National Direct) applicants apply directly to AmeriCorps [Notice p. 8](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8).\n* **Cost-Sharing and Matching Rules:** Cost-reimbursement grants require non-AmeriCorps cash and/or in-kind matching contributions [Notice p. 7](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=7). First-time successful applicants must match at 24 percent for the first three-year funding period, increasing incrementally to 30 percent by year ten [Notice p. 7](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=7). Fixed amount grants carry no cost-sharing or matching requirements [Notice p. 7](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=7).\n\n---\n\n### Unresolved Rules and Missing Facts\n\n* **Service Area:** The saved nonprofit profile does not specify a service area (listed as `null`), so it is unknown whether the applicant operates in a single state or multiple states. This determines whether the organization must apply through a state service commission or directly to AmeriCorps as a National Direct applicant.\n* **Funding Amount & Project Timing:** Specific funding amounts and project timing details are not provided in the saved profile, meaning budget size and grant type fit (cost reimbursement vs. fixed amount) remain unverified.\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services."
+        },
+        {
+          "author": "grant_navigator",
+          "text": "**Nonprofit profile**\n\n- **Organization type:** 501(c)(3) nonprofit\n- **Organization location:** California\n- **Project purpose:** Community volunteer programs\n- **Service area:** Unknown\n- **Beneficiaries:** Unknown\n- **Requested funding:** Unknown\n- **Project timing:** Unknown\n\n---\n\n**Notice sources retrieved**\n\n- **AC-08-28-26:** Notice excerpts retrieved ([p. 1](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1), [p. 6](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=6), [p. 7](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=7), [p. 8](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8), [p. 9](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=9), [p. 23](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=23)); saved snapshot, captured 2026-11-10.\n\nThese are selected excerpts. Current amendments, applicant-specific deadlines, and eligibility remain unverified.\n\n---\n\n### Candidate Worth Investigating\n\n* **ID:** 363696\n* **Opportunity Number:** AC-08-28-26\n* **Title:** Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants\n* **Agency:** AmeriCorps\n* **API Deadline:** January 13, 2027 (Note: The API deadline is listed as January 13, 2027; however, the notice states that single-state applicants must contact their state service commission as early as possible because commissions may set their deadlines well in advance of the federal deadline [Notice p. 1](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1)).\n* **Synopsis-Based Reason to Investigate:** The organization's project purpose aligns with engaging community volunteers, and 501(c)(3) nonprofits are explicitly eligible applicant types to operate AmeriCorps programs addressing community challenges through national service [Notice p. 1, 8](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1).\n* **Source Link:** [Grants.gov Opportunity 363696](https://www.grants.gov/search-results-detail/363696)\n\n---\n\n### Notice Rules & Requirements (Dated Snapshot)\n\n* **Deadlines:** Applications are due no later than Wednesday, January 13, 2027, by 5:00 p.m. Eastern Time [Notice p. 1](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1). Single-state applicants must contact their state service commission early, as state commissions can set earlier deadlines [Notice p. 1](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1).\n* **Application Route:** Organizations planning to operate in only one state must apply through their state or territory service commission using a state-based selection process [Notice p. 8](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8). Multi-state (National Direct) applicants apply directly to AmeriCorps [Notice p. 8](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8).\n* **Cost-Sharing and Matching Rules:** Cost-reimbursement grants require non-AmeriCorps cash and/or in-kind matching contributions [Notice p. 7](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=7). First-time successful applicants must match at 24 percent for the first three-year funding period, increasing incrementally to 30 percent by year ten [Notice p. 7](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=7). Fixed amount grants carry no cost-sharing or matching requirements [Notice p. 7](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=7).\n\n---\n\n### Unresolved Rules and Missing Facts\n\n* **Service Area:** The saved nonprofit profile does not specify a service area (listed as `null`), so it is unknown whether the applicant operates in a single state or multiple states. This determines whether the organization must apply through a state service commission or directly to AmeriCorps as a National Direct applicant.\n* **Funding Amount & Project Timing:** Specific funding amounts and project timing details are not provided in the saved profile, meaning budget size and grant type fit (cost reimbursement vs. fixed amount) remain unverified.\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services."
+        }
+      ],
+      "errors": [],
+      "enforced_notice_calls": [
+        [
+          363696
+        ]
+      ],
+      "state": {
+        "nonprofit_profile": {
+          "organization_name": null,
+          "organization_type": "501(c)(3) nonprofit",
+          "organization_location": "California",
+          "project_purpose": "Community volunteer programs",
+          "service_area": null,
+          "beneficiaries": null,
+          "funding_amount_usd": null,
+          "project_timing": null
+        },
+        "profile_version": 1,
+        "research_summary": "### Candidate Worth Investigating\n\n* **ID:** 363696\n* **Opportunity Number:** AC-08-28-26\n* **Title:** Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants\n* **Agency:** AmeriCorps\n* **API Deadline:** January 13, 2027 (Note: The API deadline is listed as January 13, 2027; however, the notice states that single-state applicants must contact their state service commission as early as possible because commissions may set their deadlines well in advance of the federal deadline [Notice p. 1](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1)).\n* **Synopsis-Based Reason to Investigate:** The organization's project purpose aligns with engaging community volunteers, and 501(c)(3) nonprofits are explicitly eligible applicant types to operate AmeriCorps programs addressing community challenges through national service [Notice p. 1, 8](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1).\n* **Source Link:** [Grants.gov Opportunity 363696](https://www.grants.gov/search-results-detail/363696)\n\n---\n\n### Notice Rules & Requirements (Dated Snapshot)\n\n* **Deadlines:** Applications are due no later than Wednesday, January 13, 2027, by 5:00 p.m. Eastern Time [Notice p. 1](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1). Single-state applicants must contact their state service commission early, as state commissions can set earlier deadlines [Notice p. 1](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1).\n* **Application Route:** Organizations planning to operate in only one state must apply through their state or territory service commission using a state-based selection process [Notice p. 8](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8). Multi-state (National Direct) applicants apply directly to AmeriCorps [Notice p. 8](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8).\n* **Cost-Sharing and Matching Rules:** Cost-reimbursement grants require non-AmeriCorps cash and/or in-kind matching contributions [Notice p. 7](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=7). First-time successful applicants must match at 24 percent for the first three-year funding period, increasing incrementally to 30 percent by year ten [Notice p. 7](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=7). Fixed amount grants carry no cost-sharing or matching requirements [Notice p. 7](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=7).\n\n---\n\n### Unresolved Rules and Missing Facts\n\n* **Service Area:** The saved nonprofit profile does not specify a service area (listed as `null`), so it is unknown whether the applicant operates in a single state or multiple states. This determines whether the organization must apply through a state service commission or directly to AmeriCorps as a National Direct applicant.\n* **Funding Amount & Project Timing:** Specific funding amounts and project timing details are not provided in the saved profile, meaning budget size and grant type fit (cost reimbursement vs. fixed amount) remain unverified.\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services.",
+        "research_outcome": {
+          "status": "completed",
+          "invocation_id": "e-adad86b2-03d6-43c2-ac1c-a6997f796a42",
+          "profile_version": 1
+        },
+        "research_evidence": {
+          "invocation_id": "e-adad86b2-03d6-43c2-ac1c-a6997f796a42",
+          "profile_version": 1,
+          "details": {
+            "363696": {
+              "id": 363696,
+              "number": "AC-08-28-26",
+              "title": "Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants"
+            }
+          },
+          "notices": {
+            "363696": {
+              "opportunity_id": 363696,
+              "eligibility_status": "not_assessed",
+              "currentness_verified": false,
+              "excerpts": [
+                {
+                  "evidence_id": "notice:363696:250b6fff76658a26:p8:c1",
+                  "page_number": 8,
+                  "text": "8 \u2022 local governments, including school districts; \u2022 nonprofit organizations; \u2022 State Service Commissions (submit sub-applicants but not operate programs); and \u2022 states and US Territories. In addition to Indian Tribes as defined in 2 CFR 200.1, Tribal organizations that are controlled, authorized, or chartered by Federally recognized Indian Tribes are also eligible to apply. If an entity applies for an award as a tribal organization that is controlled or chartered by one or more Indian Tribes, and the organization does not meet any of the other applicant eligibility types, the organization must provide copies or links to documentation which demonstrates that the organization is controlled or chartered by a federally recognized Indian Tribe. If an entity applies as an organization authorized by a federally recognized Tribe, or multiple specific federally recognized tribes, it must submit a resolution or other authorization, adopted by the Tribal Council (or comparable tribal governing body) of each Indian Tribe. The authorization(s) must identify the entity applying for an AmeriCorps award by name as a tribal organization that is authorized by the Indian Tribe(s) for the purpose of applying for AmeriCorps funding (or federal grant funds generally). Applicants must have a valid SAM registration and Unique Entity Identifier to receive an award. See Section D.3. Unique Entity",
+                  "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                  "citation_label": "Full notice, PDF page 8"
+                },
+                {
+                  "evidence_id": "notice:363696:250b6fff76658a26:p1:c2",
+                  "page_number": 1,
+                  "text": "as codified at 5 U.S.C. \u00a7\u00a7801- 808, and any subsequent notification provided to Congress does not constitute waiver of this position. Important Dates \u2022 Applications are due not later than Wednesday, January 13, 2027 by 5:00 p.m. Eastern Time. \u2022 Successful applicants will be notified by mid-April, 2027. \u2022 Successful applicants will be issued awards by mid-June, 2027. Note to applicants proposing service in a single state: contact the commission in the state or territory where you intend to apply as early as possible. State service commissions may set their deadlines for single states applicants well in advance of AmeriCorps deadlines. The list of commissions can be found on the AmeriCorps State Service Commissions' webpage AmeriCorps State Service Commissions' webpage.",
+                  "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1",
+                  "citation_label": "Full notice, PDF page 1"
+                },
+                {
+                  "evidence_id": "notice:363696:250b6fff76658a26:p8:c2",
+                  "page_number": 8,
+                  "text": "of applying for AmeriCorps funding (or federal grant funds generally). Applicants must have a valid SAM registration and Unique Entity Identifier to receive an award. See Section D.3. Unique Entity Identifier and System for Award Management (SAM) for more information. New Applicants: AmeriCorps strongly encourages organizations that have not received prior funding from AmeriCorps to apply, e.g., small community-based organizations, faith- based organizations, etc. New applicants are eligible to apply for cost reimbursement, Education Award Program (EAP), and Professional Corps grants, but are not eligible to apply for full cost fixed amount grants. Types of Applicants 1. State and Territory Service Commissions, for Single-State Applicants Organizations that plan to operate in only one state must apply through the state or territory commissions. Each commission has its own state-based selection process and submits applications to compete for funding directly to AmeriCorps. The list of commissions can be found on the AmeriCorps State Service Commissions' webpage. 2. National Direct Applicants Multi-State: Organizations that plan to operate AmeriCorps programs in more than one state or territory apply directly to AmeriCorps. States and Territories without State Service Commissions: Applicants in South Dakota, American Samoa, the Commonwealth of the Northern Mariana Islands, and",
+                  "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                  "citation_label": "Full notice, PDF page 8"
+                },
+                {
+                  "evidence_id": "notice:363696:250b6fff76658a26:p7:c2",
+                  "page_number": 7,
+                  "text": "Years 4,5, and 6 Years 7,8, and 9 Years 10 + Grantee Share Requirements 24% 26% 28% 30% Match Waiver Please use the Match Waiver information for AmeriCorps State and National grantees located on the AmeriCorps.gov Manage Your Grant webpage. AmeriCorps encourages Tribal Nations to request match waivers to reduce barriers. Every effort will be made to reduce the match requirements to improve accessibility to funding. Fixed Amount Grants There is no cost share or matching requirement for fixed amount grants. AmeriCorps does not provide all the funds necessary to operate the program. Organizations should raise the funds needed to operate the program. C. ELIGIBILITY INFORMATION C.1. Eligible Applicants The following non-Federal entities (all of which are defined in 2 CFR 200.1 or 42 U.S.C. 12511(21)) are eligible to apply: \u2022 Indian Tribes; \u2022 institutions of higher education;",
+                  "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=7",
+                  "citation_label": "Full notice, PDF page 7"
+                },
+                {
+                  "evidence_id": "notice:363696:250b6fff76658a26:p7:c1",
+                  "page_number": 7,
+                  "text": "7 * Member Service Year (MSY): One MSY is equivalent to a full-time AmeriCorps position, at least 1,700 service hours. Multiple positions at less than full-time can be combined to equal one MSY. ** For the Education Award Program, AmeriCorps may provide a maximum of $800 per individual enrolled in an approved national service position. If at least 50 percent of a program\u2019s enrollees are disadvantaged youth, AmeriCorps may provide $1,000 per enrollee, 42 U.S.C. \u00a7 12581a. ***Use Mandatory Supplemental Information (MSI) for further requirements B.5. Cost Sharing or Matching Cost Reimbursement Grants Applicants are required to match funds provided by AmeriCorps. The applicant\u2019s match can be non-AmeriCorps cash and/or in-kind contributions. Applicants must show that they can meet the match requirement when they submit the application. Applicants must say in their application if they have already secured the match funding. A first-time successful applicant is required to match at 24 percent for the first three-year funding period. Starting with year four, the match requirement gradually increases every three years to 30 percent by year ten. AmeriCorps Funding Year Years 1,2, and 3 Years 4,5, and 6 Years 7,8, and 9 Years 10 + Grantee Share Requirements 24% 26% 28% 30% Match Waiver Please use the Match Waiver information for AmeriCorps State and National grantees located on the",
+                  "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=7",
+                  "citation_label": "Full notice, PDF page 7"
+                },
+                {
+                  "evidence_id": "notice:363696:250b6fff76658a26:p23:c1",
+                  "page_number": 23,
+                  "text": "23 self-determined upon submission of its application. The stages of the review and selection process follow: E.2.a. Initial Application Compliance and Eligibility Review AmeriCorps will do an initial compliance and eligibility check before reviewing applications. To pass this check, applicants must: \u2022 Be an eligible organization, \u2022 Be eligible to apply for a Full Cost Fixed Grant, \u2022 Be eligible to submit directly to AmeriCorps, \u2022 Have an active SAM registration, \u2022 Not be listed on Do Not Pay or the exclusions list in SAM.gov, and \u2022 Submit an application by the submission deadline. Eligibility assessment is intended to ensure that only those applications that are eligible for award are reviewed. However, determinations of eligibility can take place at any point during the application review and selection process. Applicants that are determined to be ineligible will not receive an award. E.2.b. Application Review Review Reviewers will assess applications based on the Program Design, Organizational Capability, Cost-Effectiveness and Budget Adequacy, and Evidence Selection Criteria. AmeriCorps will also review and assess the input from the state service commissions about multi-state national direct applications. Staff will also assess budget compliance, and review for prohibited activities. Post-Review Quality Control AmeriCorps staff will review the initial results for fairness",
+                  "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=23",
+                  "citation_label": "Full notice, PDF page 23"
+                },
+                {
+                  "evidence_id": "notice:363696:250b6fff76658a26:p6:c1",
+                  "page_number": 6,
+                  "text": "6 subsequent years are not guaranteed; they depend upon availability of appropriations and satisfactory performance. B.4. Type of Award AmeriCorps makes available different types of grants. The chart below summarizes these grant types and their distinct characteristics. Grant Types Cost Reimbursement Fixed Amount Available Subtypes Traditional Full- Cost Education Award Program, EAP Professional Corps*** No Cost Slots Maximum Cost per MSY* $26,800 $26,800 $800 or $1,000** $1,000 $0 Type of Slots in the National Service Trust All slot types All slot types All slot types FT Only All slot types Matching Funds Required Yes No Budget Submission Required Yes No Availability of Funds Linked to Enrollment / Retention of Awarded MSYs No Yes No Special Requirements N/A N/A Must place qualified professionals in communities with an inadequate # of such professionals. AmeriCorps Volunteer salaries / benefits must be paid entirely by organization where AmeriCorps Volunteer serves N/A Financial Reporting Requirements Yes No Available to New Applications Yes No Yes",
+                  "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=6",
+                  "citation_label": "Full notice, PDF page 6"
+                },
+                {
+                  "evidence_id": "notice:363696:250b6fff76658a26:p9:c1",
+                  "page_number": 9,
+                  "text": "9 In addition to Indian Tribes, as defined in 2 CFR 200.1, tribal organizations that are controlled, authorized, or chartered by Federally recognized Indian Tribes are also eligible to apply directly to AmeriCorps. Federally recognized Indian Tribes will also be eligible to apply for operating or planning grants under a separate Notice of Funding Opportunity for Indian Tribes at the AmeriCorps.gov Funding Opportunities webpage with an application deadline in the spring. Threshold Issues Specific types of applicants must meet the following requirements: \u2022 Professional Corps must show that the community where it will place AmeriCorps Volunteers has a shortage of professionals in the relevant area, e.g., teachers, medical professionals, etc. \u2022 If service activities require special AmeriCorps Volunteer qualifications and/or training, such as tutoring programs, the applicant must describe how these requirements will be met. \u2022 All applicants must propose program designs that are either evidence-based or evidence-informed (See section E.1.b (2) Evidence Base). Applicants rated as insufficient evidence are removed from funding consideration. Insufficient evidence is determined by: o An applicant being assessed as in the pre-preliminary evidence tier AND o providing inadequate responses to the Evidence Quality review standards below. \u2022 All FY 2027 competitive applicants must submit an",
+                  "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=9",
+                  "citation_label": "Full notice, PDF page 9"
+                }
+              ],
+              "opportunity_number": "AC-08-28-26",
+              "source_title": "Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants",
+              "source_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf",
+              "source_page": "https://www.americorps.gov/funding-opportunity/fy-2027-americorps-state-national-grants",
+              "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+              "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00",
+              "page_numbering": "1-based physical PDF pages, including any cover pages",
+              "retrieval_mode": "saved_snapshot",
+              "retrieved_at_utc": null,
+              "page_count": 28,
+              "pages_searched": 28,
+              "warnings": [
+                "This is a reviewed, dated snapshot; amendments or a newer notice may exist.",
+                "Whitespace is normalized; excerpts preserve wording within a single PDF page.",
+                "Selected excerpts are not an exhaustive review of every requirement."
+              ],
+              "status": "success",
+              "read_attempts": [
+                {
+                  "focus": "deadlines application route eligibility state commission cost sharing matching rules",
+                  "status": "success"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "prompt": "Using the same profile, investigate Grants.gov opportunity 363771. Try to read its full notice. If a reviewed notice is unavailable, explain that limitation and do not determine eligibility.",
+      "elapsed_seconds": 8.15,
+      "authors": [
+        "grant_navigator",
+        "opportunity_researcher"
+      ],
+      "invocation_ids": [
+        "e-d044148b-e140-4f28-b6fc-d70bc8529abd"
+      ],
+      "calls": [
+        {
+          "author": "grant_navigator",
+          "id": "call_8796613502050345004",
+          "args": {
+            "request": "Investigate Grants.gov opportunity 363771 and try to read its full notice."
+          },
+          "name": "opportunity_researcher"
+        },
+        {
+          "author": "grant_navigator",
+          "id": "call_5978449309125633763",
+          "args": {},
+          "name": "save_nonprofit_profile"
+        },
+        {
+          "author": "grant_navigator",
+          "id": "call_8269633453496418462",
+          "args": {
+            "request": "Investigate Grants.gov opportunity 363771 and try to read its full notice."
+          },
+          "name": "opportunity_researcher"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_5823179967933634370",
+          "args": {
+            "opportunity_id": 363771
+          },
+          "name": "fetch_grant_details"
+        },
+        {
+          "author": "opportunity_researcher",
+          "id": "call_7484346229568861965",
+          "args": {
+            "focus": "deadlines application route eligibility cost sharing state commission deadlines application route eligibility cost sharing state commission",
+            "opportunity_id": 363771,
+            "max_excerpts": 8
+          },
+          "name": "read_grant_notice"
+        }
+      ],
+      "notice_responses": [
+        {
+          "opportunity_id": 363771,
+          "eligibility_status": "not_assessed",
+          "currentness_verified": false,
+          "excerpts": [],
+          "status": "notice_unavailable",
+          "message": "No reviewed full-notice PDF is configured for this opportunity. Locate and verify the official notice before assessing eligibility."
+        }
+      ],
+      "research_responses": [
+        {
+          "status": "profile_not_prepared",
+          "ready_for_research": false,
+          "message": "Save or validate the current profile, wait for its result, then delegate research."
+        },
+        {
+          "result": "### Candidate Worth Investigating\n\n**Opportunity ID:** 363771  \n**Opportunity Number:** IGSM-FY27  \n**Title:** Inspire Grants for Small Museums (2027)  \n**Agency:** Not provided via API synopsis  \n**API Deadline:** Not provided  \n**Synopsis-Based Reason to Investigate:** This opportunity supports project-based efforts such as community partnerships, educational programs, and exhibits. Although the saved nonprofit profile focuses on community volunteer programs, this grant specifically targets museum services and capacity building for small museums. However, the nonprofit's project purpose could potentially align if structured around museum volunteer or community engagement programs, making it worth investigating if the organization qualifies as a small museum.  \n**Source Link:** [https://www.grants.gov/search-results-detail/363771](https://www.grants.gov/search-results-detail/363771)\n\n---\n\n### Research Findings and Unresolved Questions\n\n* **Service Area:** The saved nonprofit profile does not specify a service area (`service_area=null`), so it is unknown. Single-state rules or geographic restrictions would depend on the project service area rather than the headquarters location.\n* **Applicant Eligibility:** The API applicant types list \"Others,\" and the synopsis indicates the program is designed for small museums of all disciplines (including rural, remote, or previously unfunded institutions). It remains unverified whether a general 501(c)(3) nonprofit whose purpose is community volunteer programs meets the definition of an eligible museum.\n* **Deadlines:** The API does not provide a specific deadline date for this opportunity.\n* **Cost Sharing / Matching:** The API indicates that cost sharing is required (`cost_sharing: true`), but the exact percentage or waiver rules remain unverified from the synopsis alone.\n* **Notice Status:** The full-notice PDF snapshot was unavailable through the automated notice reader tool (`notice_unavailable`). Therefore, specific notice rules, application routes, and detailed eligibility criteria could not be reviewed from source excerpts.\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services."
+        }
+      ],
+      "texts": [
+        {
+          "author": "opportunity_researcher",
+          "text": "### Candidate Worth Investigating\n\n**Opportunity ID:** 363771  \n**Opportunity Number:** IGSM-FY27  \n**Title:** Inspire Grants for Small Museums (2027)  \n**Agency:** Not provided via API synopsis  \n**API Deadline:** Not provided  \n**Synopsis-Based Reason to Investigate:** This opportunity supports project-based efforts such as community partnerships, educational programs, and exhibits. Although the saved nonprofit profile focuses on community volunteer programs, this grant specifically targets museum services and capacity building for small museums. However, the nonprofit's project purpose could potentially align if structured around museum volunteer or community engagement programs, making it worth investigating if the organization qualifies as a small museum.  \n**Source Link:** [https://www.grants.gov/search-results-detail/363771](https://www.grants.gov/search-results-detail/363771)\n\n---\n\n### Research Findings and Unresolved Questions\n\n* **Service Area:** The saved nonprofit profile does not specify a service area (`service_area=null`), so it is unknown. Single-state rules or"
+        },
+        {
+          "author": "opportunity_researcher",
+          "text": " geographic restrictions would depend on the project service area rather than the headquarters location.\n* **Applicant Eligibility:** The API applicant types list \"Others,\" and the synopsis indicates the program is designed for small museums of all disciplines (including rural, remote, or previously unfunded institutions). It remains unverified whether a general 501(c)(3) nonprofit whose purpose is community volunteer programs meets the definition of an eligible museum.\n* **Deadlines:** The API does not provide a specific deadline date for this opportunity.\n* **Cost Sharing / Matching:** The API indicates that cost sharing is required (`cost_sharing: true`), but the exact percentage or waiver rules remain unverified from the synopsis alone.\n* **Notice Status:** The full-notice PDF snapshot was unavailable through the automated notice reader tool (`notice_unavailable`). Therefore, specific notice rules, application routes, and detailed eligibility criteria could not be reviewed from source excerpts.\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services."
+        },
+        {
+          "author": "grant_navigator",
+          "text": "**Nonprofit profile**\n\n- **Organization type:** 501(c)(3) nonprofit\n- **Organization location:** California\n- **Project purpose:** Community volunteer programs\n- **Service area:** Unknown\n- **Beneficiaries:** Unknown\n- **Requested funding:** Unknown\n- **Project timing:** Unknown\n\n---\n\n**Notice sources retrieved**\n\n- **IGSM-FY27:** Full-notice evidence unavailable (notice unavailable); synopsis-only discovery.\n\nThese are selected excerpts. Current amendments, applicant-specific deadlines, and eligibility remain unverified.\n\n---\n\n### Candidate Worth Investigating\n\n**Opportunity ID:** 363771  \n**Opportunity Number:** IGSM-FY27  \n**Title:** Inspire Grants for Small Museums (2027)  \n**Agency:** Not provided via API synopsis  \n**API Deadline:** Not provided  \n**Synopsis-Based Reason to Investigate:** This opportunity supports project-based efforts such as community partnerships, educational programs, and exhibits. Although the saved nonprofit profile focuses on community volunteer programs, this grant specifically targets museum services and capacity building for small museums. However, the nonprofit's project purpose could potentially align if structured around museum volunteer or community engagement programs, making it worth investigating if the organization qualifies as a small museum.  \n**Source Link:** [https://www.grants.gov/search-results-detail/363771](https://www.grants.gov/search-results-detail/363771)\n\n---\n\n### Research Findings and Unresolved Questions\n\n* **Service Area:** The saved nonprofit profile does not specify a service area (`service_area=null`), so it is unknown. Single-state rules or geographic restrictions would depend on the project service area rather than the headquarters location.\n* **Applicant Eligibility:** The API applicant types list \"Others,\" and the synopsis indicates the program is designed for small museums of all disciplines (including rural, remote, or previously unfunded institutions). It remains unverified whether a general 501(c)(3) nonprofit whose purpose is community volunteer programs meets the definition of an eligible museum.\n* **Deadlines:** The API does not provide a specific deadline date for this opportunity.\n* **Cost Sharing / Matching:** The API indicates that cost sharing is required (`cost_sharing: true`), but the exact percentage or waiver rules remain unverified from the synopsis alone.\n* **Notice Status:** The full-notice PDF snapshot was unavailable through the automated notice reader tool (`notice_unavailable`). Therefore, specific notice rules, application routes, and detailed eligibility criteria could not be reviewed from source excerpts.\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services."
+        }
+      ],
+      "errors": [],
+      "enforced_notice_calls": [
+        [
+          363771
+        ]
+      ],
+      "state": {
+        "nonprofit_profile": {
+          "organization_name": null,
+          "organization_type": "501(c)(3) nonprofit",
+          "organization_location": "California",
+          "project_purpose": "Community volunteer programs",
+          "service_area": null,
+          "beneficiaries": null,
+          "funding_amount_usd": null,
+          "project_timing": null
+        },
+        "profile_version": 1,
+        "research_summary": "### Candidate Worth Investigating\n\n**Opportunity ID:** 363771  \n**Opportunity Number:** IGSM-FY27  \n**Title:** Inspire Grants for Small Museums (2027)  \n**Agency:** Not provided via API synopsis  \n**API Deadline:** Not provided  \n**Synopsis-Based Reason to Investigate:** This opportunity supports project-based efforts such as community partnerships, educational programs, and exhibits. Although the saved nonprofit profile focuses on community volunteer programs, this grant specifically targets museum services and capacity building for small museums. However, the nonprofit's project purpose could potentially align if structured around museum volunteer or community engagement programs, making it worth investigating if the organization qualifies as a small museum.  \n**Source Link:** [https://www.grants.gov/search-results-detail/363771](https://www.grants.gov/search-results-detail/363771)\n\n---\n\n### Research Findings and Unresolved Questions\n\n* **Service Area:** The saved nonprofit profile does not specify a service area (`service_area=null`), so it is unknown. Single-state rules or geographic restrictions would depend on the project service area rather than the headquarters location.\n* **Applicant Eligibility:** The API applicant types list \"Others,\" and the synopsis indicates the program is designed for small museums of all disciplines (including rural, remote, or previously unfunded institutions). It remains unverified whether a general 501(c)(3) nonprofit whose purpose is community volunteer programs meets the definition of an eligible museum.\n* **Deadlines:** The API does not provide a specific deadline date for this opportunity.\n* **Cost Sharing / Matching:** The API indicates that cost sharing is required (`cost_sharing: true`), but the exact percentage or waiver rules remain unverified from the synopsis alone.\n* **Notice Status:** The full-notice PDF snapshot was unavailable through the automated notice reader tool (`notice_unavailable`). Therefore, specific notice rules, application routes, and detailed eligibility criteria could not be reviewed from source excerpts.\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services.",
+        "research_outcome": {
+          "status": "completed",
+          "invocation_id": "e-d044148b-e140-4f28-b6fc-d70bc8529abd",
+          "profile_version": 1
+        },
+        "research_evidence": {
+          "invocation_id": "e-d044148b-e140-4f28-b6fc-d70bc8529abd",
+          "profile_version": 1,
+          "details": {
+            "363771": {
+              "id": 363771,
+              "number": "IGSM-FY27",
+              "title": "Inspire Grants for Small Museums (2027)"
+            }
+          },
+          "notices": {
+            "363771": {
+              "opportunity_id": 363771,
+              "eligibility_status": "not_assessed",
+              "currentness_verified": false,
+              "excerpts": [],
+              "status": "notice_unavailable",
+              "message": "No reviewed full-notice PDF is configured for this opportunity. Locate and verify the official notice before assessing eligibility.",
+              "read_attempts": [
+                {
+                  "focus": "deadlines application route eligibility cost sharing state commission deadlines application route eligibility cost sharing state commission",
+                  "status": "notice_unavailable"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "reviewed_source_fetch": {
+    "status": "verified",
+    "retrieval_mode": "downloaded_verified_snapshot",
+    "bytes": 304842,
+    "sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+    "retrieved_at_utc": "2026-11-13T08:36:20.548444+00:00",
+    "source_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf"
+  },
+  "session_id": "e03242bc-aee8-4971-85c3-01c708bf0ac9",
+  "quota_recovery": {
+    "status": "passed",
+    "additional_attempts": 1,
+    "cooldown_waited_seconds": 0
+  },
+  "checks_passed": true
+}

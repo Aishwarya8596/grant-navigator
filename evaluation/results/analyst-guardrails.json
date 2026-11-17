@@ -1,0 +1,4083 @@
+{
+  "schema_version": 1,
+  "evaluation_kind": "analyst_validation_guardrails",
+  "label_origin": "Developer-curated cases derived from one saved notice, with explicitly simulated draft and source failures. These are not independent expert labels or captured model outputs.",
+  "llm_predictions_evaluated": false,
+  "independent_expert_labels": false,
+  "source_notice_count": 1,
+  "dataset_as_of_date": "2026-11-13",
+  "source": {
+    "opportunity_id": 363696,
+    "opportunity_number": "AC-08-28-26",
+    "fixture": "data/fixtures/americorps_363696.json",
+    "snapshot_date": "2026-11-10",
+    "sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+    "currentness_verified": false,
+    "notice_review_complete": false
+  },
+  "reproducibility": {
+    "dataset_sha256": "60d9db2232ae6adf86e74de550b84c14d31106256550e4c83601b31dc3e8268c",
+    "validator_code_sha256": "67e52e7e8d87301c3e9a4c0ce8ecbc2abbb204d9f3e9a210216e6a49d0d68e56",
+    "evaluator_code_sha256": "11a75cdf523c798b9bdc2de36227702741b26e054bde6eb65d735c369eeeb82f",
+    "validator_callable": "grant_navigator.eligibility.validate_eligibility_report"
+  },
+  "counts": {
+    "false_global_exclusions": 0,
+    "global_exclusion_negative_cases": 17,
+    "targeted_checks": 20,
+    "correct_targeted_checks": 20,
+    "unsupported_met_attempts": 8,
+    "unsupported_met_accepted": 0,
+    "expected_follow_up_questions": 6,
+    "follow_up_questions_supplied": 6,
+    "emitted_citations": 17,
+    "grounded_emitted_citations": 17,
+    "passed_cases": 17,
+    "cases": 17,
+    "adversarial_citation_cases": 2,
+    "adversarial_citations_rejected": 2
+  },
+  "metrics": {
+    "guardrail_case_pass_rate": 1.0,
+    "targeted_rule_status_accuracy": 1.0,
+    "unsupported_met_acceptance_rate": 0.0,
+    "false_global_exclusion_rate": 0.0,
+    "adversarial_citation_rejection_rate": 1.0,
+    "emitted_citation_integrity_rate": 1.0,
+    "required_question_presence_rate": 1.0,
+    "targeted_unknown_rate": 0.45,
+    "targeted_resolved_fraction": 0.55
+  },
+  "targeted_status_counts": {
+    "met": 7,
+    "needs_verification": 9,
+    "not_met": 4
+  },
+  "limitations": [
+    "These are developer-authored partial drafts, not outputs from the analyst model.",
+    "The labels cover one dated notice and explicit adversarial/source-failure simulations; they are not independent expert annotations.",
+    "Only targeted rule labels are scored; additional mandatory checks remain unresolved in deliberately partial drafts.",
+    "Citation integrity verifies identity, page, hash, and quotation, not complete semantic correctness.",
+    "Unknown-rate and resolution coverage reflect this fixture distribution, not real-user task performance.",
+    "Current notice amendments, complete eligibility, grant ranking, critic benefit, and user usefulness still require separate evaluation."
+  ],
+  "cases": [
+    {
+      "id": "baseline_unknowns",
+      "description": "Original California nonprofit facts support its applicant category, not an inferred service area or current eligibility.",
+      "basis": "saved_notice",
+      "passed": true,
+      "label_rationale": "Pages 7-8 allow nonprofit applicant categories. Headquarters does not establish project service area or planned submission route; source currency and review completeness remain unresolved.",
+      "comparisons": [
+        {
+          "field": "overall_status",
+          "expected": "needs_verification",
+          "actual": "needs_verification",
+          "passed": true
+        },
+        {
+          "field": "global_block",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "confirmed_eligible",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "semantic_review_complete",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "applicant_specific_deadline_verified",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "requirements.applicant_type",
+          "expected": "met",
+          "actual": "met",
+          "passed": true
+        },
+        {
+          "field": "requirements.application_route",
+          "expected": "needs_verification",
+          "actual": "needs_verification",
+          "passed": true
+        },
+        {
+          "field": "requirements.source_currentness",
+          "expected": "needs_verification",
+          "actual": "needs_verification",
+          "passed": true
+        },
+        {
+          "field": "follow_up_question.application_route",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "field": "follow_up_question.source_currentness",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "field": "ungrounded_emitted_citations",
+          "expected": 0,
+          "actual": 0,
+          "passed": true
+        }
+      ],
+      "validation_issue_codes": [
+        "missing_or_duplicate_requirement",
+        "missing_profile_facts",
+        "source_not_current_or_complete"
+      ],
+      "accepted_report": {
+        "invocation_id": "frozen-evaluation:baseline_unknowns",
+        "profile_version": 1,
+        "as_of_date": "2026-11-13",
+        "decisions": [
+          {
+            "opportunity_id": 363696,
+            "opportunity_number": "AC-08-28-26",
+            "title": "Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants",
+            "source_page": "https://www.grants.gov/search-results-detail/363696",
+            "overall_status": "needs_verification",
+            "requirements": [
+              {
+                "rule_id": "applicant_type",
+                "status": "met",
+                "reason": "The stated nonprofit organization type is supported by the cited applicant-category passage; this does not establish overall eligibility.",
+                "applicability": "applies",
+                "profile_fields": [
+                  "organization_type"
+                ],
+                "citations": [
+                  {
+                    "evidence_id": "notice:363696:250b6fff76658a26:p8:c1",
+                    "quote": "nonprofit organizations;",
+                    "page_number": 8,
+                    "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                    "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                    "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                  }
+                ],
+                "follow_up_question": null,
+                "required_action": null
+              },
+              {
+                "rule_id": "application_route",
+                "status": "needs_verification",
+                "reason": "Missing facts prevent this assessment: service area, planned submission route.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "service_area",
+                  "planned_submission_route"
+                ],
+                "citations": [
+                  {
+                    "evidence_id": "notice:363696:250b6fff76658a26:p8:c2",
+                    "quote": "Organizations that plan to operate in only one state must apply through the state or territory commissions.",
+                    "page_number": 8,
+                    "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                    "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                    "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                  }
+                ],
+                "follow_up_question": "Where will the project operate, and do you plan to apply through a state commission or directly?",
+                "required_action": "Confirm the project service area and the applicable submission route before applying."
+              },
+              {
+                "rule_id": "sam_registration",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "sam_registration_active"
+                ],
+                "citations": [],
+                "follow_up_question": "Is your organization's SAM registration active?",
+                "required_action": "Check registration status and complete any required registration before submission; suggested processing time is not an extra deadline."
+              },
+              {
+                "rule_id": "uei",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "has_valid_uei"
+                ],
+                "citations": [],
+                "follow_up_question": "Does your organization have a valid Unique Entity Identifier (UEI)?",
+                "required_action": "Confirm a valid UEI before submission if required by the applicable notice."
+              },
+              {
+                "rule_id": "grant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type",
+                  "americorps_new_applicant"
+                ],
+                "citations": [],
+                "follow_up_question": "Which AmeriCorps grant type are you considering, and is this a new AmeriCorps applicant?",
+                "required_action": "Confirm the selected grant mechanism and the applicant's new or returning status."
+              },
+              {
+                "rule_id": "cost_sharing",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type"
+                ],
+                "citations": [],
+                "follow_up_question": "Which grant type are you considering, and can you meet any matching requirement that applies to it?",
+                "required_action": "Confirm the grant mechanism before assessing its matching requirement."
+              },
+              {
+                "rule_id": "deadline",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "What is the current applicant-specific deadline for your confirmed submission route?",
+                "required_action": "Check the latest deadline for the selected route, including any earlier commission deadline and exact due time."
+              },
+              {
+                "rule_id": "source_currentness",
+                "status": "needs_verification",
+                "reason": "The source is a dated or partial review; current amendments and the complete requirement list remain unverified.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [
+                  {
+                    "evidence_id": "notice:363696:250b6fff76658a26:p1:c2",
+                    "quote": "Applications are due not later than Wednesday, January 13, 2027 by 5:00 p.m. Eastern Time.",
+                    "page_number": 1,
+                    "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1",
+                    "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                    "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                  }
+                ],
+                "follow_up_question": "Has the current official notice and any amendment been checked, including all mandatory requirements?",
+                "required_action": "Check the latest official notice, amendments, and complete mandatory requirement list."
+              }
+            ],
+            "blocking_reasons": [],
+            "blocking_scope": null,
+            "general_deadline": {
+              "status": "future",
+              "as_of_date": "2026-11-13",
+              "deadline_date": "2027-01-13",
+              "scope": "api_general",
+              "applicant_specific_verified": false,
+              "note": "This compares only the API's general calendar date. Applicant-specific routes, earlier deadlines, exact times, and amendments remain unverified."
+            },
+            "summary": "The opportunity needs further verification. Requirement checks reflect stated facts and selected notice passages, not a final eligibility decision."
+          }
+        ],
+        "summary": "Assessed 1 researched opportunity; eligibility remains unconfirmed.",
+        "validation_issues": [
+          {
+            "code": "missing_profile_facts",
+            "message": "Missing facts prevent this assessment: service area, planned submission route.",
+            "opportunity_id": 363696,
+            "rule_id": "application_route"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "sam_registration"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "uei"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "grant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "cost_sharing"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "deadline"
+          },
+          {
+            "code": "source_not_current_or_complete",
+            "message": "The source is a dated or partial review; current amendments and the complete requirement list remain unverified.",
+            "opportunity_id": 363696,
+            "rule_id": "source_currentness"
+          }
+        ],
+        "semantic_review_complete": false,
+        "confirmed_eligible": false
+      }
+    },
+    {
+      "id": "single_state_commission_route",
+      "description": "Explicit single-state operations and a matching planned commission route support the route check.",
+      "basis": "saved_notice",
+      "passed": true,
+      "label_rationale": "Page 8 identifies the single-state commission route. This assesses reported plans, not actual submission or the applicable commission deadline.",
+      "comparisons": [
+        {
+          "field": "overall_status",
+          "expected": "needs_verification",
+          "actual": "needs_verification",
+          "passed": true
+        },
+        {
+          "field": "global_block",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "confirmed_eligible",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "semantic_review_complete",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "applicant_specific_deadline_verified",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "requirements.application_route",
+          "expected": "met",
+          "actual": "met",
+          "passed": true
+        },
+        {
+          "field": "ungrounded_emitted_citations",
+          "expected": 0,
+          "actual": 0,
+          "passed": true
+        }
+      ],
+      "validation_issue_codes": [
+        "missing_or_duplicate_requirement"
+      ],
+      "accepted_report": {
+        "invocation_id": "frozen-evaluation:single_state_commission_route",
+        "profile_version": 1,
+        "as_of_date": "2026-11-13",
+        "decisions": [
+          {
+            "opportunity_id": 363696,
+            "opportunity_number": "AC-08-28-26",
+            "title": "Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants",
+            "source_page": "https://www.grants.gov/search-results-detail/363696",
+            "overall_status": "needs_verification",
+            "requirements": [
+              {
+                "rule_id": "applicant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "organization_type"
+                ],
+                "citations": [],
+                "follow_up_question": "What type of organization will apply?",
+                "required_action": "Confirm the applicant category in the applicable notice."
+              },
+              {
+                "rule_id": "application_route",
+                "status": "met",
+                "reason": "The stated project service area and planned route were compared with the cited route condition; exceptions and current instructions still require review.",
+                "applicability": "applies",
+                "profile_fields": [
+                  "service_area",
+                  "planned_submission_route"
+                ],
+                "citations": [
+                  {
+                    "evidence_id": "notice:363696:250b6fff76658a26:p8:c2",
+                    "quote": "Organizations that plan to operate in only one state must apply through the state or territory commissions.",
+                    "page_number": 8,
+                    "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                    "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                    "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                  }
+                ],
+                "follow_up_question": null,
+                "required_action": null
+              },
+              {
+                "rule_id": "sam_registration",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "sam_registration_active"
+                ],
+                "citations": [],
+                "follow_up_question": "Is your organization's SAM registration active?",
+                "required_action": "Check registration status and complete any required registration before submission; suggested processing time is not an extra deadline."
+              },
+              {
+                "rule_id": "uei",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "has_valid_uei"
+                ],
+                "citations": [],
+                "follow_up_question": "Does your organization have a valid Unique Entity Identifier (UEI)?",
+                "required_action": "Confirm a valid UEI before submission if required by the applicable notice."
+              },
+              {
+                "rule_id": "grant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type",
+                  "americorps_new_applicant"
+                ],
+                "citations": [],
+                "follow_up_question": "Which AmeriCorps grant type are you considering, and is this a new AmeriCorps applicant?",
+                "required_action": "Confirm the selected grant mechanism and the applicant's new or returning status."
+              },
+              {
+                "rule_id": "cost_sharing",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type"
+                ],
+                "citations": [],
+                "follow_up_question": "Which grant type are you considering, and can you meet any matching requirement that applies to it?",
+                "required_action": "Confirm the grant mechanism before assessing its matching requirement."
+              },
+              {
+                "rule_id": "deadline",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "What is the current applicant-specific deadline for your confirmed submission route?",
+                "required_action": "Check the latest deadline for the selected route, including any earlier commission deadline and exact due time."
+              },
+              {
+                "rule_id": "source_currentness",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "Has the current official notice and any amendment been checked, including all mandatory requirements?",
+                "required_action": "Check the latest official notice, amendments, and complete mandatory requirement list."
+              }
+            ],
+            "blocking_reasons": [],
+            "blocking_scope": null,
+            "general_deadline": {
+              "status": "future",
+              "as_of_date": "2026-11-13",
+              "deadline_date": "2027-01-13",
+              "scope": "api_general",
+              "applicant_specific_verified": false,
+              "note": "This compares only the API's general calendar date. Applicant-specific routes, earlier deadlines, exact times, and amendments remain unverified."
+            },
+            "summary": "The opportunity needs further verification. Requirement checks reflect stated facts and selected notice passages, not a final eligibility decision."
+          }
+        ],
+        "summary": "Assessed 1 researched opportunity; eligibility remains unconfirmed.",
+        "validation_issues": [
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "applicant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "sam_registration"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "uei"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "grant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "cost_sharing"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "deadline"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "source_currentness"
+          }
+        ],
+        "semantic_review_complete": false,
+        "confirmed_eligible": false
+      }
+    },
+    {
+      "id": "single_state_wrong_planned_route",
+      "description": "A conflicting planned route is an action to resolve, not exclusion from every grant mechanism.",
+      "basis": "saved_notice",
+      "passed": true,
+      "label_rationale": "Page 8's ordinary single-state condition conflicts with the proposed direct route. Exceptions have not been established, so an optimistic met draft must be downgraded for review rather than accepted or turned into a global exclusion.",
+      "comparisons": [
+        {
+          "field": "overall_status",
+          "expected": "needs_verification",
+          "actual": "needs_verification",
+          "passed": true
+        },
+        {
+          "field": "global_block",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "confirmed_eligible",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "semantic_review_complete",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "applicant_specific_deadline_verified",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "requirements.application_route",
+          "expected": "needs_verification",
+          "actual": "needs_verification",
+          "passed": true
+        },
+        {
+          "field": "follow_up_question.application_route",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "field": "ungrounded_emitted_citations",
+          "expected": 0,
+          "actual": 0,
+          "passed": true
+        }
+      ],
+      "validation_issue_codes": [
+        "missing_or_duplicate_requirement",
+        "unverified_route_exception"
+      ],
+      "accepted_report": {
+        "invocation_id": "frozen-evaluation:single_state_wrong_planned_route",
+        "profile_version": 1,
+        "as_of_date": "2026-11-13",
+        "decisions": [
+          {
+            "opportunity_id": 363696,
+            "opportunity_number": "AC-08-28-26",
+            "title": "Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants",
+            "source_page": "https://www.grants.gov/search-results-detail/363696",
+            "overall_status": "needs_verification",
+            "requirements": [
+              {
+                "rule_id": "applicant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "organization_type"
+                ],
+                "citations": [],
+                "follow_up_question": "What type of organization will apply?",
+                "required_action": "Confirm the applicant category in the applicable notice."
+              },
+              {
+                "rule_id": "application_route",
+                "status": "needs_verification",
+                "reason": "The stated single-state project and direct-submission plan require a verified route exception before this route can be marked met.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "service_area",
+                  "planned_submission_route"
+                ],
+                "citations": [
+                  {
+                    "evidence_id": "notice:363696:250b6fff76658a26:p8:c2",
+                    "quote": "Organizations that plan to operate in only one state must apply through the state or territory commissions.",
+                    "page_number": 8,
+                    "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                    "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                    "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                  }
+                ],
+                "follow_up_question": "Where will the project operate, and do you plan to apply through a state commission or directly?",
+                "required_action": "Confirm the project service area and the applicable submission route before applying."
+              },
+              {
+                "rule_id": "sam_registration",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "sam_registration_active"
+                ],
+                "citations": [],
+                "follow_up_question": "Is your organization's SAM registration active?",
+                "required_action": "Check registration status and complete any required registration before submission; suggested processing time is not an extra deadline."
+              },
+              {
+                "rule_id": "uei",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "has_valid_uei"
+                ],
+                "citations": [],
+                "follow_up_question": "Does your organization have a valid Unique Entity Identifier (UEI)?",
+                "required_action": "Confirm a valid UEI before submission if required by the applicable notice."
+              },
+              {
+                "rule_id": "grant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type",
+                  "americorps_new_applicant"
+                ],
+                "citations": [],
+                "follow_up_question": "Which AmeriCorps grant type are you considering, and is this a new AmeriCorps applicant?",
+                "required_action": "Confirm the selected grant mechanism and the applicant's new or returning status."
+              },
+              {
+                "rule_id": "cost_sharing",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type"
+                ],
+                "citations": [],
+                "follow_up_question": "Which grant type are you considering, and can you meet any matching requirement that applies to it?",
+                "required_action": "Confirm the grant mechanism before assessing its matching requirement."
+              },
+              {
+                "rule_id": "deadline",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "What is the current applicant-specific deadline for your confirmed submission route?",
+                "required_action": "Check the latest deadline for the selected route, including any earlier commission deadline and exact due time."
+              },
+              {
+                "rule_id": "source_currentness",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "Has the current official notice and any amendment been checked, including all mandatory requirements?",
+                "required_action": "Check the latest official notice, amendments, and complete mandatory requirement list."
+              }
+            ],
+            "blocking_reasons": [],
+            "blocking_scope": null,
+            "general_deadline": {
+              "status": "future",
+              "as_of_date": "2026-11-13",
+              "deadline_date": "2027-01-13",
+              "scope": "api_general",
+              "applicant_specific_verified": false,
+              "note": "This compares only the API's general calendar date. Applicant-specific routes, earlier deadlines, exact times, and amendments remain unverified."
+            },
+            "summary": "The opportunity needs further verification. Requirement checks reflect stated facts and selected notice passages, not a final eligibility decision."
+          }
+        ],
+        "summary": "Assessed 1 researched opportunity; eligibility remains unconfirmed.",
+        "validation_issues": [
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "applicant_type"
+          },
+          {
+            "code": "unverified_route_exception",
+            "message": "The stated single-state project and direct-submission plan require a verified route exception before this route can be marked met.",
+            "opportunity_id": 363696,
+            "rule_id": "application_route"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "sam_registration"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "uei"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "grant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "cost_sharing"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "deadline"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "source_currentness"
+          }
+        ],
+        "semantic_review_complete": false,
+        "confirmed_eligible": false
+      }
+    },
+    {
+      "id": "multi_state_direct_route",
+      "description": "An explicitly multi-state project and direct submission plan support the route check.",
+      "basis": "saved_notice",
+      "passed": true,
+      "label_rationale": "Page 8 describes National Direct applications for multi-state programs. The words 'more than one state' must not be classified as single-state by matching the substring 'one state'. Remaining requirements and currentness are not established.",
+      "comparisons": [
+        {
+          "field": "overall_status",
+          "expected": "needs_verification",
+          "actual": "needs_verification",
+          "passed": true
+        },
+        {
+          "field": "global_block",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "confirmed_eligible",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "semantic_review_complete",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "applicant_specific_deadline_verified",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "requirements.application_route",
+          "expected": "met",
+          "actual": "met",
+          "passed": true
+        },
+        {
+          "field": "ungrounded_emitted_citations",
+          "expected": 0,
+          "actual": 0,
+          "passed": true
+        }
+      ],
+      "validation_issue_codes": [
+        "missing_or_duplicate_requirement"
+      ],
+      "accepted_report": {
+        "invocation_id": "frozen-evaluation:multi_state_direct_route",
+        "profile_version": 1,
+        "as_of_date": "2026-11-13",
+        "decisions": [
+          {
+            "opportunity_id": 363696,
+            "opportunity_number": "AC-08-28-26",
+            "title": "Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants",
+            "source_page": "https://www.grants.gov/search-results-detail/363696",
+            "overall_status": "needs_verification",
+            "requirements": [
+              {
+                "rule_id": "applicant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "organization_type"
+                ],
+                "citations": [],
+                "follow_up_question": "What type of organization will apply?",
+                "required_action": "Confirm the applicant category in the applicable notice."
+              },
+              {
+                "rule_id": "application_route",
+                "status": "met",
+                "reason": "The stated project service area and planned route were compared with the cited route condition; exceptions and current instructions still require review.",
+                "applicability": "applies",
+                "profile_fields": [
+                  "service_area",
+                  "planned_submission_route"
+                ],
+                "citations": [
+                  {
+                    "evidence_id": "notice:363696:250b6fff76658a26:p8:c2",
+                    "quote": "Organizations that plan to operate AmeriCorps programs in more than one state or territory apply directly to AmeriCorps.",
+                    "page_number": 8,
+                    "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                    "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                    "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                  }
+                ],
+                "follow_up_question": null,
+                "required_action": null
+              },
+              {
+                "rule_id": "sam_registration",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "sam_registration_active"
+                ],
+                "citations": [],
+                "follow_up_question": "Is your organization's SAM registration active?",
+                "required_action": "Check registration status and complete any required registration before submission; suggested processing time is not an extra deadline."
+              },
+              {
+                "rule_id": "uei",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "has_valid_uei"
+                ],
+                "citations": [],
+                "follow_up_question": "Does your organization have a valid Unique Entity Identifier (UEI)?",
+                "required_action": "Confirm a valid UEI before submission if required by the applicable notice."
+              },
+              {
+                "rule_id": "grant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type",
+                  "americorps_new_applicant"
+                ],
+                "citations": [],
+                "follow_up_question": "Which AmeriCorps grant type are you considering, and is this a new AmeriCorps applicant?",
+                "required_action": "Confirm the selected grant mechanism and the applicant's new or returning status."
+              },
+              {
+                "rule_id": "cost_sharing",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type"
+                ],
+                "citations": [],
+                "follow_up_question": "Which grant type are you considering, and can you meet any matching requirement that applies to it?",
+                "required_action": "Confirm the grant mechanism before assessing its matching requirement."
+              },
+              {
+                "rule_id": "deadline",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "What is the current applicant-specific deadline for your confirmed submission route?",
+                "required_action": "Check the latest deadline for the selected route, including any earlier commission deadline and exact due time."
+              },
+              {
+                "rule_id": "source_currentness",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "Has the current official notice and any amendment been checked, including all mandatory requirements?",
+                "required_action": "Check the latest official notice, amendments, and complete mandatory requirement list."
+              }
+            ],
+            "blocking_reasons": [],
+            "blocking_scope": null,
+            "general_deadline": {
+              "status": "future",
+              "as_of_date": "2026-11-13",
+              "deadline_date": "2027-01-13",
+              "scope": "api_general",
+              "applicant_specific_verified": false,
+              "note": "This compares only the API's general calendar date. Applicant-specific routes, earlier deadlines, exact times, and amendments remain unverified."
+            },
+            "summary": "The opportunity needs further verification. Requirement checks reflect stated facts and selected notice passages, not a final eligibility decision."
+          }
+        ],
+        "summary": "Assessed 1 researched opportunity; eligibility remains unconfirmed.",
+        "validation_issues": [
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "applicant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "sam_registration"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "uei"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "grant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "cost_sharing"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "deadline"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "source_currentness"
+          }
+        ],
+        "semantic_review_complete": false,
+        "confirmed_eligible": false
+      }
+    },
+    {
+      "id": "multi_state_commission_wrong_condition",
+      "description": "A real single-state route quotation cannot establish compliance for an explicitly multi-state project.",
+      "basis": "adversarial_draft",
+      "passed": true,
+      "label_rationale": "Page 8's quoted commission rule is conditional on operating in only one state. The stated project operates in more than one state, so the real quotation does not support this optimistic route finding. Resolve the applicable condition rather than accepting met or imposing a global exclusion.",
+      "comparisons": [
+        {
+          "field": "overall_status",
+          "expected": "needs_verification",
+          "actual": "needs_verification",
+          "passed": true
+        },
+        {
+          "field": "global_block",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "confirmed_eligible",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "semantic_review_complete",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "applicant_specific_deadline_verified",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "requirements.application_route",
+          "expected": "needs_verification",
+          "actual": "needs_verification",
+          "passed": true
+        },
+        {
+          "field": "follow_up_question.application_route",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "field": "ungrounded_emitted_citations",
+          "expected": 0,
+          "actual": 0,
+          "passed": true
+        }
+      ],
+      "validation_issue_codes": [
+        "missing_or_duplicate_requirement",
+        "route_condition_not_applicable"
+      ],
+      "accepted_report": {
+        "invocation_id": "frozen-evaluation:multi_state_commission_wrong_condition",
+        "profile_version": 1,
+        "as_of_date": "2026-11-13",
+        "decisions": [
+          {
+            "opportunity_id": 363696,
+            "opportunity_number": "AC-08-28-26",
+            "title": "Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants",
+            "source_page": "https://www.grants.gov/search-results-detail/363696",
+            "overall_status": "needs_verification",
+            "requirements": [
+              {
+                "rule_id": "applicant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "organization_type"
+                ],
+                "citations": [],
+                "follow_up_question": "What type of organization will apply?",
+                "required_action": "Confirm the applicant category in the applicable notice."
+              },
+              {
+                "rule_id": "application_route",
+                "status": "needs_verification",
+                "reason": "The quoted route condition does not establish the route for the stated multi-state project.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "service_area",
+                  "planned_submission_route"
+                ],
+                "citations": [
+                  {
+                    "evidence_id": "notice:363696:250b6fff76658a26:p8:c2",
+                    "quote": "Organizations that plan to operate in only one state must apply through the state or territory commissions.",
+                    "page_number": 8,
+                    "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                    "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                    "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                  }
+                ],
+                "follow_up_question": "Where will the project operate, and do you plan to apply through a state commission or directly?",
+                "required_action": "Confirm the project service area and the applicable submission route before applying."
+              },
+              {
+                "rule_id": "sam_registration",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "sam_registration_active"
+                ],
+                "citations": [],
+                "follow_up_question": "Is your organization's SAM registration active?",
+                "required_action": "Check registration status and complete any required registration before submission; suggested processing time is not an extra deadline."
+              },
+              {
+                "rule_id": "uei",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "has_valid_uei"
+                ],
+                "citations": [],
+                "follow_up_question": "Does your organization have a valid Unique Entity Identifier (UEI)?",
+                "required_action": "Confirm a valid UEI before submission if required by the applicable notice."
+              },
+              {
+                "rule_id": "grant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type",
+                  "americorps_new_applicant"
+                ],
+                "citations": [],
+                "follow_up_question": "Which AmeriCorps grant type are you considering, and is this a new AmeriCorps applicant?",
+                "required_action": "Confirm the selected grant mechanism and the applicant's new or returning status."
+              },
+              {
+                "rule_id": "cost_sharing",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type"
+                ],
+                "citations": [],
+                "follow_up_question": "Which grant type are you considering, and can you meet any matching requirement that applies to it?",
+                "required_action": "Confirm the grant mechanism before assessing its matching requirement."
+              },
+              {
+                "rule_id": "deadline",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "What is the current applicant-specific deadline for your confirmed submission route?",
+                "required_action": "Check the latest deadline for the selected route, including any earlier commission deadline and exact due time."
+              },
+              {
+                "rule_id": "source_currentness",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "Has the current official notice and any amendment been checked, including all mandatory requirements?",
+                "required_action": "Check the latest official notice, amendments, and complete mandatory requirement list."
+              }
+            ],
+            "blocking_reasons": [],
+            "blocking_scope": null,
+            "general_deadline": {
+              "status": "future",
+              "as_of_date": "2026-11-13",
+              "deadline_date": "2027-01-13",
+              "scope": "api_general",
+              "applicant_specific_verified": false,
+              "note": "This compares only the API's general calendar date. Applicant-specific routes, earlier deadlines, exact times, and amendments remain unverified."
+            },
+            "summary": "The opportunity needs further verification. Requirement checks reflect stated facts and selected notice passages, not a final eligibility decision."
+          }
+        ],
+        "summary": "Assessed 1 researched opportunity; eligibility remains unconfirmed.",
+        "validation_issues": [
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "applicant_type"
+          },
+          {
+            "code": "route_condition_not_applicable",
+            "message": "The quoted route condition does not establish the route for the stated multi-state project.",
+            "opportunity_id": 363696,
+            "rule_id": "application_route"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "sam_registration"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "uei"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "grant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "cost_sharing"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "deadline"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "source_currentness"
+          }
+        ],
+        "semantic_review_complete": false,
+        "confirmed_eligible": false
+      }
+    },
+    {
+      "id": "single_state_commission_wrong_rejection",
+      "description": "A real multi-state direct-route quotation cannot establish a conflict for a single-state project planning the commission route.",
+      "basis": "adversarial_draft",
+      "passed": true,
+      "label_rationale": "Page 8's quoted direct route applies to programs operating in more than one state or territory. That condition does not match the stated single-state project, so it cannot support the proposed not_met finding. The unsupported rejection should remain unresolved rather than be silently replaced by a positive finding using uncited context.",
+      "comparisons": [
+        {
+          "field": "overall_status",
+          "expected": "needs_verification",
+          "actual": "needs_verification",
+          "passed": true
+        },
+        {
+          "field": "global_block",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "confirmed_eligible",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "semantic_review_complete",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "applicant_specific_deadline_verified",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "requirements.application_route",
+          "expected": "needs_verification",
+          "actual": "needs_verification",
+          "passed": true
+        },
+        {
+          "field": "follow_up_question.application_route",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "field": "ungrounded_emitted_citations",
+          "expected": 0,
+          "actual": 0,
+          "passed": true
+        }
+      ],
+      "validation_issue_codes": [
+        "missing_or_duplicate_requirement",
+        "route_condition_not_applicable"
+      ],
+      "accepted_report": {
+        "invocation_id": "frozen-evaluation:single_state_commission_wrong_rejection",
+        "profile_version": 1,
+        "as_of_date": "2026-11-13",
+        "decisions": [
+          {
+            "opportunity_id": 363696,
+            "opportunity_number": "AC-08-28-26",
+            "title": "Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants",
+            "source_page": "https://www.grants.gov/search-results-detail/363696",
+            "overall_status": "needs_verification",
+            "requirements": [
+              {
+                "rule_id": "applicant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "organization_type"
+                ],
+                "citations": [],
+                "follow_up_question": "What type of organization will apply?",
+                "required_action": "Confirm the applicant category in the applicable notice."
+              },
+              {
+                "rule_id": "application_route",
+                "status": "needs_verification",
+                "reason": "The quoted route condition does not establish the route for the stated single-state project.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "service_area",
+                  "planned_submission_route"
+                ],
+                "citations": [
+                  {
+                    "evidence_id": "notice:363696:250b6fff76658a26:p8:c2",
+                    "quote": "Organizations that plan to operate AmeriCorps programs in more than one state or territory apply directly to AmeriCorps.",
+                    "page_number": 8,
+                    "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                    "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                    "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                  }
+                ],
+                "follow_up_question": "Where will the project operate, and do you plan to apply through a state commission or directly?",
+                "required_action": "Confirm the project service area and the applicable submission route before applying."
+              },
+              {
+                "rule_id": "sam_registration",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "sam_registration_active"
+                ],
+                "citations": [],
+                "follow_up_question": "Is your organization's SAM registration active?",
+                "required_action": "Check registration status and complete any required registration before submission; suggested processing time is not an extra deadline."
+              },
+              {
+                "rule_id": "uei",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "has_valid_uei"
+                ],
+                "citations": [],
+                "follow_up_question": "Does your organization have a valid Unique Entity Identifier (UEI)?",
+                "required_action": "Confirm a valid UEI before submission if required by the applicable notice."
+              },
+              {
+                "rule_id": "grant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type",
+                  "americorps_new_applicant"
+                ],
+                "citations": [],
+                "follow_up_question": "Which AmeriCorps grant type are you considering, and is this a new AmeriCorps applicant?",
+                "required_action": "Confirm the selected grant mechanism and the applicant's new or returning status."
+              },
+              {
+                "rule_id": "cost_sharing",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type"
+                ],
+                "citations": [],
+                "follow_up_question": "Which grant type are you considering, and can you meet any matching requirement that applies to it?",
+                "required_action": "Confirm the grant mechanism before assessing its matching requirement."
+              },
+              {
+                "rule_id": "deadline",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "What is the current applicant-specific deadline for your confirmed submission route?",
+                "required_action": "Check the latest deadline for the selected route, including any earlier commission deadline and exact due time."
+              },
+              {
+                "rule_id": "source_currentness",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "Has the current official notice and any amendment been checked, including all mandatory requirements?",
+                "required_action": "Check the latest official notice, amendments, and complete mandatory requirement list."
+              }
+            ],
+            "blocking_reasons": [],
+            "blocking_scope": null,
+            "general_deadline": {
+              "status": "future",
+              "as_of_date": "2026-11-13",
+              "deadline_date": "2027-01-13",
+              "scope": "api_general",
+              "applicant_specific_verified": false,
+              "note": "This compares only the API's general calendar date. Applicant-specific routes, earlier deadlines, exact times, and amendments remain unverified."
+            },
+            "summary": "The opportunity needs further verification. Requirement checks reflect stated facts and selected notice passages, not a final eligibility decision."
+          }
+        ],
+        "summary": "Assessed 1 researched opportunity; eligibility remains unconfirmed.",
+        "validation_issues": [
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "applicant_type"
+          },
+          {
+            "code": "route_condition_not_applicable",
+            "message": "The quoted route condition does not establish the route for the stated single-state project.",
+            "opportunity_id": 363696,
+            "rule_id": "application_route"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "sam_registration"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "uei"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "grant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "cost_sharing"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "deadline"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "source_currentness"
+          }
+        ],
+        "semantic_review_complete": false,
+        "confirmed_eligible": false
+      }
+    },
+    {
+      "id": "sam_inactive_readiness",
+      "description": "A stated inactive SAM registration cannot be accepted as meeting registration readiness.",
+      "basis": "saved_notice",
+      "passed": true,
+      "label_rationale": "Page 11 requires active SAM from submission. Inactivity is a readiness issue that may be remedied; the suggested three-week lead time is not a mandatory exclusion.",
+      "comparisons": [
+        {
+          "field": "overall_status",
+          "expected": "needs_verification",
+          "actual": "needs_verification",
+          "passed": true
+        },
+        {
+          "field": "global_block",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "confirmed_eligible",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "semantic_review_complete",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "applicant_specific_deadline_verified",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "requirements.sam_registration",
+          "expected": "not_met",
+          "actual": "not_met",
+          "passed": true
+        },
+        {
+          "field": "ungrounded_emitted_citations",
+          "expected": 0,
+          "actual": 0,
+          "passed": true
+        }
+      ],
+      "validation_issue_codes": [
+        "missing_or_duplicate_requirement"
+      ],
+      "accepted_report": {
+        "invocation_id": "frozen-evaluation:sam_inactive_readiness",
+        "profile_version": 1,
+        "as_of_date": "2026-11-13",
+        "decisions": [
+          {
+            "opportunity_id": 363696,
+            "opportunity_number": "AC-08-28-26",
+            "title": "Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants",
+            "source_page": "https://www.grants.gov/search-results-detail/363696",
+            "overall_status": "needs_verification",
+            "requirements": [
+              {
+                "rule_id": "applicant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "organization_type"
+                ],
+                "citations": [],
+                "follow_up_question": "What type of organization will apply?",
+                "required_action": "Confirm the applicant category in the applicable notice."
+              },
+              {
+                "rule_id": "application_route",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "service_area",
+                  "planned_submission_route"
+                ],
+                "citations": [],
+                "follow_up_question": "Where will the project operate, and do you plan to apply through a state commission or directly?",
+                "required_action": "Confirm the project service area and the applicable submission route before applying."
+              },
+              {
+                "rule_id": "sam_registration",
+                "status": "not_met",
+                "reason": "The profile states that SAM registration is not active. This is a readiness gap to address, not an automatic exclusion from the funding opportunity.",
+                "applicability": "applies",
+                "profile_fields": [
+                  "sam_registration_active"
+                ],
+                "citations": [
+                  {
+                    "evidence_id": "notice:363696:250b6fff76658a26:p11:c1",
+                    "quote": "All applicants must register with the System for Award Management (SAM) and maintain an active SAM registration from the time of submission until the application process is complete.",
+                    "page_number": 11,
+                    "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=11",
+                    "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                    "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                  }
+                ],
+                "follow_up_question": null,
+                "required_action": "Check registration status and complete any required registration before submission; suggested processing time is not an extra deadline."
+              },
+              {
+                "rule_id": "uei",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "has_valid_uei"
+                ],
+                "citations": [],
+                "follow_up_question": "Does your organization have a valid Unique Entity Identifier (UEI)?",
+                "required_action": "Confirm a valid UEI before submission if required by the applicable notice."
+              },
+              {
+                "rule_id": "grant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type",
+                  "americorps_new_applicant"
+                ],
+                "citations": [],
+                "follow_up_question": "Which AmeriCorps grant type are you considering, and is this a new AmeriCorps applicant?",
+                "required_action": "Confirm the selected grant mechanism and the applicant's new or returning status."
+              },
+              {
+                "rule_id": "cost_sharing",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type"
+                ],
+                "citations": [],
+                "follow_up_question": "Which grant type are you considering, and can you meet any matching requirement that applies to it?",
+                "required_action": "Confirm the grant mechanism before assessing its matching requirement."
+              },
+              {
+                "rule_id": "deadline",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "What is the current applicant-specific deadline for your confirmed submission route?",
+                "required_action": "Check the latest deadline for the selected route, including any earlier commission deadline and exact due time."
+              },
+              {
+                "rule_id": "source_currentness",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "Has the current official notice and any amendment been checked, including all mandatory requirements?",
+                "required_action": "Check the latest official notice, amendments, and complete mandatory requirement list."
+              }
+            ],
+            "blocking_reasons": [],
+            "blocking_scope": null,
+            "general_deadline": {
+              "status": "future",
+              "as_of_date": "2026-11-13",
+              "deadline_date": "2027-01-13",
+              "scope": "api_general",
+              "applicant_specific_verified": false,
+              "note": "This compares only the API's general calendar date. Applicant-specific routes, earlier deadlines, exact times, and amendments remain unverified."
+            },
+            "summary": "The opportunity needs further verification. Requirement checks reflect stated facts and selected notice passages, not a final eligibility decision."
+          }
+        ],
+        "summary": "Assessed 1 researched opportunity; eligibility remains unconfirmed.",
+        "validation_issues": [
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "applicant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "application_route"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "uei"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "grant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "cost_sharing"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "deadline"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "source_currentness"
+          }
+        ],
+        "semantic_review_complete": false,
+        "confirmed_eligible": false
+      }
+    },
+    {
+      "id": "reported_registration_ready",
+      "description": "Reported active SAM and valid UEI support only those registration checks.",
+      "basis": "saved_notice",
+      "passed": true,
+      "label_rationale": "Page 11 supplies the rules. User statements are not external SAM/UEI verification, and other requirements remain unknown.",
+      "comparisons": [
+        {
+          "field": "overall_status",
+          "expected": "needs_verification",
+          "actual": "needs_verification",
+          "passed": true
+        },
+        {
+          "field": "global_block",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "confirmed_eligible",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "semantic_review_complete",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "applicant_specific_deadline_verified",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "requirements.sam_registration",
+          "expected": "met",
+          "actual": "met",
+          "passed": true
+        },
+        {
+          "field": "requirements.uei",
+          "expected": "met",
+          "actual": "met",
+          "passed": true
+        },
+        {
+          "field": "ungrounded_emitted_citations",
+          "expected": 0,
+          "actual": 0,
+          "passed": true
+        }
+      ],
+      "validation_issue_codes": [
+        "missing_or_duplicate_requirement"
+      ],
+      "accepted_report": {
+        "invocation_id": "frozen-evaluation:reported_registration_ready",
+        "profile_version": 1,
+        "as_of_date": "2026-11-13",
+        "decisions": [
+          {
+            "opportunity_id": 363696,
+            "opportunity_number": "AC-08-28-26",
+            "title": "Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants",
+            "source_page": "https://www.grants.gov/search-results-detail/363696",
+            "overall_status": "needs_verification",
+            "requirements": [
+              {
+                "rule_id": "applicant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "organization_type"
+                ],
+                "citations": [],
+                "follow_up_question": "What type of organization will apply?",
+                "required_action": "Confirm the applicant category in the applicable notice."
+              },
+              {
+                "rule_id": "application_route",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "service_area",
+                  "planned_submission_route"
+                ],
+                "citations": [],
+                "follow_up_question": "Where will the project operate, and do you plan to apply through a state commission or directly?",
+                "required_action": "Confirm the project service area and the applicable submission route before applying."
+              },
+              {
+                "rule_id": "sam_registration",
+                "status": "met",
+                "reason": "The profile states that SAM registration is active; the cited passage requires it.",
+                "applicability": "applies",
+                "profile_fields": [
+                  "sam_registration_active"
+                ],
+                "citations": [
+                  {
+                    "evidence_id": "notice:363696:250b6fff76658a26:p11:c1",
+                    "quote": "All applicants must register with the System for Award Management (SAM) and maintain an active SAM registration from the time of submission until the application process is complete.",
+                    "page_number": 11,
+                    "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=11",
+                    "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                    "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                  }
+                ],
+                "follow_up_question": null,
+                "required_action": null
+              },
+              {
+                "rule_id": "uei",
+                "status": "met",
+                "reason": "The profile states that a valid UEI is held; the cited passage requires it.",
+                "applicability": "applies",
+                "profile_fields": [
+                  "has_valid_uei"
+                ],
+                "citations": [
+                  {
+                    "evidence_id": "notice:363696:250b6fff76658a26:p11:c1",
+                    "quote": "Applications must include a valid Unique Entity Identifier (UEI), which is generated as part of the SAM registration process.",
+                    "page_number": 11,
+                    "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=11",
+                    "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                    "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                  }
+                ],
+                "follow_up_question": null,
+                "required_action": null
+              },
+              {
+                "rule_id": "grant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type",
+                  "americorps_new_applicant"
+                ],
+                "citations": [],
+                "follow_up_question": "Which AmeriCorps grant type are you considering, and is this a new AmeriCorps applicant?",
+                "required_action": "Confirm the selected grant mechanism and the applicant's new or returning status."
+              },
+              {
+                "rule_id": "cost_sharing",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type"
+                ],
+                "citations": [],
+                "follow_up_question": "Which grant type are you considering, and can you meet any matching requirement that applies to it?",
+                "required_action": "Confirm the grant mechanism before assessing its matching requirement."
+              },
+              {
+                "rule_id": "deadline",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "What is the current applicant-specific deadline for your confirmed submission route?",
+                "required_action": "Check the latest deadline for the selected route, including any earlier commission deadline and exact due time."
+              },
+              {
+                "rule_id": "source_currentness",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "Has the current official notice and any amendment been checked, including all mandatory requirements?",
+                "required_action": "Check the latest official notice, amendments, and complete mandatory requirement list."
+              }
+            ],
+            "blocking_reasons": [],
+            "blocking_scope": null,
+            "general_deadline": {
+              "status": "future",
+              "as_of_date": "2026-11-13",
+              "deadline_date": "2027-01-13",
+              "scope": "api_general",
+              "applicant_specific_verified": false,
+              "note": "This compares only the API's general calendar date. Applicant-specific routes, earlier deadlines, exact times, and amendments remain unverified."
+            },
+            "summary": "The opportunity needs further verification. Requirement checks reflect stated facts and selected notice passages, not a final eligibility decision."
+          }
+        ],
+        "summary": "Assessed 1 researched opportunity; eligibility remains unconfirmed.",
+        "validation_issues": [
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "applicant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "application_route"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "grant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "cost_sharing"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "deadline"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "source_currentness"
+          }
+        ],
+        "semantic_review_complete": false,
+        "confirmed_eligible": false
+      }
+    },
+    {
+      "id": "uei_missing_readiness",
+      "description": "A stated lack of valid UEI cannot be accepted as meeting application readiness.",
+      "basis": "saved_notice",
+      "passed": true,
+      "label_rationale": "Page 11 requires valid UEI in applications. The absence is a readiness action, not a permanent applicant-category exclusion.",
+      "comparisons": [
+        {
+          "field": "overall_status",
+          "expected": "needs_verification",
+          "actual": "needs_verification",
+          "passed": true
+        },
+        {
+          "field": "global_block",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "confirmed_eligible",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "semantic_review_complete",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "applicant_specific_deadline_verified",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "requirements.uei",
+          "expected": "not_met",
+          "actual": "not_met",
+          "passed": true
+        },
+        {
+          "field": "ungrounded_emitted_citations",
+          "expected": 0,
+          "actual": 0,
+          "passed": true
+        }
+      ],
+      "validation_issue_codes": [
+        "missing_or_duplicate_requirement"
+      ],
+      "accepted_report": {
+        "invocation_id": "frozen-evaluation:uei_missing_readiness",
+        "profile_version": 1,
+        "as_of_date": "2026-11-13",
+        "decisions": [
+          {
+            "opportunity_id": 363696,
+            "opportunity_number": "AC-08-28-26",
+            "title": "Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants",
+            "source_page": "https://www.grants.gov/search-results-detail/363696",
+            "overall_status": "needs_verification",
+            "requirements": [
+              {
+                "rule_id": "applicant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "organization_type"
+                ],
+                "citations": [],
+                "follow_up_question": "What type of organization will apply?",
+                "required_action": "Confirm the applicant category in the applicable notice."
+              },
+              {
+                "rule_id": "application_route",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "service_area",
+                  "planned_submission_route"
+                ],
+                "citations": [],
+                "follow_up_question": "Where will the project operate, and do you plan to apply through a state commission or directly?",
+                "required_action": "Confirm the project service area and the applicable submission route before applying."
+              },
+              {
+                "rule_id": "sam_registration",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "sam_registration_active"
+                ],
+                "citations": [],
+                "follow_up_question": "Is your organization's SAM registration active?",
+                "required_action": "Check registration status and complete any required registration before submission; suggested processing time is not an extra deadline."
+              },
+              {
+                "rule_id": "uei",
+                "status": "not_met",
+                "reason": "The profile states that a valid UEI is not held. This is a readiness gap to address, not an automatic exclusion from the funding opportunity.",
+                "applicability": "applies",
+                "profile_fields": [
+                  "has_valid_uei"
+                ],
+                "citations": [
+                  {
+                    "evidence_id": "notice:363696:250b6fff76658a26:p11:c1",
+                    "quote": "Applications must include a valid Unique Entity Identifier (UEI), which is generated as part of the SAM registration process.",
+                    "page_number": 11,
+                    "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=11",
+                    "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                    "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                  }
+                ],
+                "follow_up_question": null,
+                "required_action": "Confirm a valid UEI before submission if required by the applicable notice."
+              },
+              {
+                "rule_id": "grant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type",
+                  "americorps_new_applicant"
+                ],
+                "citations": [],
+                "follow_up_question": "Which AmeriCorps grant type are you considering, and is this a new AmeriCorps applicant?",
+                "required_action": "Confirm the selected grant mechanism and the applicant's new or returning status."
+              },
+              {
+                "rule_id": "cost_sharing",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type"
+                ],
+                "citations": [],
+                "follow_up_question": "Which grant type are you considering, and can you meet any matching requirement that applies to it?",
+                "required_action": "Confirm the grant mechanism before assessing its matching requirement."
+              },
+              {
+                "rule_id": "deadline",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "What is the current applicant-specific deadline for your confirmed submission route?",
+                "required_action": "Check the latest deadline for the selected route, including any earlier commission deadline and exact due time."
+              },
+              {
+                "rule_id": "source_currentness",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "Has the current official notice and any amendment been checked, including all mandatory requirements?",
+                "required_action": "Check the latest official notice, amendments, and complete mandatory requirement list."
+              }
+            ],
+            "blocking_reasons": [],
+            "blocking_scope": null,
+            "general_deadline": {
+              "status": "future",
+              "as_of_date": "2026-11-13",
+              "deadline_date": "2027-01-13",
+              "scope": "api_general",
+              "applicant_specific_verified": false,
+              "note": "This compares only the API's general calendar date. Applicant-specific routes, earlier deadlines, exact times, and amendments remain unverified."
+            },
+            "summary": "The opportunity needs further verification. Requirement checks reflect stated facts and selected notice passages, not a final eligibility decision."
+          }
+        ],
+        "summary": "Assessed 1 researched opportunity; eligibility remains unconfirmed.",
+        "validation_issues": [
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "applicant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "application_route"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "sam_registration"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "grant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "cost_sharing"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "deadline"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "source_currentness"
+          }
+        ],
+        "semantic_review_complete": false,
+        "confirmed_eligible": false
+      }
+    },
+    {
+      "id": "new_applicant_full_cost_conflict",
+      "description": "A new applicant's full-cost fixed-amount choice conflicts with the reviewed notice, scoped to that mechanism.",
+      "basis": "saved_notice",
+      "passed": true,
+      "label_rationale": "Page 8 prohibits this selected mechanism for new applicants but permits other AmeriCorps mechanisms. Do not exclude the nonprofit from the entire NOFO.",
+      "comparisons": [
+        {
+          "field": "overall_status",
+          "expected": "blocking_issue",
+          "actual": "blocking_issue",
+          "passed": true
+        },
+        {
+          "field": "blocking_scope",
+          "expected": "selected_grant_type",
+          "actual": "selected_grant_type",
+          "passed": true
+        },
+        {
+          "field": "global_block",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "confirmed_eligible",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "semantic_review_complete",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "applicant_specific_deadline_verified",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "requirements.grant_type",
+          "expected": "not_met",
+          "actual": "not_met",
+          "passed": true
+        },
+        {
+          "field": "ungrounded_emitted_citations",
+          "expected": 0,
+          "actual": 0,
+          "passed": true
+        }
+      ],
+      "validation_issue_codes": [
+        "missing_or_duplicate_requirement",
+        "scoped_grant_type_condition_applied"
+      ],
+      "accepted_report": {
+        "invocation_id": "frozen-evaluation:new_applicant_full_cost_conflict",
+        "profile_version": 1,
+        "as_of_date": "2026-11-13",
+        "decisions": [
+          {
+            "opportunity_id": 363696,
+            "opportunity_number": "AC-08-28-26",
+            "title": "Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants",
+            "source_page": "https://www.grants.gov/search-results-detail/363696",
+            "overall_status": "blocking_issue",
+            "requirements": [
+              {
+                "rule_id": "applicant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "organization_type"
+                ],
+                "citations": [],
+                "follow_up_question": "What type of organization will apply?",
+                "required_action": "Confirm the applicant category in the applicable notice."
+              },
+              {
+                "rule_id": "application_route",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "service_area",
+                  "planned_submission_route"
+                ],
+                "citations": [],
+                "follow_up_question": "Where will the project operate, and do you plan to apply through a state commission or directly?",
+                "required_action": "Confirm the project service area and the applicable submission route before applying."
+              },
+              {
+                "rule_id": "sam_registration",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "sam_registration_active"
+                ],
+                "citations": [],
+                "follow_up_question": "Is your organization's SAM registration active?",
+                "required_action": "Check registration status and complete any required registration before submission; suggested processing time is not an extra deadline."
+              },
+              {
+                "rule_id": "uei",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "has_valid_uei"
+                ],
+                "citations": [],
+                "follow_up_question": "Does your organization have a valid Unique Entity Identifier (UEI)?",
+                "required_action": "Confirm a valid UEI before submission if required by the applicable notice."
+              },
+              {
+                "rule_id": "grant_type",
+                "status": "not_met",
+                "reason": "The stated new-applicant status conflicts with the quoted restriction on full-cost fixed-amount grants. This blocks that selected grant type, not every grant type in the notice.",
+                "applicability": "applies",
+                "profile_fields": [
+                  "americorps_grant_type",
+                  "americorps_new_applicant"
+                ],
+                "citations": [
+                  {
+                    "evidence_id": "notice:363696:250b6fff76658a26:p8:c2",
+                    "quote": "New applicants are eligible to apply for cost reimbursement, Education Award Program (EAP), and Professional Corps grants, but are not eligible to apply for full cost fixed amount grants.",
+                    "page_number": 8,
+                    "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                    "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                    "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                  }
+                ],
+                "follow_up_question": null,
+                "required_action": "Confirm the selected grant mechanism and the applicant's new or returning status."
+              },
+              {
+                "rule_id": "cost_sharing",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type"
+                ],
+                "citations": [],
+                "follow_up_question": "Which grant type are you considering, and can you meet any matching requirement that applies to it?",
+                "required_action": "Confirm the grant mechanism before assessing its matching requirement."
+              },
+              {
+                "rule_id": "deadline",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "What is the current applicant-specific deadline for your confirmed submission route?",
+                "required_action": "Check the latest deadline for the selected route, including any earlier commission deadline and exact due time."
+              },
+              {
+                "rule_id": "source_currentness",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "Has the current official notice and any amendment been checked, including all mandatory requirements?",
+                "required_action": "Check the latest official notice, amendments, and complete mandatory requirement list."
+              }
+            ],
+            "blocking_reasons": [
+              "The stated new-applicant status conflicts with the quoted restriction on full-cost fixed-amount grants. This blocks that selected grant type, not every grant type in the notice."
+            ],
+            "blocking_scope": "selected_grant_type",
+            "general_deadline": {
+              "status": "future",
+              "as_of_date": "2026-11-13",
+              "deadline_date": "2027-01-13",
+              "scope": "api_general",
+              "applicant_specific_verified": false,
+              "note": "This compares only the API's general calendar date. Applicant-specific routes, earlier deadlines, exact times, and amendments remain unverified."
+            },
+            "summary": "The selected grant-type option conflicts with the cited new-applicant restriction; other options and overall eligibility remain unverified."
+          }
+        ],
+        "summary": "Assessed 1 researched opportunity; eligibility remains unconfirmed.",
+        "validation_issues": [
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "applicant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "application_route"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "sam_registration"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "uei"
+          },
+          {
+            "code": "scoped_grant_type_condition_applied",
+            "message": "A verified, limited source condition replaced the draft finding; it was not promoted to overall eligibility.",
+            "opportunity_id": 363696,
+            "rule_id": "grant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "cost_sharing"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "deadline"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "source_currentness"
+          }
+        ],
+        "semantic_review_complete": false,
+        "confirmed_eligible": false
+      }
+    },
+    {
+      "id": "new_applicant_cost_reimbursement",
+      "description": "A new applicant may use cost reimbursement under the reviewed mechanism rule.",
+      "basis": "saved_notice",
+      "passed": true,
+      "label_rationale": "Page 8 expressly allows cost reimbursement for new applicants. This does not establish matching funds, currentness, or complete eligibility.",
+      "comparisons": [
+        {
+          "field": "overall_status",
+          "expected": "needs_verification",
+          "actual": "needs_verification",
+          "passed": true
+        },
+        {
+          "field": "global_block",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "confirmed_eligible",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "semantic_review_complete",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "applicant_specific_deadline_verified",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "requirements.grant_type",
+          "expected": "met",
+          "actual": "met",
+          "passed": true
+        },
+        {
+          "field": "ungrounded_emitted_citations",
+          "expected": 0,
+          "actual": 0,
+          "passed": true
+        }
+      ],
+      "validation_issue_codes": [
+        "missing_or_duplicate_requirement"
+      ],
+      "accepted_report": {
+        "invocation_id": "frozen-evaluation:new_applicant_cost_reimbursement",
+        "profile_version": 1,
+        "as_of_date": "2026-11-13",
+        "decisions": [
+          {
+            "opportunity_id": 363696,
+            "opportunity_number": "AC-08-28-26",
+            "title": "Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants",
+            "source_page": "https://www.grants.gov/search-results-detail/363696",
+            "overall_status": "needs_verification",
+            "requirements": [
+              {
+                "rule_id": "applicant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "organization_type"
+                ],
+                "citations": [],
+                "follow_up_question": "What type of organization will apply?",
+                "required_action": "Confirm the applicant category in the applicable notice."
+              },
+              {
+                "rule_id": "application_route",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "service_area",
+                  "planned_submission_route"
+                ],
+                "citations": [],
+                "follow_up_question": "Where will the project operate, and do you plan to apply through a state commission or directly?",
+                "required_action": "Confirm the project service area and the applicable submission route before applying."
+              },
+              {
+                "rule_id": "sam_registration",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "sam_registration_active"
+                ],
+                "citations": [],
+                "follow_up_question": "Is your organization's SAM registration active?",
+                "required_action": "Check registration status and complete any required registration before submission; suggested processing time is not an extra deadline."
+              },
+              {
+                "rule_id": "uei",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "has_valid_uei"
+                ],
+                "citations": [],
+                "follow_up_question": "Does your organization have a valid Unique Entity Identifier (UEI)?",
+                "required_action": "Confirm a valid UEI before submission if required by the applicable notice."
+              },
+              {
+                "rule_id": "grant_type",
+                "status": "met",
+                "reason": "The selected mechanism is named in the cited applicant/grant-type passage; other restrictions remain unverified.",
+                "applicability": "applies",
+                "profile_fields": [
+                  "americorps_grant_type",
+                  "americorps_new_applicant"
+                ],
+                "citations": [
+                  {
+                    "evidence_id": "notice:363696:250b6fff76658a26:p8:c2",
+                    "quote": "New applicants are eligible to apply for cost reimbursement, Education Award Program (EAP), and Professional Corps grants, but are not eligible to apply for full cost fixed amount grants.",
+                    "page_number": 8,
+                    "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                    "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                    "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                  }
+                ],
+                "follow_up_question": null,
+                "required_action": null
+              },
+              {
+                "rule_id": "cost_sharing",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type"
+                ],
+                "citations": [],
+                "follow_up_question": "Which grant type are you considering, and can you meet any matching requirement that applies to it?",
+                "required_action": "Confirm the grant mechanism before assessing its matching requirement."
+              },
+              {
+                "rule_id": "deadline",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "What is the current applicant-specific deadline for your confirmed submission route?",
+                "required_action": "Check the latest deadline for the selected route, including any earlier commission deadline and exact due time."
+              },
+              {
+                "rule_id": "source_currentness",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "Has the current official notice and any amendment been checked, including all mandatory requirements?",
+                "required_action": "Check the latest official notice, amendments, and complete mandatory requirement list."
+              }
+            ],
+            "blocking_reasons": [],
+            "blocking_scope": null,
+            "general_deadline": {
+              "status": "future",
+              "as_of_date": "2026-11-13",
+              "deadline_date": "2027-01-13",
+              "scope": "api_general",
+              "applicant_specific_verified": false,
+              "note": "This compares only the API's general calendar date. Applicant-specific routes, earlier deadlines, exact times, and amendments remain unverified."
+            },
+            "summary": "The opportunity needs further verification. Requirement checks reflect stated facts and selected notice passages, not a final eligibility decision."
+          }
+        ],
+        "summary": "Assessed 1 researched opportunity; eligibility remains unconfirmed.",
+        "validation_issues": [
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "applicant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "application_route"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "sam_registration"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "uei"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "cost_sharing"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "deadline"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "source_currentness"
+          }
+        ],
+        "semantic_review_complete": false,
+        "confirmed_eligible": false
+      }
+    },
+    {
+      "id": "fixed_amount_no_match_exclusion",
+      "description": "Lack of matching capacity must not become a matching-funds exclusion for fixed-amount grants.",
+      "basis": "saved_notice",
+      "passed": true,
+      "label_rationale": "Page 7 says fixed-amount grants have no cost-sharing or matching requirement. Other operating funds and requirements are separate questions.",
+      "comparisons": [
+        {
+          "field": "overall_status",
+          "expected": "needs_verification",
+          "actual": "needs_verification",
+          "passed": true
+        },
+        {
+          "field": "global_block",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "confirmed_eligible",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "semantic_review_complete",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "applicant_specific_deadline_verified",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "requirements.cost_sharing",
+          "expected": "met",
+          "actual": "met",
+          "passed": true
+        },
+        {
+          "field": "ungrounded_emitted_citations",
+          "expected": 0,
+          "actual": 0,
+          "passed": true
+        }
+      ],
+      "validation_issue_codes": [
+        "missing_or_duplicate_requirement"
+      ],
+      "accepted_report": {
+        "invocation_id": "frozen-evaluation:fixed_amount_no_match_exclusion",
+        "profile_version": 1,
+        "as_of_date": "2026-11-13",
+        "decisions": [
+          {
+            "opportunity_id": 363696,
+            "opportunity_number": "AC-08-28-26",
+            "title": "Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants",
+            "source_page": "https://www.grants.gov/search-results-detail/363696",
+            "overall_status": "needs_verification",
+            "requirements": [
+              {
+                "rule_id": "applicant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "organization_type"
+                ],
+                "citations": [],
+                "follow_up_question": "What type of organization will apply?",
+                "required_action": "Confirm the applicant category in the applicable notice."
+              },
+              {
+                "rule_id": "application_route",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "service_area",
+                  "planned_submission_route"
+                ],
+                "citations": [],
+                "follow_up_question": "Where will the project operate, and do you plan to apply through a state commission or directly?",
+                "required_action": "Confirm the project service area and the applicable submission route before applying."
+              },
+              {
+                "rule_id": "sam_registration",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "sam_registration_active"
+                ],
+                "citations": [],
+                "follow_up_question": "Is your organization's SAM registration active?",
+                "required_action": "Check registration status and complete any required registration before submission; suggested processing time is not an extra deadline."
+              },
+              {
+                "rule_id": "uei",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "has_valid_uei"
+                ],
+                "citations": [],
+                "follow_up_question": "Does your organization have a valid Unique Entity Identifier (UEI)?",
+                "required_action": "Confirm a valid UEI before submission if required by the applicable notice."
+              },
+              {
+                "rule_id": "grant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type",
+                  "americorps_new_applicant"
+                ],
+                "citations": [],
+                "follow_up_question": "Which AmeriCorps grant type are you considering, and is this a new AmeriCorps applicant?",
+                "required_action": "Confirm the selected grant mechanism and the applicant's new or returning status."
+              },
+              {
+                "rule_id": "cost_sharing",
+                "status": "met",
+                "reason": "The cited notice states that fixed-amount grants have no cost-share or matching requirement. A blanket matching exclusion was not applied.",
+                "applicability": "does_not_apply",
+                "profile_fields": [
+                  "americorps_grant_type"
+                ],
+                "citations": [
+                  {
+                    "evidence_id": "notice:363696:250b6fff76658a26:p7:c2",
+                    "quote": "There is no cost share or matching requirement for fixed amount grants.",
+                    "page_number": 7,
+                    "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=7",
+                    "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                    "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                  }
+                ],
+                "follow_up_question": null,
+                "required_action": null
+              },
+              {
+                "rule_id": "deadline",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "What is the current applicant-specific deadline for your confirmed submission route?",
+                "required_action": "Check the latest deadline for the selected route, including any earlier commission deadline and exact due time."
+              },
+              {
+                "rule_id": "source_currentness",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "Has the current official notice and any amendment been checked, including all mandatory requirements?",
+                "required_action": "Check the latest official notice, amendments, and complete mandatory requirement list."
+              }
+            ],
+            "blocking_reasons": [],
+            "blocking_scope": null,
+            "general_deadline": {
+              "status": "future",
+              "as_of_date": "2026-11-13",
+              "deadline_date": "2027-01-13",
+              "scope": "api_general",
+              "applicant_specific_verified": false,
+              "note": "This compares only the API's general calendar date. Applicant-specific routes, earlier deadlines, exact times, and amendments remain unverified."
+            },
+            "summary": "The opportunity needs further verification. Requirement checks reflect stated facts and selected notice passages, not a final eligibility decision."
+          }
+        ],
+        "summary": "Assessed 1 researched opportunity; eligibility remains unconfirmed.",
+        "validation_issues": [
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "applicant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "application_route"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "sam_registration"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "uei"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "grant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "deadline"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "source_currentness"
+          }
+        ],
+        "semantic_review_complete": false,
+        "confirmed_eligible": false
+      }
+    },
+    {
+      "id": "cost_reimbursement_match_not_ready",
+      "description": "Inability to meet the ordinary match is a readiness issue, with waiver questions unresolved.",
+      "basis": "saved_notice",
+      "passed": true,
+      "label_rationale": "Page 7 requires a match for cost reimbursement and describes waivers. The report should identify an unresolved action, not reject every grant option.",
+      "comparisons": [
+        {
+          "field": "overall_status",
+          "expected": "needs_verification",
+          "actual": "needs_verification",
+          "passed": true
+        },
+        {
+          "field": "global_block",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "confirmed_eligible",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "semantic_review_complete",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "applicant_specific_deadline_verified",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "requirements.cost_sharing",
+          "expected": "not_met",
+          "actual": "not_met",
+          "passed": true
+        },
+        {
+          "field": "ungrounded_emitted_citations",
+          "expected": 0,
+          "actual": 0,
+          "passed": true
+        }
+      ],
+      "validation_issue_codes": [
+        "missing_or_duplicate_requirement"
+      ],
+      "accepted_report": {
+        "invocation_id": "frozen-evaluation:cost_reimbursement_match_not_ready",
+        "profile_version": 1,
+        "as_of_date": "2026-11-13",
+        "decisions": [
+          {
+            "opportunity_id": 363696,
+            "opportunity_number": "AC-08-28-26",
+            "title": "Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants",
+            "source_page": "https://www.grants.gov/search-results-detail/363696",
+            "overall_status": "needs_verification",
+            "requirements": [
+              {
+                "rule_id": "applicant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "organization_type"
+                ],
+                "citations": [],
+                "follow_up_question": "What type of organization will apply?",
+                "required_action": "Confirm the applicant category in the applicable notice."
+              },
+              {
+                "rule_id": "application_route",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "service_area",
+                  "planned_submission_route"
+                ],
+                "citations": [],
+                "follow_up_question": "Where will the project operate, and do you plan to apply through a state commission or directly?",
+                "required_action": "Confirm the project service area and the applicable submission route before applying."
+              },
+              {
+                "rule_id": "sam_registration",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "sam_registration_active"
+                ],
+                "citations": [],
+                "follow_up_question": "Is your organization's SAM registration active?",
+                "required_action": "Check registration status and complete any required registration before submission; suggested processing time is not an extra deadline."
+              },
+              {
+                "rule_id": "uei",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "has_valid_uei"
+                ],
+                "citations": [],
+                "follow_up_question": "Does your organization have a valid Unique Entity Identifier (UEI)?",
+                "required_action": "Confirm a valid UEI before submission if required by the applicable notice."
+              },
+              {
+                "rule_id": "grant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type",
+                  "americorps_new_applicant"
+                ],
+                "citations": [],
+                "follow_up_question": "Which AmeriCorps grant type are you considering, and is this a new AmeriCorps applicant?",
+                "required_action": "Confirm the selected grant mechanism and the applicant's new or returning status."
+              },
+              {
+                "rule_id": "cost_sharing",
+                "status": "not_met",
+                "reason": "The profile states that the applicable match cannot currently be met. This is a funding-readiness gap to resolve, not an automatic exclusion from every mechanism.",
+                "applicability": "applies",
+                "profile_fields": [
+                  "americorps_grant_type",
+                  "can_meet_match"
+                ],
+                "citations": [
+                  {
+                    "evidence_id": "notice:363696:250b6fff76658a26:p7:c1",
+                    "quote": "Cost Reimbursement Grants Applicants are required to match funds provided by AmeriCorps.",
+                    "page_number": 7,
+                    "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=7",
+                    "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                    "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                  }
+                ],
+                "follow_up_question": null,
+                "required_action": "Confirm the grant mechanism before assessing its matching requirement."
+              },
+              {
+                "rule_id": "deadline",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "What is the current applicant-specific deadline for your confirmed submission route?",
+                "required_action": "Check the latest deadline for the selected route, including any earlier commission deadline and exact due time."
+              },
+              {
+                "rule_id": "source_currentness",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "Has the current official notice and any amendment been checked, including all mandatory requirements?",
+                "required_action": "Check the latest official notice, amendments, and complete mandatory requirement list."
+              }
+            ],
+            "blocking_reasons": [],
+            "blocking_scope": null,
+            "general_deadline": {
+              "status": "future",
+              "as_of_date": "2026-11-13",
+              "deadline_date": "2027-01-13",
+              "scope": "api_general",
+              "applicant_specific_verified": false,
+              "note": "This compares only the API's general calendar date. Applicant-specific routes, earlier deadlines, exact times, and amendments remain unverified."
+            },
+            "summary": "The opportunity needs further verification. Requirement checks reflect stated facts and selected notice passages, not a final eligibility decision."
+          }
+        ],
+        "summary": "Assessed 1 researched opportunity; eligibility remains unconfirmed.",
+        "validation_issues": [
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "applicant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "application_route"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "sam_registration"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "uei"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "grant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "deadline"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "source_currentness"
+          }
+        ],
+        "semantic_review_complete": false,
+        "confirmed_eligible": false
+      }
+    },
+    {
+      "id": "past_general_api_date_is_not_applicant_exclusion",
+      "description": "A general API date in the past does not establish a verified applicant-specific deadline.",
+      "basis": "synthetic_as_of_date",
+      "passed": true,
+      "label_rationale": "Pages 1 and 11 describe the general date, potentially earlier commission dates, extensions, and case-by-case late consideration. Currentness and the applicable route remain unknown.",
+      "comparisons": [
+        {
+          "field": "overall_status",
+          "expected": "needs_verification",
+          "actual": "needs_verification",
+          "passed": true
+        },
+        {
+          "field": "global_block",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "confirmed_eligible",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "semantic_review_complete",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "applicant_specific_deadline_verified",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "api_general_deadline.status",
+          "expected": "past",
+          "actual": "past",
+          "passed": true
+        },
+        {
+          "field": "requirements.deadline",
+          "expected": "needs_verification",
+          "actual": "needs_verification",
+          "passed": true
+        },
+        {
+          "field": "follow_up_question.deadline",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "field": "ungrounded_emitted_citations",
+          "expected": 0,
+          "actual": 0,
+          "passed": true
+        }
+      ],
+      "validation_issue_codes": [
+        "applicant_deadline_not_verified",
+        "missing_or_duplicate_requirement"
+      ],
+      "accepted_report": {
+        "invocation_id": "frozen-evaluation:past_general_api_date_is_not_applicant_exclusion",
+        "profile_version": 1,
+        "as_of_date": "2027-01-14",
+        "decisions": [
+          {
+            "opportunity_id": 363696,
+            "opportunity_number": "AC-08-28-26",
+            "title": "Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants",
+            "source_page": "https://www.grants.gov/search-results-detail/363696",
+            "overall_status": "needs_verification",
+            "requirements": [
+              {
+                "rule_id": "applicant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "organization_type"
+                ],
+                "citations": [],
+                "follow_up_question": "What type of organization will apply?",
+                "required_action": "Confirm the applicant category in the applicable notice."
+              },
+              {
+                "rule_id": "application_route",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "service_area",
+                  "planned_submission_route"
+                ],
+                "citations": [],
+                "follow_up_question": "Where will the project operate, and do you plan to apply through a state commission or directly?",
+                "required_action": "Confirm the project service area and the applicable submission route before applying."
+              },
+              {
+                "rule_id": "sam_registration",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "sam_registration_active"
+                ],
+                "citations": [],
+                "follow_up_question": "Is your organization's SAM registration active?",
+                "required_action": "Check registration status and complete any required registration before submission; suggested processing time is not an extra deadline."
+              },
+              {
+                "rule_id": "uei",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "has_valid_uei"
+                ],
+                "citations": [],
+                "follow_up_question": "Does your organization have a valid Unique Entity Identifier (UEI)?",
+                "required_action": "Confirm a valid UEI before submission if required by the applicable notice."
+              },
+              {
+                "rule_id": "grant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type",
+                  "americorps_new_applicant"
+                ],
+                "citations": [],
+                "follow_up_question": "Which AmeriCorps grant type are you considering, and is this a new AmeriCorps applicant?",
+                "required_action": "Confirm the selected grant mechanism and the applicant's new or returning status."
+              },
+              {
+                "rule_id": "cost_sharing",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type"
+                ],
+                "citations": [],
+                "follow_up_question": "Which grant type are you considering, and can you meet any matching requirement that applies to it?",
+                "required_action": "Confirm the grant mechanism before assessing its matching requirement."
+              },
+              {
+                "rule_id": "deadline",
+                "status": "needs_verification",
+                "reason": "The API and notice provide general deadline context, but the applicant-specific deadline and route have not been verified.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [
+                  {
+                    "evidence_id": "notice:363696:250b6fff76658a26:p1:c2",
+                    "quote": "Applications are due not later than Wednesday, January 13, 2027 by 5:00 p.m. Eastern Time.",
+                    "page_number": 1,
+                    "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1",
+                    "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                    "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                  }
+                ],
+                "follow_up_question": "What is the current applicant-specific deadline for your confirmed submission route?",
+                "required_action": "Check the latest deadline for the selected route, including any earlier commission deadline and exact due time."
+              },
+              {
+                "rule_id": "source_currentness",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "Has the current official notice and any amendment been checked, including all mandatory requirements?",
+                "required_action": "Check the latest official notice, amendments, and complete mandatory requirement list."
+              }
+            ],
+            "blocking_reasons": [],
+            "blocking_scope": null,
+            "general_deadline": {
+              "status": "past",
+              "as_of_date": "2027-01-14",
+              "deadline_date": "2027-01-13",
+              "scope": "api_general",
+              "applicant_specific_verified": false,
+              "note": "This compares only the API's general calendar date. Applicant-specific routes, earlier deadlines, exact times, and amendments remain unverified."
+            },
+            "summary": "The opportunity needs further verification. Requirement checks reflect stated facts and selected notice passages, not a final eligibility decision."
+          }
+        ],
+        "summary": "Assessed 1 researched opportunity; eligibility remains unconfirmed.",
+        "validation_issues": [
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "applicant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "application_route"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "sam_registration"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "uei"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "grant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "cost_sharing"
+          },
+          {
+            "code": "applicant_deadline_not_verified",
+            "message": "The API and notice provide general deadline context, but the applicant-specific deadline and route have not been verified.",
+            "opportunity_id": 363696,
+            "rule_id": "deadline"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "source_currentness"
+          }
+        ],
+        "semantic_review_complete": false,
+        "confirmed_eligible": false
+      }
+    },
+    {
+      "id": "forged_cross_opportunity_evidence",
+      "description": "An evidence ID from another opportunity cannot support a positive judgment.",
+      "basis": "adversarial_draft",
+      "passed": true,
+      "label_rationale": "The quote is real but the reference is intentionally forged. Only evidence belonging to this opportunity and snapshot may support the assessment.",
+      "comparisons": [
+        {
+          "field": "overall_status",
+          "expected": "needs_verification",
+          "actual": "needs_verification",
+          "passed": true
+        },
+        {
+          "field": "global_block",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "confirmed_eligible",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "semantic_review_complete",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "applicant_specific_deadline_verified",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "requirements.applicant_type",
+          "expected": "needs_verification",
+          "actual": "needs_verification",
+          "passed": true
+        },
+        {
+          "field": "adversarial_citation_rejected",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "field": "ungrounded_emitted_citations",
+          "expected": 0,
+          "actual": 0,
+          "passed": true
+        }
+      ],
+      "validation_issue_codes": [
+        "missing_or_duplicate_requirement",
+        "unknown_evidence_reference"
+      ],
+      "accepted_report": {
+        "invocation_id": "frozen-evaluation:forged_cross_opportunity_evidence",
+        "profile_version": 1,
+        "as_of_date": "2026-11-13",
+        "decisions": [
+          {
+            "opportunity_id": 363696,
+            "opportunity_number": "AC-08-28-26",
+            "title": "Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants",
+            "source_page": "https://www.grants.gov/search-results-detail/363696",
+            "overall_status": "needs_verification",
+            "requirements": [
+              {
+                "rule_id": "applicant_type",
+                "status": "needs_verification",
+                "reason": "The proposed source reference or quotation could not be verified against this opportunity's notice.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "organization_type"
+                ],
+                "citations": [],
+                "follow_up_question": "What type of organization will apply?",
+                "required_action": "Confirm the applicant category in the applicable notice."
+              },
+              {
+                "rule_id": "application_route",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "service_area",
+                  "planned_submission_route"
+                ],
+                "citations": [],
+                "follow_up_question": "Where will the project operate, and do you plan to apply through a state commission or directly?",
+                "required_action": "Confirm the project service area and the applicable submission route before applying."
+              },
+              {
+                "rule_id": "sam_registration",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "sam_registration_active"
+                ],
+                "citations": [],
+                "follow_up_question": "Is your organization's SAM registration active?",
+                "required_action": "Check registration status and complete any required registration before submission; suggested processing time is not an extra deadline."
+              },
+              {
+                "rule_id": "uei",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "has_valid_uei"
+                ],
+                "citations": [],
+                "follow_up_question": "Does your organization have a valid Unique Entity Identifier (UEI)?",
+                "required_action": "Confirm a valid UEI before submission if required by the applicable notice."
+              },
+              {
+                "rule_id": "grant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type",
+                  "americorps_new_applicant"
+                ],
+                "citations": [],
+                "follow_up_question": "Which AmeriCorps grant type are you considering, and is this a new AmeriCorps applicant?",
+                "required_action": "Confirm the selected grant mechanism and the applicant's new or returning status."
+              },
+              {
+                "rule_id": "cost_sharing",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type"
+                ],
+                "citations": [],
+                "follow_up_question": "Which grant type are you considering, and can you meet any matching requirement that applies to it?",
+                "required_action": "Confirm the grant mechanism before assessing its matching requirement."
+              },
+              {
+                "rule_id": "deadline",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "What is the current applicant-specific deadline for your confirmed submission route?",
+                "required_action": "Check the latest deadline for the selected route, including any earlier commission deadline and exact due time."
+              },
+              {
+                "rule_id": "source_currentness",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "Has the current official notice and any amendment been checked, including all mandatory requirements?",
+                "required_action": "Check the latest official notice, amendments, and complete mandatory requirement list."
+              }
+            ],
+            "blocking_reasons": [],
+            "blocking_scope": null,
+            "general_deadline": {
+              "status": "future",
+              "as_of_date": "2026-11-13",
+              "deadline_date": "2027-01-13",
+              "scope": "api_general",
+              "applicant_specific_verified": false,
+              "note": "This compares only the API's general calendar date. Applicant-specific routes, earlier deadlines, exact times, and amendments remain unverified."
+            },
+            "summary": "The opportunity needs further verification. Requirement checks reflect stated facts and selected notice passages, not a final eligibility decision."
+          }
+        ],
+        "summary": "Assessed 1 researched opportunity; eligibility remains unconfirmed.",
+        "validation_issues": [
+          {
+            "code": "unknown_evidence_reference",
+            "message": "The proposed source reference or quotation could not be verified against this opportunity's notice.",
+            "opportunity_id": 363696,
+            "rule_id": "applicant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "application_route"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "sam_registration"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "uei"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "grant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "cost_sharing"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "deadline"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "source_currentness"
+          }
+        ],
+        "semantic_review_complete": false,
+        "confirmed_eligible": false
+      }
+    },
+    {
+      "id": "invented_quote_with_real_reference",
+      "description": "A valid evidence ID does not make an invented quote acceptable.",
+      "basis": "adversarial_draft",
+      "passed": true,
+      "label_rationale": "The quote is synthetic and absent from the cited page. The validator must not convert citation syntax into evidence of support.",
+      "comparisons": [
+        {
+          "field": "overall_status",
+          "expected": "needs_verification",
+          "actual": "needs_verification",
+          "passed": true
+        },
+        {
+          "field": "global_block",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "confirmed_eligible",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "semantic_review_complete",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "applicant_specific_deadline_verified",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "requirements.applicant_type",
+          "expected": "needs_verification",
+          "actual": "needs_verification",
+          "passed": true
+        },
+        {
+          "field": "adversarial_citation_rejected",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "field": "ungrounded_emitted_citations",
+          "expected": 0,
+          "actual": 0,
+          "passed": true
+        }
+      ],
+      "validation_issue_codes": [
+        "missing_or_duplicate_requirement",
+        "unsupported_quote"
+      ],
+      "accepted_report": {
+        "invocation_id": "frozen-evaluation:invented_quote_with_real_reference",
+        "profile_version": 1,
+        "as_of_date": "2026-11-13",
+        "decisions": [
+          {
+            "opportunity_id": 363696,
+            "opportunity_number": "AC-08-28-26",
+            "title": "Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants",
+            "source_page": "https://www.grants.gov/search-results-detail/363696",
+            "overall_status": "needs_verification",
+            "requirements": [
+              {
+                "rule_id": "applicant_type",
+                "status": "needs_verification",
+                "reason": "The proposed source reference or quotation could not be verified against this opportunity's notice.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "organization_type"
+                ],
+                "citations": [],
+                "follow_up_question": "What type of organization will apply?",
+                "required_action": "Confirm the applicant category in the applicable notice."
+              },
+              {
+                "rule_id": "application_route",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "service_area",
+                  "planned_submission_route"
+                ],
+                "citations": [],
+                "follow_up_question": "Where will the project operate, and do you plan to apply through a state commission or directly?",
+                "required_action": "Confirm the project service area and the applicable submission route before applying."
+              },
+              {
+                "rule_id": "sam_registration",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "sam_registration_active"
+                ],
+                "citations": [],
+                "follow_up_question": "Is your organization's SAM registration active?",
+                "required_action": "Check registration status and complete any required registration before submission; suggested processing time is not an extra deadline."
+              },
+              {
+                "rule_id": "uei",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "has_valid_uei"
+                ],
+                "citations": [],
+                "follow_up_question": "Does your organization have a valid Unique Entity Identifier (UEI)?",
+                "required_action": "Confirm a valid UEI before submission if required by the applicable notice."
+              },
+              {
+                "rule_id": "grant_type",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type",
+                  "americorps_new_applicant"
+                ],
+                "citations": [],
+                "follow_up_question": "Which AmeriCorps grant type are you considering, and is this a new AmeriCorps applicant?",
+                "required_action": "Confirm the selected grant mechanism and the applicant's new or returning status."
+              },
+              {
+                "rule_id": "cost_sharing",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type"
+                ],
+                "citations": [],
+                "follow_up_question": "Which grant type are you considering, and can you meet any matching requirement that applies to it?",
+                "required_action": "Confirm the grant mechanism before assessing its matching requirement."
+              },
+              {
+                "rule_id": "deadline",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "What is the current applicant-specific deadline for your confirmed submission route?",
+                "required_action": "Check the latest deadline for the selected route, including any earlier commission deadline and exact due time."
+              },
+              {
+                "rule_id": "source_currentness",
+                "status": "needs_verification",
+                "reason": "This requirement was not supported by a unique analyst check.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "Has the current official notice and any amendment been checked, including all mandatory requirements?",
+                "required_action": "Check the latest official notice, amendments, and complete mandatory requirement list."
+              }
+            ],
+            "blocking_reasons": [],
+            "blocking_scope": null,
+            "general_deadline": {
+              "status": "future",
+              "as_of_date": "2026-11-13",
+              "deadline_date": "2027-01-13",
+              "scope": "api_general",
+              "applicant_specific_verified": false,
+              "note": "This compares only the API's general calendar date. Applicant-specific routes, earlier deadlines, exact times, and amendments remain unverified."
+            },
+            "summary": "The opportunity needs further verification. Requirement checks reflect stated facts and selected notice passages, not a final eligibility decision."
+          }
+        ],
+        "summary": "Assessed 1 researched opportunity; eligibility remains unconfirmed.",
+        "validation_issues": [
+          {
+            "code": "unsupported_quote",
+            "message": "The proposed source reference or quotation could not be verified against this opportunity's notice.",
+            "opportunity_id": 363696,
+            "rule_id": "applicant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "application_route"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "sam_registration"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "uei"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "grant_type"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "cost_sharing"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "deadline"
+          },
+          {
+            "code": "missing_or_duplicate_requirement",
+            "message": "This requirement was not supported by a unique analyst check.",
+            "opportunity_id": 363696,
+            "rule_id": "source_currentness"
+          }
+        ],
+        "semantic_review_complete": false,
+        "confirmed_eligible": false
+      }
+    },
+    {
+      "id": "unavailable_notice_does_not_prove_eligibility",
+      "description": "A simulated unavailable notice must not inherit valid rule evidence from another case.",
+      "basis": "synthetic_source_failure",
+      "passed": true,
+      "label_rationale": "Applicant facts and a plausible synopsis are insufficient to assert a notice-based requirement when the notice evidence is unavailable.",
+      "comparisons": [
+        {
+          "field": "overall_status",
+          "expected": "needs_verification",
+          "actual": "needs_verification",
+          "passed": true
+        },
+        {
+          "field": "global_block",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "confirmed_eligible",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "semantic_review_complete",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "applicant_specific_deadline_verified",
+          "expected": false,
+          "actual": false,
+          "passed": true
+        },
+        {
+          "field": "requirements.applicant_type",
+          "expected": "needs_verification",
+          "actual": "needs_verification",
+          "passed": true
+        },
+        {
+          "field": "ungrounded_emitted_citations",
+          "expected": 0,
+          "actual": 0,
+          "passed": true
+        }
+      ],
+      "validation_issue_codes": [
+        "notice_evidence_unavailable"
+      ],
+      "accepted_report": {
+        "invocation_id": "frozen-evaluation:unavailable_notice_does_not_prove_eligibility",
+        "profile_version": 1,
+        "as_of_date": "2026-11-13",
+        "decisions": [
+          {
+            "opportunity_id": 363696,
+            "opportunity_number": "AC-08-28-26",
+            "title": "Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants",
+            "source_page": "https://www.grants.gov/search-results-detail/363696",
+            "overall_status": "needs_verification",
+            "requirements": [
+              {
+                "rule_id": "applicant_type",
+                "status": "needs_verification",
+                "reason": "No accepted full-notice excerpts support this check. Retrieve the applicable notice before assessing it.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "organization_type"
+                ],
+                "citations": [],
+                "follow_up_question": "Can the official full notice for opportunity 363696 be obtained and reviewed?",
+                "required_action": "Obtain and review the applicable official notice before applying any of these rule categories."
+              },
+              {
+                "rule_id": "application_route",
+                "status": "needs_verification",
+                "reason": "No accepted full-notice excerpts support this check. Retrieve the applicable notice before assessing it.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "service_area",
+                  "planned_submission_route"
+                ],
+                "citations": [],
+                "follow_up_question": "Can the official full notice for opportunity 363696 be obtained and reviewed?",
+                "required_action": "Obtain and review the applicable official notice before applying any of these rule categories."
+              },
+              {
+                "rule_id": "sam_registration",
+                "status": "needs_verification",
+                "reason": "No accepted full-notice excerpts support this check. Retrieve the applicable notice before assessing it.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "sam_registration_active"
+                ],
+                "citations": [],
+                "follow_up_question": "Can the official full notice for opportunity 363696 be obtained and reviewed?",
+                "required_action": "Obtain and review the applicable official notice before applying any of these rule categories."
+              },
+              {
+                "rule_id": "uei",
+                "status": "needs_verification",
+                "reason": "No accepted full-notice excerpts support this check. Retrieve the applicable notice before assessing it.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "has_valid_uei"
+                ],
+                "citations": [],
+                "follow_up_question": "Can the official full notice for opportunity 363696 be obtained and reviewed?",
+                "required_action": "Obtain and review the applicable official notice before applying any of these rule categories."
+              },
+              {
+                "rule_id": "grant_type",
+                "status": "needs_verification",
+                "reason": "No accepted full-notice excerpts support this check. Retrieve the applicable notice before assessing it.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type",
+                  "americorps_new_applicant"
+                ],
+                "citations": [],
+                "follow_up_question": "Can the official full notice for opportunity 363696 be obtained and reviewed?",
+                "required_action": "Obtain and review the applicable official notice before applying any of these rule categories."
+              },
+              {
+                "rule_id": "cost_sharing",
+                "status": "needs_verification",
+                "reason": "No accepted full-notice excerpts support this check. Retrieve the applicable notice before assessing it.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type"
+                ],
+                "citations": [],
+                "follow_up_question": "Can the official full notice for opportunity 363696 be obtained and reviewed?",
+                "required_action": "Obtain and review the applicable official notice before applying any of these rule categories."
+              },
+              {
+                "rule_id": "deadline",
+                "status": "needs_verification",
+                "reason": "No accepted full-notice excerpts support this check. Retrieve the applicable notice before assessing it.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "Can the official full notice for opportunity 363696 be obtained and reviewed?",
+                "required_action": "Obtain and review the applicable official notice before applying any of these rule categories."
+              },
+              {
+                "rule_id": "source_currentness",
+                "status": "needs_verification",
+                "reason": "No accepted full-notice excerpts support this check. Retrieve the applicable notice before assessing it.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "Can the official full notice for opportunity 363696 be obtained and reviewed?",
+                "required_action": "Obtain and review the applicable official notice before applying any of these rule categories."
+              }
+            ],
+            "blocking_reasons": [],
+            "blocking_scope": null,
+            "general_deadline": {
+              "status": "future",
+              "as_of_date": "2026-11-13",
+              "deadline_date": "2027-01-13",
+              "scope": "api_general",
+              "applicant_specific_verified": false,
+              "note": "This compares only the API's general calendar date. Applicant-specific routes, earlier deadlines, exact times, and amendments remain unverified."
+            },
+            "summary": "The opportunity needs further verification. Requirement checks reflect stated facts and selected notice passages, not a final eligibility decision."
+          }
+        ],
+        "summary": "Assessed 1 researched opportunity; eligibility remains unconfirmed.",
+        "validation_issues": [
+          {
+            "code": "notice_evidence_unavailable",
+            "message": "No accepted full-notice excerpts support this check. Retrieve the applicable notice before assessing it.",
+            "opportunity_id": 363696,
+            "rule_id": "applicant_type"
+          }
+        ],
+        "semantic_review_complete": false,
+        "confirmed_eligible": false
+      }
+    }
+  ]
+}

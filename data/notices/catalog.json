@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "notices": [
+    {
+      "opportunity_id": 363696,
+      "opportunity_number": "AC-08-28-26",
+      "title": "Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants",
+      "source_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf",
+      "source_page": "https://www.americorps.gov/funding-opportunity/fy-2027-americorps-state-national-grants",
+      "local_path": "data/notices/FY27_ASNCompetitiveNotice_Final.508.pdf",
+      "sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+      "captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+    }
+  ]
+}

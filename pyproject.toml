@@ -1,0 +1,22 @@
+[project]
+name = "grant-navigator"
+version = "0.1.0"
+description = "Source-grounded federal grant discovery for US nonprofits"
+requires-python = ">=3.12"
+dependencies = [
+  "google-adk==2.14.0",
+  "httpx==0.28.1",
+  # Version 49+ does not publish an Intel macOS wheel; this machine is x86_64.
+  "cryptography==48.0.1",
+  "pypdf==7.0.1",
+  "python-dotenv==1.2.4",
+  "pydantic==2.14.3",
+]
+
+[dependency-groups]
+dev = [
+  "pytest>=8.4,<10",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

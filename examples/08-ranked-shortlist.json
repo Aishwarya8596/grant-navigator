@@ -1,0 +1,114 @@
+{
+  "scope": "One live Gemini analyst call on the frozen fictional case, followed by local validation and ranking. No discovery or critic call in this check.",
+  "model": "gemini-3.5-flash-lite",
+  "fit_evidence": [
+    {
+      "opportunity_id": 93002,
+      "fit_evidence": [
+        {
+          "dimension": "purpose",
+          "assessment": "supports",
+          "synopsis_quote": "After-school tutoring for middle school students is supported."
+        },
+        {
+          "dimension": "beneficiaries",
+          "assessment": "supports",
+          "synopsis_quote": "After-school tutoring for middle school students is supported."
+        }
+      ]
+    },
+    {
+      "opportunity_id": 93003,
+      "fit_evidence": [
+        {
+          "dimension": "purpose",
+          "assessment": "supports",
+          "synopsis_quote": "After-school tutoring projects may apply."
+        }
+      ]
+    },
+    {
+      "opportunity_id": 93001,
+      "fit_evidence": [
+        {
+          "dimension": "purpose",
+          "assessment": "supports",
+          "synopsis_quote": "After-school tutoring for middle school students in Alameda County is supported for projects starting in fall 2027."
+        },
+        {
+          "dimension": "beneficiaries",
+          "assessment": "supports",
+          "synopsis_quote": "After-school tutoring for middle school students in Alameda County is supported for projects starting in fall 2027."
+        },
+        {
+          "dimension": "service_area",
+          "assessment": "supports",
+          "synopsis_quote": "After-school tutoring for middle school students in Alameda County is supported for projects starting in fall 2027."
+        },
+        {
+          "dimension": "timing",
+          "assessment": "supports",
+          "synopsis_quote": "After-school tutoring for middle school students in Alameda County is supported for projects starting in fall 2027."
+        }
+      ]
+    }
+  ],
+  "ranking": {
+    "invocation_id": "live-rank-demo",
+    "profile_version": 1,
+    "ranked": [
+      {
+        "id": 93001,
+        "title": "Alameda After-School Partnerships",
+        "source": "https://www.grants.gov/search-results-detail/93001",
+        "points": 100,
+        "reasons": [
+          "Project purpose +40 (After-school tutoring): \u201cAfter-school tutoring for middle school students in Alameda County is supported for projects starting in fall 2027.\u201d",
+          "Beneficiaries +15 (middle school students): \u201cAfter-school tutoring for middle school students in Alameda County is supported for projects starting in fall 2027.\u201d",
+          "Service area +10 (Alameda County): \u201cAfter-school tutoring for middle school students in Alameda County is supported for projects starting in fall 2027.\u201d",
+          "Project timing +15 (fall 2027): \u201cAfter-school tutoring for middle school students in Alameda County is supported for projects starting in fall 2027.\u201d",
+          "Funding +20: requested $50,000 is within $25,000\u2013$80,000."
+        ],
+        "unknown": [],
+        "conflicts": [],
+        "hold": []
+      },
+      {
+        "id": 93002,
+        "title": "Regional Learning Grants",
+        "source": "https://www.grants.gov/search-results-detail/93002",
+        "points": 75,
+        "reasons": [
+          "Project purpose +40 (After-school tutoring): \u201cAfter-school tutoring for middle school students is supported.\u201d",
+          "Beneficiaries +15 (middle school students): \u201cAfter-school tutoring for middle school students is supported.\u201d",
+          "Funding +20: requested $50,000 is within $10,000\u2013$75,000."
+        ],
+        "unknown": [
+          "Service area",
+          "Project timing"
+        ],
+        "conflicts": [],
+        "hold": []
+      },
+      {
+        "id": 93003,
+        "title": "Community Learning Microgrants",
+        "source": "https://www.grants.gov/search-results-detail/93003",
+        "points": 40,
+        "reasons": [
+          "Project purpose +40 (After-school tutoring): \u201cAfter-school tutoring projects may apply.\u201d"
+        ],
+        "unknown": [
+          "Beneficiaries",
+          "Service area",
+          "Project timing"
+        ],
+        "conflicts": [
+          "Requested $50,000 falls outside the published award bounds."
+        ],
+        "hold": []
+      }
+    ],
+    "held": []
+  }
+}

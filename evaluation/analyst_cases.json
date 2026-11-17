@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "evaluation_kind": "analyst_validation_guardrails",
+  "label_origin": "Developer-curated cases derived from one saved notice, with explicitly simulated draft and source failures. These are not independent expert labels or captured model outputs.",
+  "as_of_date": "2026-11-13",
+  "source": {
+    "opportunity_id": 363696,
+    "opportunity_number": "AC-08-28-26",
+    "fixture": "data/fixtures/americorps_363696.json",
+    "snapshot_date": "2026-11-10",
+    "sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+    "currentness_verified": false,
+    "notice_review_complete": false
+  },
+  "baseline_profile": {
+    "organization_type": "501(c)(3) nonprofit",
+    "organization_location": "California",
+    "project_purpose": "Community volunteer programs"
+  },
+  "evidence_selectors": {
+    "nonprofit_category": {
+      "page": 8,
+      "focus": "eligible applicant nonprofit organizations",
+      "quote": "nonprofit organizations;"
+    },
+    "single_state_route": {
+      "page": 8,
+      "focus": "Organizations that plan to operate in only one state must apply through commissions",
+      "quote": "Organizations that plan to operate in only one state must apply through the state or territory commissions."
+    },
+    "multi_state_route": {
+      "page": 8,
+      "focus": "Multi-State Organizations programs more than one state territory apply directly AmeriCorps",
+      "quote": "Organizations that plan to operate AmeriCorps programs in more than one state or territory apply directly to AmeriCorps."
+    },
+    "sam_active": {
+      "page": 11,
+      "focus": "SAM active registration from time submission until application process complete",
+      "quote": "All applicants must register with the System for Award Management (SAM) and maintain an active SAM registration from the time of submission until the application process is complete."
+    },
+    "valid_uei": {
+      "page": 11,
+      "focus": "Applications must include valid Unique Entity Identifier UEI",
+      "quote": "Applications must include a valid Unique Entity Identifier (UEI), which is generated as part of the SAM registration process."
+    },
+    "new_applicant_mechanism": {
+      "page": 8,
+      "focus": "New applicants eligible cost reimbursement EAP Professional Corps not eligible full cost fixed amount grants",
+      "quote": "New applicants are eligible to apply for cost reimbursement, Education Award Program (EAP), and Professional Corps grants, but are not eligible to apply for full cost fixed amount grants."
+    },
+    "cost_reimbursement_match": {
+      "page": 7,
+      "focus": "Cost Reimbursement Grants Applicants are required to match funds provided AmeriCorps",
+      "quote": "Cost Reimbursement Grants Applicants are required to match funds provided by AmeriCorps."
+    },
+    "fixed_amount_no_match": {
+      "page": 7,
+      "focus": "Fixed Amount Grants no cost share matching requirement",
+      "quote": "There is no cost share or matching requirement for fixed amount grants."
+    },
+    "general_deadline": {
+      "page": 1,
+      "focus": "Applications due January 13 2027 5:00 Eastern Time state commission deadlines",
+      "quote": "Applications are due not later than Wednesday, January 13, 2027 by 5:00 p.m. Eastern Time."
+    }
+  },
+  "cases": [
+    {
+      "id": "baseline_unknowns",
+      "description": "Original California nonprofit facts support its applicant category, not an inferred service area or current eligibility.",
+      "basis": "saved_notice",
+      "profile_overrides": {},
+      "draft_requirements": [
+        {"rule_id": "applicant_type", "status": "met", "profile_fields": ["organization_type"], "selector": "nonprofit_category"},
+        {"rule_id": "application_route", "status": "met", "profile_fields": ["organization_location"], "selector": "single_state_route"},
+        {"rule_id": "source_currentness", "status": "met", "profile_fields": [], "selector": "general_deadline"}
+      ],
+      "expected": {"overall_status": "needs_verification", "check_statuses": {"applicant_type": "met", "application_route": "needs_verification", "source_currentness": "needs_verification"}, "question_rules": ["application_route", "source_currentness"], "global_block": false},
+      "label_rationale": "Pages 7-8 allow nonprofit applicant categories. Headquarters does not establish project service area or planned submission route; source currency and review completeness remain unresolved."
+    },
+    {
+      "id": "single_state_commission_route",
+      "description": "Explicit single-state operations and a matching planned commission route support the route check.",
+      "basis": "saved_notice",
+      "profile_overrides": {"service_area": "Only California; the project will operate in one state.", "planned_submission_route": "state_commission"},
+      "draft_requirements": [{"rule_id": "application_route", "status": "met", "profile_fields": ["service_area", "planned_submission_route"], "selector": "single_state_route"}],
+      "expected": {"overall_status": "needs_verification", "check_statuses": {"application_route": "met"}, "global_block": false},
+      "label_rationale": "Page 8 identifies the single-state commission route. This assesses reported plans, not actual submission or the applicable commission deadline."
+    },
+    {
+      "id": "single_state_wrong_planned_route",
+      "description": "A conflicting planned route is an action to resolve, not exclusion from every grant mechanism.",
+      "basis": "saved_notice",
+      "profile_overrides": {"service_area": "Only California; the project will operate in one state.", "planned_submission_route": "direct"},
+      "draft_requirements": [{"rule_id": "application_route", "status": "met", "profile_fields": ["service_area", "planned_submission_route"], "selector": "single_state_route"}],
+      "expected": {"overall_status": "needs_verification", "check_statuses": {"application_route": "needs_verification"}, "question_rules": ["application_route"], "global_block": false},
+      "label_rationale": "Page 8's ordinary single-state condition conflicts with the proposed direct route. Exceptions have not been established, so an optimistic met draft must be downgraded for review rather than accepted or turned into a global exclusion."
+    },
+    {
+      "id": "multi_state_direct_route",
+      "description": "An explicitly multi-state project and direct submission plan support the route check.",
+      "basis": "saved_notice",
+      "profile_overrides": {"service_area": "The project will operate in California and Nevada, in more than one state.", "planned_submission_route": "direct"},
+      "draft_requirements": [{"rule_id": "application_route", "status": "met", "profile_fields": ["service_area", "planned_submission_route"], "selector": "multi_state_route"}],
+      "expected": {"overall_status": "needs_verification", "check_statuses": {"application_route": "met"}, "global_block": false},
+      "label_rationale": "Page 8 describes National Direct applications for multi-state programs. The words 'more than one state' must not be classified as single-state by matching the substring 'one state'. Remaining requirements and currentness are not established."
+    },
+    {
+      "id": "multi_state_commission_wrong_condition",
+      "description": "A real single-state route quotation cannot establish compliance for an explicitly multi-state project.",
+      "basis": "adversarial_draft",
+      "profile_overrides": {"service_area": "The project operates in more than one state: California and Nevada.", "planned_submission_route": "state_commission"},
+      "draft_requirements": [{"rule_id": "application_route", "status": "met", "profile_fields": ["service_area", "planned_submission_route"], "selector": "single_state_route"}],
+      "expected": {"overall_status": "needs_verification", "check_statuses": {"application_route": "needs_verification"}, "question_rules": ["application_route"], "global_block": false},
+      "label_rationale": "Page 8's quoted commission rule is conditional on operating in only one state. The stated project operates in more than one state, so the real quotation does not support this optimistic route finding. Resolve the applicable condition rather than accepting met or imposing a global exclusion."
+    },
+    {
+      "id": "single_state_commission_wrong_rejection",
+      "description": "A real multi-state direct-route quotation cannot establish a conflict for a single-state project planning the commission route.",
+      "basis": "adversarial_draft",
+      "profile_overrides": {"service_area": "Only California; the project will operate in one state.", "planned_submission_route": "state_commission"},
+      "draft_requirements": [{"rule_id": "application_route", "status": "not_met", "profile_fields": ["service_area", "planned_submission_route"], "selector": "multi_state_route"}],
+      "expected": {"overall_status": "needs_verification", "check_statuses": {"application_route": "needs_verification"}, "question_rules": ["application_route"], "global_block": false},
+      "label_rationale": "Page 8's quoted direct route applies to programs operating in more than one state or territory. That condition does not match the stated single-state project, so it cannot support the proposed not_met finding. The unsupported rejection should remain unresolved rather than be silently replaced by a positive finding using uncited context."
+    },
+    {
+      "id": "sam_inactive_readiness",
+      "description": "A stated inactive SAM registration cannot be accepted as meeting registration readiness.",
+      "basis": "saved_notice",
+      "profile_overrides": {"sam_registration_active": false},
+      "draft_requirements": [{"rule_id": "sam_registration", "status": "not_met", "profile_fields": ["sam_registration_active"], "selector": "sam_active"}],
+      "expected": {"overall_status": "needs_verification", "check_statuses": {"sam_registration": "not_met"}, "global_block": false},
+      "label_rationale": "Page 11 requires active SAM from submission. Inactivity is a readiness issue that may be remedied; the suggested three-week lead time is not a mandatory exclusion."
+    },
+    {
+      "id": "reported_registration_ready",
+      "description": "Reported active SAM and valid UEI support only those registration checks.",
+      "basis": "saved_notice",
+      "profile_overrides": {"sam_registration_active": true, "has_valid_uei": true},
+      "draft_requirements": [
+        {"rule_id": "sam_registration", "status": "met", "profile_fields": ["sam_registration_active"], "selector": "sam_active"},
+        {"rule_id": "uei", "status": "met", "profile_fields": ["has_valid_uei"], "selector": "valid_uei"}
+      ],
+      "expected": {"overall_status": "needs_verification", "check_statuses": {"sam_registration": "met", "uei": "met"}, "global_block": false},
+      "label_rationale": "Page 11 supplies the rules. User statements are not external SAM/UEI verification, and other requirements remain unknown."
+    },
+    {
+      "id": "uei_missing_readiness",
+      "description": "A stated lack of valid UEI cannot be accepted as meeting application readiness.",
+      "basis": "saved_notice",
+      "profile_overrides": {"has_valid_uei": false},
+      "draft_requirements": [{"rule_id": "uei", "status": "not_met", "profile_fields": ["has_valid_uei"], "selector": "valid_uei"}],
+      "expected": {"overall_status": "needs_verification", "check_statuses": {"uei": "not_met"}, "global_block": false},
+      "label_rationale": "Page 11 requires valid UEI in applications. The absence is a readiness action, not a permanent applicant-category exclusion."
+    },
+    {
+      "id": "new_applicant_full_cost_conflict",
+      "description": "A new applicant's full-cost fixed-amount choice conflicts with the reviewed notice, scoped to that mechanism.",
+      "basis": "saved_notice",
+      "profile_overrides": {"americorps_new_applicant": true, "americorps_grant_type": "full_cost_fixed_amount"},
+      "draft_requirements": [{"rule_id": "grant_type", "status": "met", "profile_fields": ["americorps_new_applicant", "americorps_grant_type"], "selector": "new_applicant_mechanism"}],
+      "expected": {"overall_status": "blocking_issue", "blocking_scope": "selected_grant_type", "check_statuses": {"grant_type": "not_met"}, "global_block": false},
+      "label_rationale": "Page 8 prohibits this selected mechanism for new applicants but permits other AmeriCorps mechanisms. Do not exclude the nonprofit from the entire NOFO."
+    },
+    {
+      "id": "new_applicant_cost_reimbursement",
+      "description": "A new applicant may use cost reimbursement under the reviewed mechanism rule.",
+      "basis": "saved_notice",
+      "profile_overrides": {"americorps_new_applicant": true, "americorps_grant_type": "cost_reimbursement"},
+      "draft_requirements": [{"rule_id": "grant_type", "status": "met", "profile_fields": ["americorps_new_applicant", "americorps_grant_type"], "selector": "new_applicant_mechanism"}],
+      "expected": {"overall_status": "needs_verification", "check_statuses": {"grant_type": "met"}, "global_block": false},
+      "label_rationale": "Page 8 expressly allows cost reimbursement for new applicants. This does not establish matching funds, currentness, or complete eligibility."
+    },
+    {
+      "id": "fixed_amount_no_match_exclusion",
+      "description": "Lack of matching capacity must not become a matching-funds exclusion for fixed-amount grants.",
+      "basis": "saved_notice",
+      "profile_overrides": {"americorps_grant_type": "full_cost_fixed_amount", "americorps_new_applicant": false, "can_meet_match": false},
+      "draft_requirements": [{"rule_id": "cost_sharing", "status": "met", "profile_fields": ["americorps_grant_type", "can_meet_match"], "selector": "fixed_amount_no_match"}],
+      "expected": {"overall_status": "needs_verification", "check_statuses": {"cost_sharing": "met"}, "global_block": false},
+      "label_rationale": "Page 7 says fixed-amount grants have no cost-sharing or matching requirement. Other operating funds and requirements are separate questions."
+    },
+    {
+      "id": "cost_reimbursement_match_not_ready",
+      "description": "Inability to meet the ordinary match is a readiness issue, with waiver questions unresolved.",
+      "basis": "saved_notice",
+      "profile_overrides": {"americorps_grant_type": "cost_reimbursement", "can_meet_match": false},
+      "draft_requirements": [{"rule_id": "cost_sharing", "status": "not_met", "profile_fields": ["americorps_grant_type", "can_meet_match"], "selector": "cost_reimbursement_match"}],
+      "expected": {"overall_status": "needs_verification", "check_statuses": {"cost_sharing": "not_met"}, "global_block": false},
+      "label_rationale": "Page 7 requires a match for cost reimbursement and describes waivers. The report should identify an unresolved action, not reject every grant option."
+    },
+    {
+      "id": "past_general_api_date_is_not_applicant_exclusion",
+      "description": "A general API date in the past does not establish a verified applicant-specific deadline.",
+      "basis": "synthetic_as_of_date",
+      "as_of_date": "2027-01-14",
+      "profile_overrides": {},
+      "draft_requirements": [{"rule_id": "deadline", "status": "not_met", "profile_fields": [], "selector": "general_deadline"}],
+      "expected": {"overall_status": "needs_verification", "check_statuses": {"deadline": "needs_verification"}, "general_deadline_status": "past", "question_rules": ["deadline"], "global_block": false},
+      "label_rationale": "Pages 1 and 11 describe the general date, potentially earlier commission dates, extensions, and case-by-case late consideration. Currentness and the applicable route remain unknown."
+    },
+    {
+      "id": "forged_cross_opportunity_evidence",
+      "description": "An evidence ID from another opportunity cannot support a positive judgment.",
+      "basis": "adversarial_draft",
+      "profile_overrides": {},
+      "draft_requirements": [{"rule_id": "applicant_type", "status": "met", "profile_fields": ["organization_type"], "selector": "nonprofit_category", "evidence_id_override": "notice:999999:250b6fff76658a26:p8:c1"}],
+      "expected": {"overall_status": "needs_verification", "check_statuses": {"applicant_type": "needs_verification"}, "citation_rejected": true, "global_block": false},
+      "label_rationale": "The quote is real but the reference is intentionally forged. Only evidence belonging to this opportunity and snapshot may support the assessment."
+    },
+    {
+      "id": "invented_quote_with_real_reference",
+      "description": "A valid evidence ID does not make an invented quote acceptable.",
+      "basis": "adversarial_draft",
+      "profile_overrides": {},
+      "draft_requirements": [{"rule_id": "applicant_type", "status": "met", "profile_fields": ["organization_type"], "selector": "nonprofit_category", "quote_override": "Every nonprofit is fully eligible without meeting any other requirements."}],
+      "expected": {"overall_status": "needs_verification", "check_statuses": {"applicant_type": "needs_verification"}, "citation_rejected": true, "global_block": false},
+      "label_rationale": "The quote is synthetic and absent from the cited page. The validator must not convert citation syntax into evidence of support."
+    },
+    {
+      "id": "unavailable_notice_does_not_prove_eligibility",
+      "description": "A simulated unavailable notice must not inherit valid rule evidence from another case.",
+      "basis": "synthetic_source_failure",
+      "profile_overrides": {},
+      "notice_status": "notice_unavailable",
+      "draft_requirements": [{"rule_id": "applicant_type", "status": "met", "profile_fields": ["organization_type"], "selector": "nonprofit_category"}],
+      "expected": {"overall_status": "needs_verification", "check_statuses": {"applicant_type": "needs_verification"}, "global_block": false},
+      "label_rationale": "Applicant facts and a plausible synopsis are insufficient to assert a notice-based requirement when the notice evidence is unavailable."
+    }
+  ]
+}

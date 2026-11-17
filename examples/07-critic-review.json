@@ -1,0 +1,1429 @@
+{
+  "controlled_correction": {
+    "method": "Controlled ADK Runner with scripted models, mocked Grants.gov and saved grant notice",
+    "source_test": "tests/test_critic_workflow.py::test_cited_critique_revises_only_the_target_and_preserves_sources",
+    "observed_at_utc": "2026-11-13T19:42:55.332943+00:00",
+    "adk_version": "2.14.0",
+    "runtime_author_sequence": [
+      "grant_navigator",
+      "grant_navigator",
+      "grant_navigator",
+      "opportunity_researcher",
+      "opportunity_researcher",
+      "opportunity_researcher",
+      "opportunity_researcher",
+      "opportunity_researcher",
+      "opportunity_researcher",
+      "grant_navigator",
+      "eligibility_analyst",
+      "eligibility_analyst",
+      "evidence_critic",
+      "eligibility_analyst",
+      "eligibility_analyst",
+      "evidence_critic",
+      "grant_navigator"
+    ],
+    "synthetic_profile": {
+      "organization_name": null,
+      "organization_type": "501(c)(3) nonprofit",
+      "organization_location": "California",
+      "project_purpose": "Community volunteer programs",
+      "service_area": null,
+      "beneficiaries": null,
+      "funding_amount_usd": null,
+      "project_timing": null,
+      "sam_registration_active": true,
+      "has_valid_uei": null,
+      "planned_submission_route": null,
+      "americorps_grant_type": null,
+      "americorps_new_applicant": null,
+      "can_meet_match": null
+    },
+    "critic_outcome": {
+      "invocation_id": "e-0136e77a-832b-40b5-a8ae-15275b36e849",
+      "profile_version": 1,
+      "status": "approved",
+      "revisions": 1
+    },
+    "before": {
+      "rule_id": "sam_registration",
+      "status": "needs_verification",
+      "reason": "The analyst left this requirement unresolved; the cited passages do not establish completion of the applicable check.",
+      "applicability": "uncertain",
+      "profile_fields": [
+        "sam_registration_active"
+      ],
+      "citations": [],
+      "follow_up_question": "Is your organization's SAM registration active?",
+      "required_action": "Check registration status and complete any required registration before submission; suggested processing time is not an extra deadline."
+    },
+    "critic_feedback": {
+      "rule_id": "sam_registration",
+      "kind": "overlooked_evidence",
+      "correction": "Compare the stated active SAM registration with the mandatory registration clause on page 8 and cite the clause.",
+      "evidence_refs": [
+        {
+          "evidence_id": "notice:363696:250b6fff76658a26:p8:c1",
+          "quote": "Applicants must have a valid SAM registration and Unique Entity Identifier to receive an award."
+        }
+      ],
+      "opportunity_id": 363696,
+      "origin": "critic"
+    },
+    "after": {
+      "rule_id": "sam_registration",
+      "status": "met",
+      "reason": "The profile states that SAM registration is active; the cited passage requires it.",
+      "applicability": "applies",
+      "profile_fields": [
+        "sam_registration_active"
+      ],
+      "citations": [
+        {
+          "evidence_id": "notice:363696:250b6fff76658a26:p8:c1",
+          "quote": "Applicants must have a valid SAM registration and Unique Entity Identifier to receive an award.",
+          "page_number": 8,
+          "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+          "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+          "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+        }
+      ],
+      "follow_up_question": null,
+      "required_action": null
+    },
+    "reviews": [
+      {
+        "verdict": "revise",
+        "findings": [
+          {
+            "rule_id": "sam_registration",
+            "kind": "overlooked_evidence",
+            "correction": "Compare the stated active SAM registration with the mandatory registration clause on page 8 and cite the clause.",
+            "evidence_refs": [
+              {
+                "evidence_id": "notice:363696:250b6fff76658a26:p8:c1",
+                "quote": "Applicants must have a valid SAM registration and Unique Entity Identifier to receive an award."
+              }
+            ],
+            "opportunity_id": 363696,
+            "origin": "critic"
+          }
+        ]
+      },
+      {
+        "verdict": "approve",
+        "findings": []
+      }
+    ]
+  },
+  "earlier_live_observation": {
+    "observed_at_utc": "2026-11-13T19:44:50.284786+00:00",
+    "model": "gemini-3.5-flash-lite",
+    "elapsed_seconds": 15.56,
+    "runtime_author_sequence": [
+      "grant_navigator",
+      "opportunity_researcher",
+      "grant_navigator",
+      "eligibility_analyst",
+      "evidence_critic",
+      "grant_navigator"
+    ],
+    "prompt": "We are a California 501(c)(3) nonprofit running community volunteer programs. We are a new AmeriCorps applicant considering a full-cost fixed-amount grant. Our SAM registration is active and we have a valid UEI. Investigate AmeriCorps opportunity 363696 (AC-08-28-26). Read the grant notice and explain which requirements we meet, which we need to verify, and whether any issue affects our chosen grant type or the entire opportunity.",
+    "tool_calls": [
+      {
+        "author": "grant_navigator",
+        "name": "save_nonprofit_profile",
+        "args": {
+          "sam_registration_active": true,
+          "project_purpose": "Community volunteer programs",
+          "has_valid_uei": true,
+          "americorps_new_applicant": true,
+          "americorps_grant_type": "full_cost_fixed_amount",
+          "organization_location": "California",
+          "organization_type": "501(c)(3) nonprofit"
+        }
+      },
+      {
+        "author": "grant_navigator",
+        "name": "opportunity_researcher",
+        "args": {
+          "request": "Investigate AmeriCorps opportunity 363696 (AC-08-28-26), checking details for a California 501(c)(3) new applicant interested in a full-cost fixed-amount grant."
+        }
+      },
+      {
+        "author": "opportunity_researcher",
+        "name": "fetch_grant_details",
+        "args": {
+          "opportunity_id": 363696
+        }
+      },
+      {
+        "author": "opportunity_researcher",
+        "name": "read_grant_notice",
+        "args": {
+          "max_excerpts": 8,
+          "focus": "deadlines application route eligibility state commission cost sharing match fixed amount",
+          "opportunity_id": 363696
+        }
+      }
+    ],
+    "workflow_check": {
+      "passed": false,
+      "issue": "The critic did not complete a validated review."
+    },
+    "critic_draft": {
+      "verdict": "approve",
+      "reviews": []
+    },
+    "critic_error": "ValidationError",
+    "critic_outcome": {
+      "invocation_id": "e-c2654566-2d6b-4493-936e-8f9efb99bc87",
+      "profile_version": 1,
+      "status": "failed",
+      "revisions": 0
+    }
+  },
+  "live_demo": {
+    "method": "Live local ADK Web /run_sse; synthetic public profile, Gemini, real Grants.gov detail and saved notice",
+    "observed_at_utc": "2026-11-13T20:08:23.829996+00:00",
+    "adk_version": "2.14.0",
+    "model": "gemini-3.5-flash-lite",
+    "session_id": "adcfdc4d-d089-45f4-bae3-440f1582382f",
+    "invocation_ids": [
+      "e-c59d71f0-c8fb-4ee8-af32-70b796f9e923"
+    ],
+    "prompt": "We are a California 501(c)(3) nonprofit running community volunteer programs. We are a new AmeriCorps applicant considering a full-cost fixed-amount grant. Our SAM registration is active and we have a valid UEI. Investigate AmeriCorps opportunity 363696 (AC-08-28-26). Read the grant notice and explain which requirements we meet, which we need to verify, and whether any issue affects our chosen grant type or the entire opportunity.",
+    "elapsed_seconds": 23.5,
+    "runtime_author_sequence": [
+      "grant_navigator",
+      "opportunity_researcher",
+      "grant_navigator",
+      "eligibility_analyst",
+      "evidence_critic",
+      "eligibility_analyst",
+      "evidence_critic",
+      "grant_navigator"
+    ],
+    "tool_calls": [
+      {
+        "author": "grant_navigator",
+        "name": "save_nonprofit_profile",
+        "args": {
+          "project_purpose": "Community volunteer programs",
+          "organization_type": "501(c)(3) nonprofit",
+          "has_valid_uei": true,
+          "organization_location": "California",
+          "americorps_new_applicant": true,
+          "americorps_grant_type": "full_cost_fixed_amount",
+          "sam_registration_active": true
+        }
+      },
+      {
+        "author": "grant_navigator",
+        "name": "opportunity_researcher",
+        "args": {
+          "request": "Investigate AmeriCorps opportunity 363696 (AC-08-28-26), reviewing grant notice requirements for a California 501(c)(3) new applicant seeking a full-cost fixed-amount grant."
+        }
+      },
+      {
+        "author": "opportunity_researcher",
+        "name": "fetch_grant_details",
+        "args": {
+          "opportunity_id": 363696
+        }
+      },
+      {
+        "author": "opportunity_researcher",
+        "name": "read_grant_notice",
+        "args": {
+          "opportunity_id": 363696,
+          "max_excerpts": 8,
+          "focus": "deadlines application route eligibility state commission cost sharing matching rules"
+        }
+      }
+    ],
+    "source": {
+      "status": "success",
+      "source_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf",
+      "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+      "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00",
+      "currentness_verified": false,
+      "excerpts": [
+        {
+          "evidence_id": "notice:363696:250b6fff76658a26:p8:c1",
+          "page_number": 8,
+          "text": "8 \u2022 local governments, including school districts; \u2022 nonprofit organizations; \u2022 State Service Commissions (submit sub-applicants but not operate programs); and \u2022 states and US Territories. In addition to Indian Tribes as defined in 2 CFR 200.1, Tribal organizations that are controlled, authorized, or chartered by Federally recognized Indian Tribes are also eligible to apply. If an entity applies for an award as a tribal organization that is controlled or chartered by one or more Indian Tribes, and the organization does not meet any of the other applicant eligibility types, the organization must provide copies or links to documentation which demonstrates that the organization is controlled or chartered by a federally recognized Indian Tribe. If an entity applies as an organization authorized by a federally recognized Tribe, or multiple specific federally recognized tribes, it must submit a resolution or other authorization, adopted by the Tribal Council (or comparable tribal governing body) of each Indian Tribe. The authorization(s) must identify the entity applying for an AmeriCorps award by name as a tribal organization that is authorized by the Indian Tribe(s) for the purpose of applying for AmeriCorps funding (or federal grant funds generally). Applicants must have a valid SAM registration and Unique Entity Identifier to receive an award. See Section D.3. Unique Entity",
+          "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+          "citation_label": "Full notice, PDF page 8"
+        },
+        {
+          "evidence_id": "notice:363696:250b6fff76658a26:p1:c2",
+          "page_number": 1,
+          "text": "as codified at 5 U.S.C. \u00a7\u00a7801- 808, and any subsequent notification provided to Congress does not constitute waiver of this position. Important Dates \u2022 Applications are due not later than Wednesday, January 13, 2027 by 5:00 p.m. Eastern Time. \u2022 Successful applicants will be notified by mid-April, 2027. \u2022 Successful applicants will be issued awards by mid-June, 2027. Note to applicants proposing service in a single state: contact the commission in the state or territory where you intend to apply as early as possible. State service commissions may set their deadlines for single states applicants well in advance of AmeriCorps deadlines. The list of commissions can be found on the AmeriCorps State Service Commissions' webpage AmeriCorps State Service Commissions' webpage.",
+          "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1",
+          "citation_label": "Full notice, PDF page 1"
+        },
+        {
+          "evidence_id": "notice:363696:250b6fff76658a26:p8:c2",
+          "page_number": 8,
+          "text": "of applying for AmeriCorps funding (or federal grant funds generally). Applicants must have a valid SAM registration and Unique Entity Identifier to receive an award. See Section D.3. Unique Entity Identifier and System for Award Management (SAM) for more information. New Applicants: AmeriCorps strongly encourages organizations that have not received prior funding from AmeriCorps to apply, e.g., small community-based organizations, faith- based organizations, etc. New applicants are eligible to apply for cost reimbursement, Education Award Program (EAP), and Professional Corps grants, but are not eligible to apply for full cost fixed amount grants. Types of Applicants 1. State and Territory Service Commissions, for Single-State Applicants Organizations that plan to operate in only one state must apply through the state or territory commissions. Each commission has its own state-based selection process and submits applications to compete for funding directly to AmeriCorps. The list of commissions can be found on the AmeriCorps State Service Commissions' webpage. 2. National Direct Applicants Multi-State: Organizations that plan to operate AmeriCorps programs in more than one state or territory apply directly to AmeriCorps. States and Territories without State Service Commissions: Applicants in South Dakota, American Samoa, the Commonwealth of the Northern Mariana Islands, and",
+          "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+          "citation_label": "Full notice, PDF page 8"
+        },
+        {
+          "evidence_id": "notice:363696:250b6fff76658a26:p7:c2",
+          "page_number": 7,
+          "text": "Years 4,5, and 6 Years 7,8, and 9 Years 10 + Grantee Share Requirements 24% 26% 28% 30% Match Waiver Please use the Match Waiver information for AmeriCorps State and National grantees located on the AmeriCorps.gov Manage Your Grant webpage. AmeriCorps encourages Tribal Nations to request match waivers to reduce barriers. Every effort will be made to reduce the match requirements to improve accessibility to funding. Fixed Amount Grants There is no cost share or matching requirement for fixed amount grants. AmeriCorps does not provide all the funds necessary to operate the program. Organizations should raise the funds needed to operate the program. C. ELIGIBILITY INFORMATION C.1. Eligible Applicants The following non-Federal entities (all of which are defined in 2 CFR 200.1 or 42 U.S.C. 12511(21)) are eligible to apply: \u2022 Indian Tribes; \u2022 institutions of higher education;",
+          "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=7",
+          "citation_label": "Full notice, PDF page 7"
+        },
+        {
+          "evidence_id": "notice:363696:250b6fff76658a26:p7:c1",
+          "page_number": 7,
+          "text": "7 * Member Service Year (MSY): One MSY is equivalent to a full-time AmeriCorps position, at least 1,700 service hours. Multiple positions at less than full-time can be combined to equal one MSY. ** For the Education Award Program, AmeriCorps may provide a maximum of $800 per individual enrolled in an approved national service position. If at least 50 percent of a program\u2019s enrollees are disadvantaged youth, AmeriCorps may provide $1,000 per enrollee, 42 U.S.C. \u00a7 12581a. ***Use Mandatory Supplemental Information (MSI) for further requirements B.5. Cost Sharing or Matching Cost Reimbursement Grants Applicants are required to match funds provided by AmeriCorps. The applicant\u2019s match can be non-AmeriCorps cash and/or in-kind contributions. Applicants must show that they can meet the match requirement when they submit the application. Applicants must say in their application if they have already secured the match funding. A first-time successful applicant is required to match at 24 percent for the first three-year funding period. Starting with year four, the match requirement gradually increases every three years to 30 percent by year ten. AmeriCorps Funding Year Years 1,2, and 3 Years 4,5, and 6 Years 7,8, and 9 Years 10 + Grantee Share Requirements 24% 26% 28% 30% Match Waiver Please use the Match Waiver information for AmeriCorps State and National grantees located on the",
+          "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=7",
+          "citation_label": "Full notice, PDF page 7"
+        },
+        {
+          "evidence_id": "notice:363696:250b6fff76658a26:p23:c1",
+          "page_number": 23,
+          "text": "23 self-determined upon submission of its application. The stages of the review and selection process follow: E.2.a. Initial Application Compliance and Eligibility Review AmeriCorps will do an initial compliance and eligibility check before reviewing applications. To pass this check, applicants must: \u2022 Be an eligible organization, \u2022 Be eligible to apply for a Full Cost Fixed Grant, \u2022 Be eligible to submit directly to AmeriCorps, \u2022 Have an active SAM registration, \u2022 Not be listed on Do Not Pay or the exclusions list in SAM.gov, and \u2022 Submit an application by the submission deadline. Eligibility assessment is intended to ensure that only those applications that are eligible for award are reviewed. However, determinations of eligibility can take place at any point during the application review and selection process. Applicants that are determined to be ineligible will not receive an award. E.2.b. Application Review Review Reviewers will assess applications based on the Program Design, Organizational Capability, Cost-Effectiveness and Budget Adequacy, and Evidence Selection Criteria. AmeriCorps will also review and assess the input from the state service commissions about multi-state national direct applications. Staff will also assess budget compliance, and review for prohibited activities. Post-Review Quality Control AmeriCorps staff will review the initial results for fairness",
+          "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=23",
+          "citation_label": "Full notice, PDF page 23"
+        },
+        {
+          "evidence_id": "notice:363696:250b6fff76658a26:p6:c1",
+          "page_number": 6,
+          "text": "6 subsequent years are not guaranteed; they depend upon availability of appropriations and satisfactory performance. B.4. Type of Award AmeriCorps makes available different types of grants. The chart below summarizes these grant types and their distinct characteristics. Grant Types Cost Reimbursement Fixed Amount Available Subtypes Traditional Full- Cost Education Award Program, EAP Professional Corps*** No Cost Slots Maximum Cost per MSY* $26,800 $26,800 $800 or $1,000** $1,000 $0 Type of Slots in the National Service Trust All slot types All slot types All slot types FT Only All slot types Matching Funds Required Yes No Budget Submission Required Yes No Availability of Funds Linked to Enrollment / Retention of Awarded MSYs No Yes No Special Requirements N/A N/A Must place qualified professionals in communities with an inadequate # of such professionals. AmeriCorps Volunteer salaries / benefits must be paid entirely by organization where AmeriCorps Volunteer serves N/A Financial Reporting Requirements Yes No Available to New Applications Yes No Yes",
+          "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=6",
+          "citation_label": "Full notice, PDF page 6"
+        },
+        {
+          "evidence_id": "notice:363696:250b6fff76658a26:p9:c1",
+          "page_number": 9,
+          "text": "9 In addition to Indian Tribes, as defined in 2 CFR 200.1, tribal organizations that are controlled, authorized, or chartered by Federally recognized Indian Tribes are also eligible to apply directly to AmeriCorps. Federally recognized Indian Tribes will also be eligible to apply for operating or planning grants under a separate Notice of Funding Opportunity for Indian Tribes at the AmeriCorps.gov Funding Opportunities webpage with an application deadline in the spring. Threshold Issues Specific types of applicants must meet the following requirements: \u2022 Professional Corps must show that the community where it will place AmeriCorps Volunteers has a shortage of professionals in the relevant area, e.g., teachers, medical professionals, etc. \u2022 If service activities require special AmeriCorps Volunteer qualifications and/or training, such as tutoring programs, the applicant must describe how these requirements will be met. \u2022 All applicants must propose program designs that are either evidence-based or evidence-informed (See section E.1.b (2) Evidence Base). Applicants rated as insufficient evidence are removed from funding consideration. Insufficient evidence is determined by: o An applicant being assessed as in the pre-preliminary evidence tier AND o providing inadequate responses to the Evidence Quality review standards below. \u2022 All FY 2027 competitive applicants must submit an",
+          "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=9",
+          "citation_label": "Full notice, PDF page 9"
+        }
+      ]
+    },
+    "state": {
+      "profile_version": 1,
+      "nonprofit_profile": {
+        "organization_name": null,
+        "organization_type": "501(c)(3) nonprofit",
+        "organization_location": "California",
+        "project_purpose": "Community volunteer programs",
+        "service_area": null,
+        "beneficiaries": null,
+        "funding_amount_usd": null,
+        "project_timing": null,
+        "sam_registration_active": true,
+        "has_valid_uei": true,
+        "planned_submission_route": null,
+        "americorps_grant_type": "full_cost_fixed_amount",
+        "americorps_new_applicant": true,
+        "can_meet_match": null
+      },
+      "research_outcome": {
+        "status": "completed",
+        "invocation_id": "e-c59d71f0-c8fb-4ee8-af32-70b796f9e923",
+        "profile_version": 1
+      },
+      "eligibility_outcome": {
+        "invocation_id": "e-c59d71f0-c8fb-4ee8-af32-70b796f9e923",
+        "profile_version": 1,
+        "status": "completed"
+      },
+      "critic_outcome": {
+        "invocation_id": "e-c59d71f0-c8fb-4ee8-af32-70b796f9e923",
+        "profile_version": 1,
+        "status": "approved",
+        "revisions": 1
+      },
+      "critic_history": [
+        {
+          "round": 1,
+          "draft": {
+            "decisions": [
+              {
+                "opportunity_id": 363696,
+                "requirements": [
+                  {
+                    "rule_id": "applicant_type",
+                    "status": "met",
+                    "reason": "The organization is a 501(c)(3) nonprofit, which is explicitly listed as an eligible applicant type in the notice.",
+                    "profile_fields": [
+                      "organization_type"
+                    ],
+                    "evidence_refs": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p8:c1",
+                        "quote": "\u2022 nonprofit organizations;"
+                      }
+                    ],
+                    "follow_up_question": null,
+                    "required_action": null,
+                    "applicability": "applies"
+                  },
+                  {
+                    "rule_id": "application_route",
+                    "status": "needs_verification",
+                    "reason": "The planned submission route is unstated, and single-state applicants must apply through their state service commission.",
+                    "profile_fields": [
+                      "planned_submission_route",
+                      "organization_location"
+                    ],
+                    "evidence_refs": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p8:c2",
+                        "quote": "Organizations that plan to operate in only one state must apply through the state or territory commissions."
+                      }
+                    ],
+                    "follow_up_question": "Do you plan to operate your program in California only, and will you coordinate your submission with California Volunteers (the state service commission)?",
+                    "required_action": "Confirm the planned submission route with the California state service commission.",
+                    "applicability": "applies"
+                  },
+                  {
+                    "rule_id": "sam_registration",
+                    "status": "met",
+                    "reason": "The nonprofit profile confirms an active SAM registration.",
+                    "profile_fields": [
+                      "sam_registration_active"
+                    ],
+                    "evidence_refs": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p8:c1",
+                        "quote": "Applicants must have a valid SAM registration and Unique Entity Identifier to receive an award."
+                      }
+                    ],
+                    "follow_up_question": null,
+                    "required_action": null,
+                    "applicability": "applies"
+                  },
+                  {
+                    "rule_id": "uei",
+                    "status": "met",
+                    "reason": "The nonprofit profile confirms a valid Unique Entity Identifier (UEI).",
+                    "profile_fields": [
+                      "has_valid_uei"
+                    ],
+                    "evidence_refs": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p8:c1",
+                        "quote": "Applicants must have a valid SAM registration and Unique Entity Identifier to receive an award."
+                      }
+                    ],
+                    "follow_up_question": null,
+                    "required_action": null,
+                    "applicability": "applies"
+                  },
+                  {
+                    "rule_id": "grant_type",
+                    "status": "not_met",
+                    "reason": "New applicants are explicitly ineligible to apply for full cost fixed amount grants under this notice.",
+                    "profile_fields": [
+                      "americorps_grant_type",
+                      "americorps_new_applicant"
+                    ],
+                    "evidence_refs": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p8:c2",
+                        "quote": "New applicants are eligible to apply for cost reimbursement, Education Award Program (EAP), and Professional Corps grants, but are not eligible to apply for full cost fixed amount grants."
+                      }
+                    ],
+                    "follow_up_question": "Would you like to select an eligible grant type such as cost reimbursement or the Education Award Program (EAP)?",
+                    "required_action": "Revise the selected AmeriCorps grant type to an eligible mechanism for new applicants.",
+                    "applicability": "applies"
+                  },
+                  {
+                    "rule_id": "cost_sharing",
+                    "status": "needs_verification",
+                    "reason": "The ability to meet the required match is currently unstated in the organization profile.",
+                    "profile_fields": [
+                      "can_meet_match"
+                    ],
+                    "evidence_refs": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p7:c1",
+                        "quote": "Applicants are required to match funds provided by AmeriCorps. ... Applicants must show that they can meet the match requirement when they submit the application."
+                      }
+                    ],
+                    "follow_up_question": "Can your organization meet the 24 percent match requirement for the first three-year funding period?",
+                    "required_action": "Confirm whether matching funds are secured or can be met.",
+                    "applicability": "applies"
+                  },
+                  {
+                    "rule_id": "deadline",
+                    "status": "needs_verification",
+                    "reason": "The exact application submission deadline depends on the verified route, as state commissions may set earlier deadlines.",
+                    "profile_fields": [],
+                    "evidence_refs": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p1:c2",
+                        "quote": "Applications are due not later than Wednesday, January 13, 2027 by 5:00 p.m. Eastern Time. ... State service commissions may set their deadlines for single states applicants well in advance of AmeriCorps deadlines."
+                      }
+                    ],
+                    "follow_up_question": "Have you verified the specific submission deadline set by the California state service commission?",
+                    "required_action": "Check the California state service commission website for any earlier state-level deadline.",
+                    "applicability": "applies"
+                  },
+                  {
+                    "rule_id": "source_currentness",
+                    "status": "needs_verification",
+                    "reason": "The notice review and currentness have not been fully verified in the system metadata.",
+                    "profile_fields": [],
+                    "evidence_refs": [],
+                    "follow_up_question": null,
+                    "required_action": "Verify that the notice snapshot represents the final current guidelines.",
+                    "applicability": "applies"
+                  }
+                ],
+                "summary": "The organization meets general applicant type, SAM registration, and UEI requirements, but new applicants are barred from selecting full-cost fixed-amount grants. Application route, cost-sharing match capability, and exact deadlines require confirmation."
+              }
+            ],
+            "summary": "Completed eligibility analysis for opportunity 363696 with specific findings on applicant qualifications, grant type restrictions, and pending verification items."
+          },
+          "assessment": {
+            "invocation_id": "e-c59d71f0-c8fb-4ee8-af32-70b796f9e923",
+            "profile_version": 1,
+            "as_of_date": "2026-11-13",
+            "decisions": [
+              {
+                "opportunity_id": 363696,
+                "opportunity_number": "AC-08-28-26",
+                "title": "Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants",
+                "source_page": "https://www.grants.gov/search-results-detail/363696",
+                "overall_status": "blocking_issue",
+                "requirements": [
+                  {
+                    "rule_id": "applicant_type",
+                    "status": "met",
+                    "reason": "The stated nonprofit organization type is supported by the cited applicant-category passage; this does not establish overall eligibility.",
+                    "applicability": "applies",
+                    "profile_fields": [
+                      "organization_type"
+                    ],
+                    "citations": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p8:c1",
+                        "quote": "\u2022 nonprofit organizations;",
+                        "page_number": 8,
+                        "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                        "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                        "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                      }
+                    ],
+                    "follow_up_question": null,
+                    "required_action": null
+                  },
+                  {
+                    "rule_id": "application_route",
+                    "status": "needs_verification",
+                    "reason": "Missing facts prevent this assessment: service area, planned submission route.",
+                    "applicability": "uncertain",
+                    "profile_fields": [
+                      "service_area",
+                      "planned_submission_route"
+                    ],
+                    "citations": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p8:c2",
+                        "quote": "Organizations that plan to operate in only one state must apply through the state or territory commissions.",
+                        "page_number": 8,
+                        "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                        "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                        "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                      }
+                    ],
+                    "follow_up_question": "Where will the project operate, and do you plan to apply through a state commission or directly?",
+                    "required_action": "Confirm the project service area and the applicable submission route before applying."
+                  },
+                  {
+                    "rule_id": "sam_registration",
+                    "status": "met",
+                    "reason": "The profile states that SAM registration is active; the cited passage requires it.",
+                    "applicability": "applies",
+                    "profile_fields": [
+                      "sam_registration_active"
+                    ],
+                    "citations": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p8:c1",
+                        "quote": "Applicants must have a valid SAM registration and Unique Entity Identifier to receive an award.",
+                        "page_number": 8,
+                        "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                        "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                        "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                      }
+                    ],
+                    "follow_up_question": null,
+                    "required_action": null
+                  },
+                  {
+                    "rule_id": "uei",
+                    "status": "met",
+                    "reason": "The profile states that a valid UEI is held; the cited passage requires it.",
+                    "applicability": "applies",
+                    "profile_fields": [
+                      "has_valid_uei"
+                    ],
+                    "citations": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p8:c1",
+                        "quote": "Applicants must have a valid SAM registration and Unique Entity Identifier to receive an award.",
+                        "page_number": 8,
+                        "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                        "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                        "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                      }
+                    ],
+                    "follow_up_question": null,
+                    "required_action": null
+                  },
+                  {
+                    "rule_id": "grant_type",
+                    "status": "not_met",
+                    "reason": "The stated new-applicant status conflicts with the quoted restriction on full-cost fixed-amount grants. This blocks that selected grant type, not every grant type in the notice.",
+                    "applicability": "applies",
+                    "profile_fields": [
+                      "americorps_grant_type",
+                      "americorps_new_applicant"
+                    ],
+                    "citations": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p8:c2",
+                        "quote": "New applicants are eligible to apply for cost reimbursement, Education Award Program (EAP), and Professional Corps grants, but are not eligible to apply for full cost fixed amount grants.",
+                        "page_number": 8,
+                        "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                        "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                        "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                      }
+                    ],
+                    "follow_up_question": null,
+                    "required_action": "Confirm the selected grant mechanism and the applicant's new or returning status."
+                  },
+                  {
+                    "rule_id": "cost_sharing",
+                    "status": "needs_verification",
+                    "reason": "The proposed source reference or quotation could not be verified against this opportunity's notice.",
+                    "applicability": "uncertain",
+                    "profile_fields": [
+                      "americorps_grant_type"
+                    ],
+                    "citations": [],
+                    "follow_up_question": "Which grant type are you considering, and can you meet any matching requirement that applies to it?",
+                    "required_action": "Confirm the grant mechanism before assessing its matching requirement."
+                  },
+                  {
+                    "rule_id": "deadline",
+                    "status": "needs_verification",
+                    "reason": "The proposed source reference or quotation could not be verified against this opportunity's notice.",
+                    "applicability": "uncertain",
+                    "profile_fields": [],
+                    "citations": [],
+                    "follow_up_question": "What is the current applicant-specific deadline for your confirmed submission route?",
+                    "required_action": "Check the latest deadline for the selected route, including any earlier commission deadline and exact due time."
+                  },
+                  {
+                    "rule_id": "source_currentness",
+                    "status": "needs_verification",
+                    "reason": "The source is a dated or partial review; current amendments and the complete requirement list remain unverified.",
+                    "applicability": "uncertain",
+                    "profile_fields": [],
+                    "citations": [],
+                    "follow_up_question": "Has the current official notice and any amendment been checked, including all mandatory requirements?",
+                    "required_action": "Check the latest official notice, amendments, and complete mandatory requirement list."
+                  }
+                ],
+                "blocking_reasons": [
+                  "The stated new-applicant status conflicts with the quoted restriction on full-cost fixed-amount grants. This blocks that selected grant type, not every grant type in the notice."
+                ],
+                "blocking_scope": "selected_grant_type",
+                "general_deadline": {
+                  "status": "future",
+                  "as_of_date": "2026-11-13",
+                  "deadline_date": "2027-01-13",
+                  "scope": "api_general",
+                  "applicant_specific_verified": false,
+                  "note": "This compares only the API's general calendar date. Applicant-specific routes, earlier deadlines, exact times, and amendments remain unverified."
+                },
+                "summary": "The selected grant-type option conflicts with the cited new-applicant restriction; other options and overall eligibility remain unverified."
+              }
+            ],
+            "summary": "Assessed 1 researched opportunity; eligibility remains unconfirmed.",
+            "validation_issues": [
+              {
+                "code": "unsupported_quote",
+                "message": "The proposed source reference or quotation could not be verified against this opportunity's notice.",
+                "opportunity_id": 363696,
+                "rule_id": "cost_sharing"
+              },
+              {
+                "code": "unsupported_quote",
+                "message": "The proposed source reference or quotation could not be verified against this opportunity's notice.",
+                "opportunity_id": 363696,
+                "rule_id": "deadline"
+              }
+            ],
+            "semantic_review_complete": false,
+            "confirmed_eligible": false
+          },
+          "critic_draft": {
+            "verdict": "approve",
+            "reviews": [
+              {
+                "opportunity_id": 363696,
+                "reviewed_rule_ids": [
+                  "applicant_type",
+                  "application_route",
+                  "sam_registration",
+                  "uei",
+                  "grant_type",
+                  "cost_sharing",
+                  "deadline",
+                  "source_currentness"
+                ],
+                "findings": []
+              }
+            ]
+          },
+          "review": {
+            "verdict": "revise",
+            "findings": [
+              {
+                "rule_id": "cost_sharing",
+                "kind": "unsupported_claim",
+                "correction": "Repair the profile or notice reference, or explicitly leave the check unresolved.",
+                "evidence_refs": [],
+                "opportunity_id": 363696,
+                "origin": "validator"
+              },
+              {
+                "rule_id": "deadline",
+                "kind": "unsupported_claim",
+                "correction": "Repair the profile or notice reference, or explicitly leave the check unresolved.",
+                "evidence_refs": [],
+                "opportunity_id": 363696,
+                "origin": "validator"
+              }
+            ]
+          },
+          "revision_draft": {
+            "decisions": [
+              {
+                "opportunity_id": 363696,
+                "requirements": [
+                  {
+                    "rule_id": "applicant_type",
+                    "status": "met",
+                    "reason": "The stated nonprofit organization type is supported by the cited applicant-category passage.",
+                    "profile_fields": [
+                      "organization_type"
+                    ],
+                    "evidence_refs": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p8:c1",
+                        "quote": "\u2022 nonprofit organizations;"
+                      }
+                    ],
+                    "follow_up_question": null,
+                    "required_action": null,
+                    "applicability": "applies"
+                  },
+                  {
+                    "rule_id": "application_route",
+                    "status": "needs_verification",
+                    "reason": "Missing facts prevent this assessment: service area, planned submission route.",
+                    "profile_fields": [
+                      "service_area",
+                      "planned_submission_route"
+                    ],
+                    "evidence_refs": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p8:c2",
+                        "quote": "Organizations that plan to operate in only one state must apply through the state or territory commissions."
+                      }
+                    ],
+                    "follow_up_question": "Where will the project operate, and do you plan to apply through a state commission or directly?",
+                    "required_action": "Confirm the project service area and the applicable submission route before applying.",
+                    "applicability": "uncertain"
+                  },
+                  {
+                    "rule_id": "sam_registration",
+                    "status": "met",
+                    "reason": "The profile states that SAM registration is active; the cited passage requires it.",
+                    "profile_fields": [
+                      "sam_registration_active"
+                    ],
+                    "evidence_refs": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p8:c1",
+                        "quote": "Applicants must have a valid SAM registration and Unique Entity Identifier to receive an award."
+                      }
+                    ],
+                    "follow_up_question": null,
+                    "required_action": null,
+                    "applicability": "applies"
+                  },
+                  {
+                    "rule_id": "uei",
+                    "status": "met",
+                    "reason": "The profile states that a valid UEI is held; the cited passage requires it.",
+                    "profile_fields": [
+                      "has_valid_uei"
+                    ],
+                    "evidence_refs": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p8:c1",
+                        "quote": "Applicants must have a valid SAM registration and Unique Entity Identifier to receive an award."
+                      }
+                    ],
+                    "follow_up_question": null,
+                    "required_action": null,
+                    "applicability": "applies"
+                  },
+                  {
+                    "rule_id": "grant_type",
+                    "status": "not_met",
+                    "reason": "The stated new-applicant status conflicts with the quoted restriction on full-cost fixed-amount grants.",
+                    "profile_fields": [
+                      "americorps_grant_type",
+                      "americorps_new_applicant"
+                    ],
+                    "evidence_refs": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p8:c2",
+                        "quote": "New applicants are eligible to apply for cost reimbursement, Education Award Program (EAP), and Professional Corps grants, but are not eligible to apply for full cost fixed amount grants."
+                      }
+                    ],
+                    "follow_up_question": null,
+                    "required_action": "Confirm the selected grant mechanism and the applicant's new or returning status.",
+                    "applicability": "applies"
+                  },
+                  {
+                    "rule_id": "cost_sharing",
+                    "status": "needs_verification",
+                    "reason": "Matching requirements depend on the specific grant type and waiver status, which require verification.",
+                    "profile_fields": [
+                      "americorps_grant_type",
+                      "can_meet_match"
+                    ],
+                    "evidence_refs": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p7:c1",
+                        "quote": "Applicants are required to match funds provided by AmeriCorps."
+                      }
+                    ],
+                    "follow_up_question": "Which grant type are you considering, and can you meet any matching requirement that applies to it?",
+                    "required_action": "Confirm the grant mechanism before assessing its matching requirement.",
+                    "applicability": "uncertain"
+                  },
+                  {
+                    "rule_id": "deadline",
+                    "status": "needs_verification",
+                    "reason": "The applicant-specific deadline and route require verification against the exact requirements and commission schedules.",
+                    "profile_fields": [],
+                    "evidence_refs": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p1:c2",
+                        "quote": "Applications are due not later than Wednesday, January 13, 2027 by 5:00 p.m. Eastern Time."
+                      }
+                    ],
+                    "follow_up_question": "What is the current applicant-specific deadline for your confirmed submission route?",
+                    "required_action": "Check the latest deadline for the selected route, including any earlier commission deadline and exact due time.",
+                    "applicability": "uncertain"
+                  },
+                  {
+                    "rule_id": "source_currentness",
+                    "status": "needs_verification",
+                    "reason": "The input indicates that currentness has not been fully verified for this review.",
+                    "profile_fields": [],
+                    "evidence_refs": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p23:c1",
+                        "quote": "AmeriCorps will do an initial compliance and eligibility check before reviewing applications."
+                      }
+                    ],
+                    "follow_up_question": "Has the current official notice and any amendment been checked, including all mandatory requirements?",
+                    "required_action": "Check the latest official notice, amendments, and complete mandatory requirement list.",
+                    "applicability": "uncertain"
+                  }
+                ],
+                "summary": "The selected grant-type option conflicts with the cited new-applicant restriction; other options and overall eligibility remain unverified."
+              }
+            ],
+            "summary": "Assessed 1 researched opportunity with corrected evidence references; eligibility remains unconfirmed."
+          }
+        },
+        {
+          "round": 2,
+          "draft": {
+            "decisions": [
+              {
+                "opportunity_id": 363696,
+                "requirements": [
+                  {
+                    "rule_id": "applicant_type",
+                    "status": "met",
+                    "reason": "The organization is a 501(c)(3) nonprofit, which is explicitly listed as an eligible applicant type in the notice.",
+                    "profile_fields": [
+                      "organization_type"
+                    ],
+                    "evidence_refs": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p8:c1",
+                        "quote": "\u2022 nonprofit organizations;"
+                      }
+                    ],
+                    "follow_up_question": null,
+                    "required_action": null,
+                    "applicability": "applies"
+                  },
+                  {
+                    "rule_id": "application_route",
+                    "status": "needs_verification",
+                    "reason": "The planned submission route is unstated, and single-state applicants must apply through their state service commission.",
+                    "profile_fields": [
+                      "planned_submission_route",
+                      "organization_location"
+                    ],
+                    "evidence_refs": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p8:c2",
+                        "quote": "Organizations that plan to operate in only one state must apply through the state or territory commissions."
+                      }
+                    ],
+                    "follow_up_question": "Do you plan to operate your program in California only, and will you coordinate your submission with California Volunteers (the state service commission)?",
+                    "required_action": "Confirm the planned submission route with the California state service commission.",
+                    "applicability": "applies"
+                  },
+                  {
+                    "rule_id": "sam_registration",
+                    "status": "met",
+                    "reason": "The nonprofit profile confirms an active SAM registration.",
+                    "profile_fields": [
+                      "sam_registration_active"
+                    ],
+                    "evidence_refs": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p8:c1",
+                        "quote": "Applicants must have a valid SAM registration and Unique Entity Identifier to receive an award."
+                      }
+                    ],
+                    "follow_up_question": null,
+                    "required_action": null,
+                    "applicability": "applies"
+                  },
+                  {
+                    "rule_id": "uei",
+                    "status": "met",
+                    "reason": "The nonprofit profile confirms a valid Unique Entity Identifier (UEI).",
+                    "profile_fields": [
+                      "has_valid_uei"
+                    ],
+                    "evidence_refs": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p8:c1",
+                        "quote": "Applicants must have a valid SAM registration and Unique Entity Identifier to receive an award."
+                      }
+                    ],
+                    "follow_up_question": null,
+                    "required_action": null,
+                    "applicability": "applies"
+                  },
+                  {
+                    "rule_id": "grant_type",
+                    "status": "not_met",
+                    "reason": "New applicants are explicitly ineligible to apply for full cost fixed amount grants under this notice.",
+                    "profile_fields": [
+                      "americorps_grant_type",
+                      "americorps_new_applicant"
+                    ],
+                    "evidence_refs": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p8:c2",
+                        "quote": "New applicants are eligible to apply for cost reimbursement, Education Award Program (EAP), and Professional Corps grants, but are not eligible to apply for full cost fixed amount grants."
+                      }
+                    ],
+                    "follow_up_question": "Would you like to select an eligible grant type such as cost reimbursement or the Education Award Program (EAP)?",
+                    "required_action": "Revise the selected AmeriCorps grant type to an eligible mechanism for new applicants.",
+                    "applicability": "applies"
+                  },
+                  {
+                    "rule_id": "cost_sharing",
+                    "status": "needs_verification",
+                    "reason": "Matching requirements depend on the specific grant type and waiver status, which require verification.",
+                    "profile_fields": [
+                      "americorps_grant_type",
+                      "can_meet_match"
+                    ],
+                    "evidence_refs": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p7:c1",
+                        "quote": "Applicants are required to match funds provided by AmeriCorps."
+                      }
+                    ],
+                    "follow_up_question": "Which grant type are you considering, and can you meet any matching requirement that applies to it?",
+                    "required_action": "Confirm the grant mechanism before assessing its matching requirement.",
+                    "applicability": "uncertain"
+                  },
+                  {
+                    "rule_id": "deadline",
+                    "status": "needs_verification",
+                    "reason": "The applicant-specific deadline and route require verification against the exact requirements and commission schedules.",
+                    "profile_fields": [],
+                    "evidence_refs": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p1:c2",
+                        "quote": "Applications are due not later than Wednesday, January 13, 2027 by 5:00 p.m. Eastern Time."
+                      }
+                    ],
+                    "follow_up_question": "What is the current applicant-specific deadline for your confirmed submission route?",
+                    "required_action": "Check the latest deadline for the selected route, including any earlier commission deadline and exact due time.",
+                    "applicability": "uncertain"
+                  },
+                  {
+                    "rule_id": "source_currentness",
+                    "status": "needs_verification",
+                    "reason": "The notice review and currentness have not been fully verified in the system metadata.",
+                    "profile_fields": [],
+                    "evidence_refs": [],
+                    "follow_up_question": null,
+                    "required_action": "Verify that the notice snapshot represents the final current guidelines.",
+                    "applicability": "applies"
+                  }
+                ],
+                "summary": ""
+              }
+            ],
+            "summary": ""
+          },
+          "assessment": {
+            "invocation_id": "e-c59d71f0-c8fb-4ee8-af32-70b796f9e923",
+            "profile_version": 1,
+            "as_of_date": "2026-11-13",
+            "decisions": [
+              {
+                "opportunity_id": 363696,
+                "opportunity_number": "AC-08-28-26",
+                "title": "Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants",
+                "source_page": "https://www.grants.gov/search-results-detail/363696",
+                "overall_status": "blocking_issue",
+                "requirements": [
+                  {
+                    "rule_id": "applicant_type",
+                    "status": "met",
+                    "reason": "The stated nonprofit organization type is supported by the cited applicant-category passage; this does not establish overall eligibility.",
+                    "applicability": "applies",
+                    "profile_fields": [
+                      "organization_type"
+                    ],
+                    "citations": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p8:c1",
+                        "quote": "\u2022 nonprofit organizations;",
+                        "page_number": 8,
+                        "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                        "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                        "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                      }
+                    ],
+                    "follow_up_question": null,
+                    "required_action": null
+                  },
+                  {
+                    "rule_id": "application_route",
+                    "status": "needs_verification",
+                    "reason": "Missing facts prevent this assessment: service area, planned submission route.",
+                    "applicability": "uncertain",
+                    "profile_fields": [
+                      "service_area",
+                      "planned_submission_route"
+                    ],
+                    "citations": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p8:c2",
+                        "quote": "Organizations that plan to operate in only one state must apply through the state or territory commissions.",
+                        "page_number": 8,
+                        "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                        "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                        "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                      }
+                    ],
+                    "follow_up_question": "Where will the project operate, and do you plan to apply through a state commission or directly?",
+                    "required_action": "Confirm the project service area and the applicable submission route before applying."
+                  },
+                  {
+                    "rule_id": "sam_registration",
+                    "status": "met",
+                    "reason": "The profile states that SAM registration is active; the cited passage requires it.",
+                    "applicability": "applies",
+                    "profile_fields": [
+                      "sam_registration_active"
+                    ],
+                    "citations": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p8:c1",
+                        "quote": "Applicants must have a valid SAM registration and Unique Entity Identifier to receive an award.",
+                        "page_number": 8,
+                        "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                        "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                        "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                      }
+                    ],
+                    "follow_up_question": null,
+                    "required_action": null
+                  },
+                  {
+                    "rule_id": "uei",
+                    "status": "met",
+                    "reason": "The profile states that a valid UEI is held; the cited passage requires it.",
+                    "applicability": "applies",
+                    "profile_fields": [
+                      "has_valid_uei"
+                    ],
+                    "citations": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p8:c1",
+                        "quote": "Applicants must have a valid SAM registration and Unique Entity Identifier to receive an award.",
+                        "page_number": 8,
+                        "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                        "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                        "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                      }
+                    ],
+                    "follow_up_question": null,
+                    "required_action": null
+                  },
+                  {
+                    "rule_id": "grant_type",
+                    "status": "not_met",
+                    "reason": "The stated new-applicant status conflicts with the quoted restriction on full-cost fixed-amount grants. This blocks that selected grant type, not every grant type in the notice.",
+                    "applicability": "applies",
+                    "profile_fields": [
+                      "americorps_grant_type",
+                      "americorps_new_applicant"
+                    ],
+                    "citations": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p8:c2",
+                        "quote": "New applicants are eligible to apply for cost reimbursement, Education Award Program (EAP), and Professional Corps grants, but are not eligible to apply for full cost fixed amount grants.",
+                        "page_number": 8,
+                        "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                        "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                        "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                      }
+                    ],
+                    "follow_up_question": null,
+                    "required_action": "Confirm the selected grant mechanism and the applicant's new or returning status."
+                  },
+                  {
+                    "rule_id": "cost_sharing",
+                    "status": "needs_verification",
+                    "reason": "The selected fixed-amount mechanism needs its own matching-rule passage; the API boolean alone is insufficient.",
+                    "applicability": "uncertain",
+                    "profile_fields": [
+                      "americorps_grant_type"
+                    ],
+                    "citations": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p7:c1",
+                        "quote": "Applicants are required to match funds provided by AmeriCorps.",
+                        "page_number": 7,
+                        "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=7",
+                        "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                        "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                      }
+                    ],
+                    "follow_up_question": "Which grant type are you considering, and can you meet any matching requirement that applies to it?",
+                    "required_action": "Confirm the grant mechanism before assessing its matching requirement."
+                  },
+                  {
+                    "rule_id": "deadline",
+                    "status": "needs_verification",
+                    "reason": "The API and notice provide general deadline context, but the applicant-specific deadline and route have not been verified.",
+                    "applicability": "uncertain",
+                    "profile_fields": [],
+                    "citations": [
+                      {
+                        "evidence_id": "notice:363696:250b6fff76658a26:p1:c2",
+                        "quote": "Applications are due not later than Wednesday, January 13, 2027 by 5:00 p.m. Eastern Time.",
+                        "page_number": 1,
+                        "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1",
+                        "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                        "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                      }
+                    ],
+                    "follow_up_question": "What is the current applicant-specific deadline for your confirmed submission route?",
+                    "required_action": "Check the latest deadline for the selected route, including any earlier commission deadline and exact due time."
+                  },
+                  {
+                    "rule_id": "source_currentness",
+                    "status": "needs_verification",
+                    "reason": "The source is a dated or partial review; current amendments and the complete requirement list remain unverified.",
+                    "applicability": "uncertain",
+                    "profile_fields": [],
+                    "citations": [],
+                    "follow_up_question": "Has the current official notice and any amendment been checked, including all mandatory requirements?",
+                    "required_action": "Check the latest official notice, amendments, and complete mandatory requirement list."
+                  }
+                ],
+                "blocking_reasons": [
+                  "The stated new-applicant status conflicts with the quoted restriction on full-cost fixed-amount grants. This blocks that selected grant type, not every grant type in the notice."
+                ],
+                "blocking_scope": "selected_grant_type",
+                "general_deadline": {
+                  "status": "future",
+                  "as_of_date": "2026-11-13",
+                  "deadline_date": "2027-01-13",
+                  "scope": "api_general",
+                  "applicant_specific_verified": false,
+                  "note": "This compares only the API's general calendar date. Applicant-specific routes, earlier deadlines, exact times, and amendments remain unverified."
+                },
+                "summary": "The selected grant-type option conflicts with the cited new-applicant restriction; other options and overall eligibility remain unverified."
+              }
+            ],
+            "summary": "Assessed 1 researched opportunity; eligibility remains unconfirmed.",
+            "validation_issues": [
+              {
+                "code": "conditional_matching_unverified",
+                "message": "The selected fixed-amount mechanism needs its own matching-rule passage; the API boolean alone is insufficient.",
+                "opportunity_id": 363696,
+                "rule_id": "cost_sharing"
+              }
+            ],
+            "semantic_review_complete": false,
+            "confirmed_eligible": false
+          },
+          "critic_draft": {
+            "verdict": "approve",
+            "reviews": [
+              {
+                "opportunity_id": 363696,
+                "reviewed_rule_ids": [
+                  "applicant_type",
+                  "application_route",
+                  "sam_registration",
+                  "uei",
+                  "grant_type",
+                  "cost_sharing",
+                  "deadline",
+                  "source_currentness"
+                ],
+                "findings": []
+              }
+            ]
+          },
+          "review": {
+            "verdict": "approve",
+            "findings": []
+          }
+        }
+      ],
+      "eligibility_analysis": {
+        "invocation_id": "e-c59d71f0-c8fb-4ee8-af32-70b796f9e923",
+        "profile_version": 1,
+        "as_of_date": "2026-11-13",
+        "decisions": [
+          {
+            "opportunity_id": 363696,
+            "opportunity_number": "AC-08-28-26",
+            "title": "Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants",
+            "source_page": "https://www.grants.gov/search-results-detail/363696",
+            "overall_status": "blocking_issue",
+            "requirements": [
+              {
+                "rule_id": "applicant_type",
+                "status": "met",
+                "reason": "The stated nonprofit organization type is supported by the cited applicant-category passage; this does not establish overall eligibility.",
+                "applicability": "applies",
+                "profile_fields": [
+                  "organization_type"
+                ],
+                "citations": [
+                  {
+                    "evidence_id": "notice:363696:250b6fff76658a26:p8:c1",
+                    "quote": "\u2022 nonprofit organizations;",
+                    "page_number": 8,
+                    "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                    "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                    "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                  }
+                ],
+                "follow_up_question": null,
+                "required_action": null
+              },
+              {
+                "rule_id": "application_route",
+                "status": "needs_verification",
+                "reason": "Missing facts prevent this assessment: service area, planned submission route.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "service_area",
+                  "planned_submission_route"
+                ],
+                "citations": [
+                  {
+                    "evidence_id": "notice:363696:250b6fff76658a26:p8:c2",
+                    "quote": "Organizations that plan to operate in only one state must apply through the state or territory commissions.",
+                    "page_number": 8,
+                    "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                    "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                    "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                  }
+                ],
+                "follow_up_question": "Where will the project operate, and do you plan to apply through a state commission or directly?",
+                "required_action": "Confirm the project service area and the applicable submission route before applying."
+              },
+              {
+                "rule_id": "sam_registration",
+                "status": "met",
+                "reason": "The profile states that SAM registration is active; the cited passage requires it.",
+                "applicability": "applies",
+                "profile_fields": [
+                  "sam_registration_active"
+                ],
+                "citations": [
+                  {
+                    "evidence_id": "notice:363696:250b6fff76658a26:p8:c1",
+                    "quote": "Applicants must have a valid SAM registration and Unique Entity Identifier to receive an award.",
+                    "page_number": 8,
+                    "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                    "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                    "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                  }
+                ],
+                "follow_up_question": null,
+                "required_action": null
+              },
+              {
+                "rule_id": "uei",
+                "status": "met",
+                "reason": "The profile states that a valid UEI is held; the cited passage requires it.",
+                "applicability": "applies",
+                "profile_fields": [
+                  "has_valid_uei"
+                ],
+                "citations": [
+                  {
+                    "evidence_id": "notice:363696:250b6fff76658a26:p8:c1",
+                    "quote": "Applicants must have a valid SAM registration and Unique Entity Identifier to receive an award.",
+                    "page_number": 8,
+                    "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                    "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                    "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                  }
+                ],
+                "follow_up_question": null,
+                "required_action": null
+              },
+              {
+                "rule_id": "grant_type",
+                "status": "not_met",
+                "reason": "The stated new-applicant status conflicts with the quoted restriction on full-cost fixed-amount grants. This blocks that selected grant type, not every grant type in the notice.",
+                "applicability": "applies",
+                "profile_fields": [
+                  "americorps_grant_type",
+                  "americorps_new_applicant"
+                ],
+                "citations": [
+                  {
+                    "evidence_id": "notice:363696:250b6fff76658a26:p8:c2",
+                    "quote": "New applicants are eligible to apply for cost reimbursement, Education Award Program (EAP), and Professional Corps grants, but are not eligible to apply for full cost fixed amount grants.",
+                    "page_number": 8,
+                    "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8",
+                    "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                    "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                  }
+                ],
+                "follow_up_question": null,
+                "required_action": "Confirm the selected grant mechanism and the applicant's new or returning status."
+              },
+              {
+                "rule_id": "cost_sharing",
+                "status": "needs_verification",
+                "reason": "The selected fixed-amount mechanism needs its own matching-rule passage; the API boolean alone is insufficient.",
+                "applicability": "uncertain",
+                "profile_fields": [
+                  "americorps_grant_type"
+                ],
+                "citations": [
+                  {
+                    "evidence_id": "notice:363696:250b6fff76658a26:p7:c1",
+                    "quote": "Applicants are required to match funds provided by AmeriCorps.",
+                    "page_number": 7,
+                    "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=7",
+                    "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                    "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                  }
+                ],
+                "follow_up_question": "Which grant type are you considering, and can you meet any matching requirement that applies to it?",
+                "required_action": "Confirm the grant mechanism before assessing its matching requirement."
+              },
+              {
+                "rule_id": "deadline",
+                "status": "needs_verification",
+                "reason": "The API and notice provide general deadline context, but the applicant-specific deadline and route have not been verified.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [
+                  {
+                    "evidence_id": "notice:363696:250b6fff76658a26:p1:c2",
+                    "quote": "Applications are due not later than Wednesday, January 13, 2027 by 5:00 p.m. Eastern Time.",
+                    "page_number": 1,
+                    "citation_url": "https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1",
+                    "source_sha256": "250b6fff76658a2633955d9cf945ba91da58226c9e939e4182f5e125af3898b6",
+                    "snapshot_captured_at_utc": "2026-11-10T15:30:33.069566+00:00"
+                  }
+                ],
+                "follow_up_question": "What is the current applicant-specific deadline for your confirmed submission route?",
+                "required_action": "Check the latest deadline for the selected route, including any earlier commission deadline and exact due time."
+              },
+              {
+                "rule_id": "source_currentness",
+                "status": "needs_verification",
+                "reason": "The source is a dated or partial review; current amendments and the complete requirement list remain unverified.",
+                "applicability": "uncertain",
+                "profile_fields": [],
+                "citations": [],
+                "follow_up_question": "Has the current official notice and any amendment been checked, including all mandatory requirements?",
+                "required_action": "Check the latest official notice, amendments, and complete mandatory requirement list."
+              }
+            ],
+            "blocking_reasons": [
+              "The stated new-applicant status conflicts with the quoted restriction on full-cost fixed-amount grants. This blocks that selected grant type, not every grant type in the notice."
+            ],
+            "blocking_scope": "selected_grant_type",
+            "general_deadline": {
+              "status": "future",
+              "as_of_date": "2026-11-13",
+              "deadline_date": "2027-01-13",
+              "scope": "api_general",
+              "applicant_specific_verified": false,
+              "note": "This compares only the API's general calendar date. Applicant-specific routes, earlier deadlines, exact times, and amendments remain unverified."
+            },
+            "summary": "The selected grant-type option conflicts with the cited new-applicant restriction; other options and overall eligibility remain unverified."
+          }
+        ],
+        "summary": "Assessed 1 researched opportunity; eligibility remains unconfirmed.",
+        "validation_issues": [
+          {
+            "code": "conditional_matching_unverified",
+            "message": "The selected fixed-amount mechanism needs its own matching-rule passage; the API boolean alone is insufficient.",
+            "opportunity_id": 363696,
+            "rule_id": "cost_sharing"
+          }
+        ],
+        "semantic_review_complete": false,
+        "confirmed_eligible": false
+      }
+    },
+    "final_response": "**Nonprofit profile**\n\n- **Organization type:** 501(c)(3) nonprofit\n- **Organization location:** California\n- **Project purpose:** Community volunteer programs\n- **Service area:** Unknown\n- **Beneficiaries:** Unknown\n- **Requested funding:** Unknown\n- **Project timing:** Unknown\n- **SAM registration active:** Yes\n- **Valid UEI held:** Yes\n- **Selected AmeriCorps grant type:** full cost fixed amount\n- **New AmeriCorps applicant (stated):** Yes\n\n---\n\n**Notice sources retrieved**\n\n- **AC-08-28-26:** Notice excerpts retrieved ([p. 1](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1), [p. 6](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=6), [p. 7](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=7), [p. 8](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8), [p. 9](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=9), [p. 23](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=23)); saved snapshot, captured 2026-11-10.\n\nThese are selected excerpts. Current amendments, applicant-specific deadlines, and eligibility remain unverified.\n\n**Critic review of eligibility checks**\n\nThe critic accepted the eligibility checks after 1 revision.\n\n---\n\n## Eligibility assessment\n\nAssessment date: 2026-11-13.\n\nAssessed 1 researched opportunity; eligibility remains unconfirmed.\n\n### Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants\n\nOpportunity: [AC-08-28-26](https://www.grants.gov/search-results-detail/363696)\n\n**Overall finding: Selected grant-type conflict**\n\nThe selected grant-type option conflicts with the cited new-applicant restriction; other options and overall eligibility remain unverified.\n\nAPI general date: **2027-01-13** (future relative to the assessment date). The applicant-specific deadline remains unverified.\n\n| Requirement | Finding | Basis |\n|---|---|---|\n| Applicant type | Met on stated facts | The stated nonprofit organization type is supported by the cited applicant-category passage; this does not establish overall eligibility. [PDF p. 8](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8) |\n| Application route | Needs verification | Missing facts prevent this assessment: service area, planned submission route. [PDF p. 8](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8) |\n| SAM registration | Met on stated facts | The profile states that SAM registration is active; the cited passage requires it. [PDF p. 8](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8) |\n| Valid UEI | Met on stated facts | The profile states that a valid UEI is held; the cited passage requires it. [PDF p. 8](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8) |\n| Grant type | Not met / action needed | The stated new-applicant status conflicts with the quoted restriction on full-cost fixed-amount grants. This blocks that selected grant type, not every grant type in the notice. [PDF p. 8](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=8) |\n| Cost sharing | Needs verification | The selected fixed-amount mechanism needs its own matching-rule passage; the API boolean alone is insufficient. [PDF p. 7](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=7) |\n| Applicable deadline | Needs verification | The API and notice provide general deadline context, but the applicant-specific deadline and route have not been verified. [PDF p. 1](https://www.oregon.gov/oregonserves/americorps/Documents/2026-27%20Competitive%20Grant%20Documents/FY27_ASNCompetitiveNotice_Final.508.pdf#page=1) |\n| Notice version and completeness | Needs verification | The source is a dated or partial review; current amendments and the complete requirement list remain unverified.  |\n\n**Selected-option issue:** The stated new-applicant status conflicts with the quoted restriction on full-cost fixed-amount grants. This blocks that selected grant type, not every grant type in the notice.\n\n**Actions to address**\n\n- Confirm the selected grant mechanism and the applicant's new or returning status.\n\n**Questions to resolve**\n\n- Where will the project operate, and do you plan to apply through a state commission or directly?\n- Which grant type are you considering, is this a new applicant, and can any applicable matching requirement be met?\n- What is the current applicant-specific deadline for your confirmed submission route?\n\nThese checks use stated facts and selected notice evidence. Source completeness, current amendments, and overall eligibility still require verification.\n\n**Researcher\u2019s discovery notes (outside the critic review)**\n\n---\n\n### Research Findings: AmeriCorps Opportunity 363696 (AC-08-28-26)\n\n#### Candidate Overview\n* **Opportunity ID:** 363696\n* **Opportunity Number:** AC-08-28-26\n* **Title:** Fiscal Year (FY) 2027 AmeriCorps State and National Competitive Grants\n* **Agency:** AmeriCorps (Grantor contact: Rebecca Curtis)\n* **API Deadline:** January 13, 2027, 12:00:00 AM EST (Grants.gov response date)\n* **Source Link:** [Grants.gov Opportunity 363696](https://www.grants.gov/search-results-detail/363696)\n\n---\n\n#### Notice Requirements & Rules (Dated Snapshot)\n* **Deadlines:** Applications via Grants.gov are due **Wednesday, January 13, 2027, by 5:00 p.m. Eastern Time** [Notice p. 1]. However, the notice explicitly instructs single-state applicants to contact their state service commission as early as possible because state commissions may set their own deadlines well in advance of the federal deadline [Notice p. 1].\n* **Application Route & Single-State Rules:** Organizations proposing service in a single state must apply through that state's or territory's State Service Commission rather than directly to AmeriCorps [Notice p. 8]. Because the applicant's headquarters is in California, the project's service area dictates whether California Volunteers (California's state commission) must be used as the submission route.\n* **New Applicant Restrictions on Grant Types:** The notice states that new applicants are **not** eligible to apply for full-cost fixed-amount grants (\"New applicants are eligible to apply for cost reimbursement, Education Award Program (EAP), and Professional Corps grants, but are not eligible to apply for full cost fixed amount grants\") [Notice p. 8]. A compliance review specifically checks whether an applicant is eligible for a full-cost fixed grant before applications are reviewed [Notice p. 23].\n\n---\n\n#### Unresolved Rules, Missing Facts, and Potential Eligibility Issues\n1. **Service Area is Unknown:** The saved profile indicates `service_area=null`. Because single-state applicant rules depend entirely on where the project operates rather than where the organization is headquartered, an unknown service area leaves the exact application route unconfirmed.\n2. **Grant Type Ineligibility:** The applicant profile specifies seeking a **full-cost fixed-amount grant** and being a **new applicant** (first-time applicant). The notice explicitly prohibits new applicants from applying for full-cost fixed-amount grants [Notice p. 8]. This represents a major potential eligibility barrier unless the organization adjusts its grant type request to an eligible category (such as cost reimbursement or the Education Award Program).\n3. **California State Commission Deadlines:** If the project service area is determined to be California, the applicant must coordinate with California Volunteers. The federal notice warns that state commissions may enforce earlier deadlines than the January 13, 2027 federal closing date [Notice p. 1].\n\nThis product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services.",
+    "errors": [],
+    "workflow_check": {
+      "passed": true,
+      "issue": null
+    }
+  }
+}
