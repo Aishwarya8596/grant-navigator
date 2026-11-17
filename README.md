@@ -1,6 +1,6 @@
 # Federal Grant Opportunity Navigator
 
-Class project: a multi-agent application that helps U.S. nonprofits identify
+A multi-agent application that helps U.S. nonprofits identify
 federal grant opportunities worth investigating. The intended result is a
 source-backed shortlist of up to three potential matches, with deadlines,
 fit reasons, and unresolved eligibility questions.
